@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+<rect width="100%" height="100%" fill="white"/>
+<text x="14.00" y="14.00" font-family="Helvetica,Arial,sans-serif" font-size="5.5" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">Crèche en liège - étape 6 : le pont</text>
+<text x="14.00" y="20.00" font-family="Helvetica,Arial,sans-serif" font-size="3" fill="rgb(0,0,0)" text-anchor="start">Les deux vues ci-dessous sont à l'échelle 1 : on peut assembler le pont directement dessus.</text>
+<text x="14.00" y="32.00" font-family="Helvetica,Arial,sans-serif" font-size="3" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">VUE DE CÔTÉ</text>
+<polygon points="27.26,82.00 27.26,78.00 29.69,76.71 32.15,75.48 34.64,74.32 37.16,73.22 39.71,72.18 42.28,71.20 44.88,70.29 47.49,69.45 50.13,68.67 52.79,67.95 55.46,67.31 58.15,66.73 60.85,66.21 63.56,65.77 66.29,65.39 69.02,65.08 71.76,64.84 74.50,64.67 77.25,64.57 80.00,64.53 82.75,64.57 85.50,64.67 88.24,64.84 90.98,65.08 93.71,65.39 96.44,65.77 99.15,66.21 101.85,66.73 104.54,67.31 107.21,67.95 109.87,68.67 112.51,69.45 115.12,70.29 117.72,71.20 120.29,72.18 122.84,73.22 125.36,74.32 127.85,75.48 130.31,76.71 132.74,78.00 132.74,82.00 117.91,82.00 117.91,82.00 115.50,81.05 113.07,80.16 110.61,79.33 108.13,78.57 105.63,77.88 103.12,77.24 100.59,76.68 98.05,76.18 95.49,75.74 92.93,75.37 90.35,75.07 87.77,74.84 85.18,74.67 82.59,74.57 80.00,74.53 77.41,74.57 74.82,74.67 72.23,74.84 69.65,75.07 67.07,75.37 64.51,75.74 61.95,76.18 59.41,76.68 56.88,77.24 54.37,77.88 51.87,78.57 49.39,79.33 46.93,80.16 44.50,81.05 42.09,82.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="27.65,77.66 36.66,73.31 35.35,70.61 26.35,74.96" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="37.58,72.92 46.98,69.49 45.95,66.67 36.56,70.10" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="47.94,69.19 57.63,66.72 56.89,63.81 47.20,66.28" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="58.62,66.52 68.51,65.02 68.06,62.06 58.17,63.55" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="69.51,64.92 79.50,64.42 79.35,61.43 69.36,61.93" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="80.50,64.42 90.49,64.92 90.64,61.93 80.65,61.43" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="91.49,65.02 101.38,66.52 101.83,63.55 91.94,62.06" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="102.37,66.72 112.06,69.19 112.80,66.28 103.11,63.81" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="113.02,69.49 122.42,72.92 123.44,70.10 114.05,66.67" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="123.34,73.31 132.35,77.66 133.65,74.96 124.65,70.61" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="28.68,82.00 31.68,82.00 31.68,48.46 28.68,48.46" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="60.97,76.08 63.97,76.08 63.97,37.94 60.97,37.94" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="96.03,76.08 99.03,76.08 99.03,37.94 96.03,37.94" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="128.32,82.00 131.32,82.00 131.32,48.46 128.32,48.46" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polyline points="25.34,63.57 27.84,62.19 30.38,60.86 32.95,59.61 35.55,58.42 38.18,57.29 40.84,56.24 43.52,55.26 46.23,54.34 48.97,53.50 51.72,52.73 54.49,52.03 57.28,51.41 60.09,50.85 62.91,50.37 65.74,49.96 68.58,49.63 71.43,49.37 74.28,49.18 77.14,49.07 80.00,49.03 82.86,49.07 85.72,49.18 88.57,49.37 91.42,49.63 94.26,49.96 97.09,50.37 99.91,50.85 102.72,51.41 105.51,52.03 108.28,52.73 111.03,53.50 113.77,54.34 116.48,55.26 119.16,56.24 121.82,57.29 124.45,58.42 127.05,59.61 129.62,60.86 132.16,62.19 134.66,63.57" fill="none" stroke="rgb(31,84,178)" stroke-width="0.25" stroke-linejoin="round" stroke-dasharray="3 1.5"/>
+<polyline points="25.34,53.07 27.84,51.69 30.38,50.36 32.95,49.11 35.55,47.92 38.18,46.79 40.84,45.74 43.52,44.76 46.23,43.84 48.97,43.00 51.72,42.23 54.49,41.53 57.28,40.91 60.09,40.35 62.91,39.87 65.74,39.46 68.58,39.13 71.43,38.87 74.28,38.68 77.14,38.57 80.00,38.53 82.86,38.57 85.72,38.68 88.57,38.87 91.42,39.13 94.26,39.46 97.09,39.87 99.91,40.35 102.72,40.91 105.51,41.53 108.28,42.23 111.03,43.00 113.77,43.84 116.48,44.76 119.16,45.74 121.82,46.79 124.45,47.92 127.05,49.11 129.62,50.36 132.16,51.69 134.66,53.07" fill="none" stroke="rgb(31,84,178)" stroke-width="0.25" stroke-linejoin="round" stroke-dasharray="3 1.5"/>
+<polyline points="10.00,82.00 150.00,82.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="27.26,88.00 132.74,88.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="27.26,86.50 27.26,89.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="132.74,86.50 132.74,89.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="80.00" y="92.00" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="middle">105</text>
+<text x="140.00" y="44.00" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(31,84,178)" text-anchor="start">tireté bleu : les deux lisses.</text>
+<text x="140.00" y="48.40" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(31,84,178)" text-anchor="start">Cintrer les baguettes sur</text>
+<text x="140.00" y="52.80" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(31,84,178)" text-anchor="start">ce tracé avant de coller.</text>
+<text x="140.00" y="62.00" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(31,84,178)" text-anchor="start">8 poteaux Ø 3</text>
+<text x="140.00" y="70.00" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(31,84,178)" text-anchor="start">10 planches Z</text>
+<text x="140.00" y="78.00" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(31,84,178)" text-anchor="start">longeron Y</text>
+<text x="14.00" y="104.00" font-family="Helvetica,Arial,sans-serif" font-size="3" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">VUE DE DESSUS</text>
+<polygon points="27.26,112.00 132.74,112.00 132.74,149.00 27.26,149.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polyline points="37.16,112.00 37.16,149.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="47.49,112.00 47.49,149.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="58.15,112.00 58.15,149.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="69.02,112.00 69.02,149.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="80.00,112.00 80.00,149.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="90.98,112.00 90.98,149.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="101.85,112.00 101.85,149.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="112.51,112.00 112.51,149.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="122.84,112.00 122.84,149.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="27.26,112.00 132.74,112.00 132.74,117.00 27.26,117.00" fill="none" stroke="rgb(31,84,178)" stroke-width="0.25" stroke-linejoin="round" stroke-dasharray="3 1.5"/>
+<polygon points="27.26,144.00 132.74,144.00 132.74,149.00 27.26,149.00" fill="none" stroke="rgb(31,84,178)" stroke-width="0.25" stroke-linejoin="round" stroke-dasharray="3 1.5"/>
+<polygon points="31.68,110.50 31.57,111.07 31.24,111.56 30.76,111.89 30.18,112.00 29.61,111.89 29.12,111.56 28.80,111.07 28.68,110.50 28.80,109.93 29.12,109.44 29.61,109.11 30.18,109.00 30.76,109.11 31.24,109.44 31.57,109.93" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="31.68,150.50 31.57,151.07 31.24,151.56 30.76,151.89 30.18,152.00 29.61,151.89 29.12,151.56 28.80,151.07 28.68,150.50 28.80,149.93 29.12,149.44 29.61,149.11 30.18,149.00 30.76,149.11 31.24,149.44 31.57,149.93" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="63.97,110.50 63.86,111.07 63.54,111.56 63.05,111.89 62.47,112.00 61.90,111.89 61.41,111.56 61.09,111.07 60.97,110.50 61.09,109.93 61.41,109.44 61.90,109.11 62.47,109.00 63.05,109.11 63.54,109.44 63.86,109.93" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="63.97,150.50 63.86,151.07 63.54,151.56 63.05,151.89 62.47,152.00 61.90,151.89 61.41,151.56 61.09,151.07 60.97,150.50 61.09,149.93 61.41,149.44 61.90,149.11 62.47,149.00 63.05,149.11 63.54,149.44 63.86,149.93" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="99.03,110.50 98.91,111.07 98.59,111.56 98.10,111.89 97.53,112.00 96.95,111.89 96.46,111.56 96.14,111.07 96.03,110.50 96.14,109.93 96.46,109.44 96.95,109.11 97.53,109.00 98.10,109.11 98.59,109.44 98.91,109.93" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="99.03,150.50 98.91,151.07 98.59,151.56 98.10,151.89 97.53,152.00 96.95,151.89 96.46,151.56 96.14,151.07 96.03,150.50 96.14,149.93 96.46,149.44 96.95,149.11 97.53,149.00 98.10,149.11 98.59,149.44 98.91,149.93" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="131.32,110.50 131.20,111.07 130.88,111.56 130.39,111.89 129.82,112.00 129.24,111.89 128.76,111.56 128.43,111.07 128.32,110.50 128.43,109.93 128.76,109.44 129.24,109.11 129.82,109.00 130.39,109.11 130.88,109.44 131.20,109.93" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="131.32,150.50 131.20,151.07 130.88,151.56 130.39,151.89 129.82,152.00 129.24,151.89 128.76,151.56 128.43,151.07 128.32,150.50 128.43,149.93 128.76,149.44 129.24,149.11 129.82,149.00 130.39,149.11 130.88,149.44 131.20,149.93" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<text x="140.00" y="120.00" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(31,84,178)" text-anchor="start">tireté bleu : les deux longerons,</text>
+<text x="140.00" y="124.40" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(31,84,178)" text-anchor="start">au ras des bouts de planches.</text>
+<text x="140.00" y="133.00" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(31,84,178)" text-anchor="start">ronds : poteaux, collés contre</text>
+<text x="140.00" y="137.40" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(31,84,178)" text-anchor="start">le chant extérieur.</text>
+<text x="24.26" y="131.50" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="end">37</text>
+<text x="14.00" y="166.00" font-family="Helvetica,Arial,sans-serif" font-size="3.1" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">PIÈCES</text>
+<text x="14.00" y="171.20" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">Y  2 longerons arqués, contreplaqué 5 mm, 105 × 18 (gabarit page suivante)</text>
+<text x="14.00" y="175.60" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">Z  10 planches de 37 × 10 mm : bâtonnets de glace de 10 mm de large recoupés,</text>
+<text x="14.00" y="180.00" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">    ou bandes de contreplaqué 3 mm</text>
+<text x="14.00" y="184.40" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">8 poteaux : pique à brochette en bambou Ø 3 mm, longueur 38 mm</text>
+<text x="14.00" y="188.80" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">4 lisses : pique à brochette Ø 2,5 à 3 mm, longueur 115 mm</text>
+<text x="14.00" y="196.70" font-family="Helvetica,Arial,sans-serif" font-size="3.1" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">MONTAGE</text>
+<text x="14.00" y="201.90" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">1. Poser les deux longerons debout, à 37 mm hors tout (27 mm entre eux).</text>
+<text x="14.00" y="206.30" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">    Les caler avec deux chutes le temps du collage.</text>
+<text x="14.00" y="210.70" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">2. Coller les planches en partant du milieu, avec 1 mm de jour entre elles.</text>
+<text x="14.00" y="215.10" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">3. Coller les 8 poteaux contre le chant extérieur des longerons, bien verticaux,</text>
+<text x="14.00" y="219.50" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">    le pied au niveau du dessous du longeron. Les deux du milieu dépassent plus haut.</text>
+<text x="14.00" y="223.90" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">4. Tremper les lisses 10 minutes dans l'eau chaude, les cintrer sur le tracé bleu</text>
+<text x="14.00" y="228.30" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">    de la vue de côté, laisser sécher sous un poids, puis les coller sur les poteaux.</text>
+<text x="14.00" y="232.70" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">5. Recouper les têtes de poteaux à 2 mm au-dessus de la lisse haute.</text>
+<text x="14.00" y="237.10" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">6. Teinter au brou de noix dilué, puis brosser un peu de blanc à sec.</text>
+<text x="14.00" y="245.00" font-family="Helvetica,Arial,sans-serif" font-size="3.1" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">SUR LE SOCLE</text>
+<text x="14.00" y="250.20" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">Le pont enjambe la rivière sur le rectangle bleu marqué PONT du plan du socle.</text>
+<text x="14.00" y="254.60" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">Ne le coller qu'une fois le bac de rivière en place : ses talons reposent sur les berges.</text>
+</svg>

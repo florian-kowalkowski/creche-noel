@@ -1,0 +1,553 @@
+<title>Décor de crèche en liège</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600&family=Inter:wght@400;500&display=swap">
+<style>
+  /* Layout : la scène 3D occupe tout l'écran ; un cartouche discret en haut, les commandes en bas. */
+  :root {
+    --bg-top: #e6e9ec;
+    --bg-bottom: #c3c9cf;
+    --fg: #23282d;
+    --fg-soft: #56606a;
+    --panel: rgba(255, 255, 255, 0.72);
+    --panel-border: rgba(35, 40, 45, 0.14);
+    --accent: #2f7f93;
+    --font-display: "Bricolage Grotesque", "Trebuchet MS", sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg-top: #3a4048; --bg-bottom: #1d2126; --fg: #eef0f2; --fg-soft: #a9b2bb;
+      --panel: rgba(29, 33, 38, 0.72); --panel-border: rgba(238, 240, 242, 0.16);
+      --accent: #6cc3d6; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg-top: #3a4048; --bg-bottom: #1d2126; --fg: #eef0f2; --fg-soft: #a9b2bb;
+    --panel: rgba(29, 33, 38, 0.72); --panel-border: rgba(238, 240, 242, 0.16);
+    --accent: #6cc3d6; color-scheme: dark;
+  }
+  html, body { height: 100%; }
+  body.night { --bg-top: #1b2230; --bg-bottom: #07090d; }
+  body {
+    background: linear-gradient(var(--bg-top), var(--bg-bottom)) var(--bg-bottom);
+    color: var(--fg);
+    font-family: var(--font-body);
+    overflow: hidden;
+  }
+  #stage { position: absolute; inset: 0; touch-action: none; }
+  #stage canvas { display: block; width: 100%; height: 100%; }
+  .card, .bar {
+    position: absolute;
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 10px;
+  }
+  .card {
+    top: calc(16px + env(safe-area-inset-top, 0px));
+    left: max(16px, env(safe-area-inset-left, 0px));
+    max-width: min(300px, calc(100% - 32px));
+    padding: 12px 14px;
+  }
+  .card h1 { margin: 0 0 4px; font: 600 1.25rem/1.15 var(--font-display); text-wrap: balance; }
+  .card p { margin: 0; font-size: 0.8rem; line-height: 1.45; color: var(--fg-soft); }
+  .bar {
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    left: 50%; transform: translateX(-50%);
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 6px;
+    padding: 6px; max-width: calc(100% - 32px);
+  }
+  button {
+    font: 500 0.82rem var(--font-body);
+    color: var(--fg); background: transparent;
+    border: 1px solid transparent; border-radius: 7px;
+    padding: 8px 12px; cursor: pointer; white-space: nowrap;
+  }
+  button:hover { border-color: var(--panel-border); }
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  button[aria-pressed="true"] { background: var(--accent); color: var(--bg-bottom); }
+  #err { position: absolute; inset: auto 16px 50% 16px; text-align: center; color: var(--fg); }
+</style>
+
+<div id="stage"></div>
+<div class="card">
+  <h1>Décor de crèche en liège</h1>
+  <p>Abri en écorce, escalier, maisonnette, pont et rivière en circuit fermé avec sa cascade, éclairages LED (bouton Nuit). Glissez pour tourner, molette ou pincement pour zoomer, clic droit ou deux doigts pour déplacer.</p>
+</div>
+<div class="bar">
+  <button id="btn-rotate" aria-pressed="false">Rotation auto</button>
+  <button id="btn-front">Vue de face</button>
+  <button id="btn-top">Vue de dessus</button>
+  <button id="btn-detail">Côté maison</button>
+  <button id="btn-night" aria-pressed="false">Nuit</button>
+</div>
+<p id="err" hidden>Le moteur 3D n'a pas pu se charger.</p>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function () {
+  if (!window.THREE) { document.getElementById('err').hidden = false; return; }
+  const T = THREE;
+
+  /* ---------- hasard et bruit déterministes ---------- */
+  let _s = 20261114;
+  const rnd = () => { _s |= 0; _s = _s + 0x6D2B79F5 | 0; let t = Math.imul(_s ^ _s >>> 15, 1 | _s); t = t + Math.imul(t ^ t >>> 7, 61 | t) ^ t; return ((t ^ t >>> 14) >>> 0) / 4294967296; };
+  const rr = (a, b) => a + rnd() * (b - a);
+  const hash = (i, j, k) => { const h = Math.sin(i * 127.1 + j * 311.7 + k * 74.7) * 43758.5453; return h - Math.floor(h); };
+  const sm = t => t * t * (3 - 2 * t);
+  function noise3(x, y, z) {
+    const i = Math.floor(x), j = Math.floor(y), k = Math.floor(z);
+    const u = sm(x - i), v = sm(y - j), w = sm(z - k);
+    const L = (a, b, t) => a + (b - a) * t;
+    return L(L(L(hash(i, j, k), hash(i + 1, j, k), u), L(hash(i, j + 1, k), hash(i + 1, j + 1, k), u), v),
+             L(L(hash(i, j, k + 1), hash(i + 1, j, k + 1), u), L(hash(i, j + 1, k + 1), hash(i + 1, j + 1, k + 1), u), v), w);
+  }
+  const fbm = (x, y, z) => noise3(x, y, z) * 0.57 + noise3(x * 2.1, y * 2.1, z * 2.1) * 0.29 + noise3(x * 4.3, y * 4.3, z * 4.3) * 0.14;
+
+  /* ---------- textures peintes sur canvas ---------- */
+  function canvasTex(size, draw, rx, ry) {
+    const c = document.createElement('canvas'); c.width = c.height = size;
+    draw(c.getContext('2d'), size);
+    const t = new T.CanvasTexture(c);
+    t.encoding = T.sRGBEncoding; t.wrapS = t.wrapT = T.RepeatWrapping;
+    if (rx) t.repeat.set(rx, ry || rx);
+    t.anisotropy = 4;
+    return t;
+  }
+  function speckle(g, s, base, cols, n, r) {
+    g.fillStyle = base; g.fillRect(0, 0, s, s);
+    for (let i = 0; i < n; i++) {
+      g.fillStyle = cols[i % cols.length]; g.globalAlpha = rr(0.25, 0.8);
+      const q = rr(r * 0.4, r); g.fillRect(rr(0, s), rr(0, s), q, q * rr(0.6, 1.4));
+    }
+    g.globalAlpha = 1;
+  }
+  const barkTex = canvasTex(256, (g, s) => {
+    speckle(g, s, '#77706a', ['#565049', '#8f8880', '#a39c93', '#453f39'], 900, 7);
+    g.strokeStyle = '#2e2620'; g.lineWidth = 2.5;
+    for (let i = 0; i < 16; i++) { let x = rr(0, s); g.globalAlpha = rr(0.4, 0.9); g.beginPath(); g.moveTo(x, 0); for (let y = 0; y <= s; y += 16) { x += rr(-5, 5); g.lineTo(x, y); } g.stroke(); }
+    g.fillStyle = '#efe9dd';
+    for (let i = 0; i < 330; i++) { g.globalAlpha = rr(0.35, 0.9); g.fillRect(rr(0, s), rr(0, s), rr(5, 20), rr(1, 3)); }
+    g.globalAlpha = 1;
+  });
+  const sandTex = canvasTex(256, (g, s) => speckle(g, s, '#a68450', ['#8e6e3f', '#bd9b62', '#c9ab74', '#7c5f36'], 2600, 3), 0.09);
+  const corkTex = canvasTex(256, (g, s) => {
+    speckle(g, s, '#c4a47a', ['#a98860', '#d8bc93', '#e3cdaa', '#967650'], 2400, 3);
+    g.fillStyle = '#f2ead9'; for (let i = 0; i < 60; i++) { g.globalAlpha = rr(0.2, 0.6); g.fillRect(rr(0, s), rr(0, s), rr(4, 14), 2); } g.globalAlpha = 1;
+  });
+  const brickDraw = (base, cols, mortar, rows) => (g, s) => {
+    speckle(g, s, base, cols, 1500, 4);
+    g.strokeStyle = mortar; g.lineWidth = 3; const h = s / rows, w = h * 2.2;
+    for (let r = 0; r <= rows; r++) {
+      g.globalAlpha = 0.85; g.beginPath(); g.moveTo(0, r * h); g.lineTo(s, r * h); g.stroke();
+      for (let x = (r % 2) * w / 2; x < s; x += w) { g.beginPath(); g.moveTo(x, r * h); g.lineTo(x, r * h + h); g.stroke(); }
+    }
+    g.globalAlpha = 1;
+  };
+  const corkBrickTex = canvasTex(256, brickDraw('#c9a57c', ['#b08a62', '#dcbf98', '#a67f58'], '#ead9bd', 9));
+  const redBrickTex = canvasTex(256, (g, s) => {
+    brickDraw('#6a2a2b', ['#551f22', '#7e3636', '#8b4040'], '#b48f86', 5)(g, s);
+    g.fillStyle = '#f3e7e2'; for (let i = 0; i < 260; i++) { g.globalAlpha = rr(0.15, 0.6); g.fillRect(rr(0, s), rr(0, s), rr(1, 4), rr(1, 3)); } g.globalAlpha = 1;
+  }, 2.2, 1);
+  const plasterTex = canvasTex(256, (g, s) => {
+    g.fillStyle = '#9fd0a7'; g.fillRect(0, 0, s, s);
+    const blob = (x, y, r, c) => { const gr = g.createRadialGradient(x, y, 0, x, y, r); gr.addColorStop(0, c); gr.addColorStop(1, 'rgba(255,255,255,0)'); g.fillStyle = gr; g.fillRect(0, 0, s, s); };
+    blob(s * 0.42, s * 0.5, s * 0.5, '#f0b62e'); blob(s * 0.3, s * 0.8, s * 0.4, '#f2c046');
+    blob(s * 0.2, s * 0.08, s * 0.42, '#d96a52'); blob(s * 0.75, s * 0.12, s * 0.3, '#f1c75e');
+    blob(s * 0.9, s * 0.75, s * 0.35, '#86cdb3'); blob(s * 0.1, s * 0.55, s * 0.22, '#e38a55');
+    for (let i = 0; i < 1800; i++) { g.fillStyle = i % 2 ? '#ffffff' : '#8a6a2a'; g.globalAlpha = rr(0.04, 0.16); g.fillRect(rr(0, s), rr(0, s), 3, 3); }
+    g.globalAlpha = 1;
+  });
+  const tealTex = canvasTex(128, (g, s) => speckle(g, s, '#7fcbb7', ['#69b8a6', '#9addc8', '#5fa99b', '#b6e6d6'], 700, 5));
+  const woodTex = canvasTex(128, (g, s) => {
+    g.fillStyle = '#8a7558'; g.fillRect(0, 0, s, s); g.strokeStyle = '#5f4f3a';
+    for (let i = 0; i < 40; i++) { g.globalAlpha = rr(0.2, 0.7); g.lineWidth = rr(0.5, 2); const x = rr(0, s); g.beginPath(); g.moveTo(x, 0); g.lineTo(x + rr(-6, 6), s); g.stroke(); }
+    g.globalAlpha = 1;
+  });
+  const deckTex = canvasTex(128, (g, s) => {
+    g.fillStyle = '#8d8676'; g.fillRect(0, 0, s, s); g.strokeStyle = '#5e594d';
+    for (let i = 0; i < 30; i++) { g.globalAlpha = rr(0.2, 0.6); const y = rr(0, s); g.beginPath(); g.moveTo(0, y); g.lineTo(s, y + rr(-4, 4)); g.stroke(); }
+    g.fillStyle = '#e9e6dc'; for (let i = 0; i < 40; i++) { g.globalAlpha = rr(0.2, 0.5); g.fillRect(rr(0, s), rr(0, s), rr(4, 12), 2); } g.globalAlpha = 1;
+  });
+  const waterTex = canvasTex(256, (g, s) => {
+    g.fillStyle = '#2aa3c2'; g.fillRect(0, 0, s, s);
+    for (let i = 0; i < 70; i++) { const x = rr(0, s), y = rr(0, s), r = rr(10, 40); const gr = g.createRadialGradient(x, y, 0, x, y, r); gr.addColorStop(0, i % 3 ? 'rgba(120,225,235,0.5)' : 'rgba(20,110,150,0.5)'); gr.addColorStop(1, 'rgba(0,0,0,0)'); g.fillStyle = gr; g.fillRect(x - r, y - r, 2 * r, 2 * r); }
+    g.strokeStyle = '#ffffff'; g.lineWidth = 1.5;
+    for (let i = 0; i < 50; i++) { g.globalAlpha = rr(0.15, 0.55); const x = rr(0, s), y = rr(0, s); g.beginPath(); g.moveTo(x, y); g.quadraticCurveTo(x + rr(4, 14), y + rr(-6, 6), x + rr(10, 26), y + rr(-4, 4)); g.stroke(); }
+    g.globalAlpha = 1;
+  });
+
+  /* ---------- matières ---------- */
+  const M = o => new T.MeshStandardMaterial(Object.assign({ roughness: 0.95, metalness: 0 }, o));
+  const mat = {
+    bark: M({ map: barkTex, flatShading: true }),
+    sand: M({ map: sandTex }),
+    cork: M({ map: corkTex }),
+    corkBrick: M({ map: corkBrickTex }),
+    corkRock: M({ color: 0xdcae88, flatShading: true }),
+    redBrick: M({ map: redBrickTex }),
+    plaster: M({ map: plasterTex }),
+    gable: M({ color: 0xd9b86a }),
+    teal: M({ map: tealTex }),
+    wood: M({ map: woodTex }),
+    deck: M({ map: deckTex }),
+    bamboo: M({ color: 0xcaa66c, roughness: 0.7 }),
+    tile: M({ color: 0xc8744b, roughness: 0.8, side: T.DoubleSide }),
+    shutter: M({ color: 0x7a3b39, roughness: 0.85 }),
+    dark: M({ color: 0x0e0d0c }),
+    // éclairages LED : couleur émise réglée par le mode jour/nuit
+    windowGlow: M({ color: 0x2a2116, emissive: 0xffb45e, emissiveIntensity: 0.25 }),
+    stripGlow: M({ color: 0xfff1d6, emissive: 0xffd8a0, emissiveIntensity: 0.4 }),
+    ember: M({ color: 0xff6a1a, emissive: 0xff5a10, emissiveIntensity: 1.2 }),
+    log: M({ map: woodTex, color: 0x8a6a4a }),
+    moss: M({ color: 0x637d2a, flatShading: true }),
+    mossDark: M({ color: 0x4a6420, flatShading: true }),
+    straw: M({ color: 0xdcc57c }),
+    steel: M({ color: 0xe1e5e8, metalness: 0.65, roughness: 0.3, side: T.DoubleSide }),
+    gold: M({ color: 0xc79a2c, metalness: 0.5, roughness: 0.4 }),
+    water: M({ map: waterTex, roughness: 0.12, metalness: 0.15, side: T.DoubleSide }),
+    basin: M({ color: 0x23414a, roughness: 0.1, metalness: 0.3, side: T.DoubleSide })
+  };
+
+  const scene = new T.Scene();
+  const model = new T.Group(); scene.add(model);
+  const add = (geo, m, x, y, z, parent) => { const o = new T.Mesh(geo, m); o.position.set(x || 0, y || 0, z || 0); (parent || model).add(o); return o; };
+  const box = (w, h, d, m, x, y, z, parent) => add(new T.BoxGeometry(w, h, d), m, x, y, z, parent);
+
+  /* ---------- briques de construction ---------- */
+  const seg = v => Math.max(2, Math.round(v / 0.8));
+  function barkGeo(w, h, d, seed) {
+    const g = new T.BoxGeometry(w, h, d, seg(w), seg(h), seg(d)), p = g.attributes.position;
+    const a = Math.min(1.6, 0.3 * Math.min(w, d)), ay = Math.min(2.4, h * 0.35);
+    for (let i = 0; i < p.count; i++) {
+      const x = p.getX(i), y = p.getY(i), z = p.getZ(i);
+      const n1 = fbm(x * 0.7 + seed, y * 0.1, z * 0.7 + seed * 1.3) - 0.5;
+      const n2 = fbm(x * 0.7 + seed + 31, y * 0.1 + 7, z * 0.7) - 0.5;
+      const n3 = fbm(x * 2.1 + seed, y * 2.1, z * 2.1) - 0.5;
+      const up = y / h + 0.5;
+      p.setXYZ(i, x + n2 * a * 1.6 + n3 * 0.35,
+        y + (fbm(x * 0.4 + seed, 3.3, z * 0.4) - 0.5) * ay * 2 * up + n3 * 0.2,
+        z + n1 * a * 2 + n3 * 0.35);
+    }
+    g.computeVertexNormals(); return g;
+  }
+  let seedN = 1;
+  const bark = (w, h, d, x, y, z, parent) => add(barkGeo(w, h, d, (seedN++) * 17.3), mat.bark, x, y, z, parent);
+  function rockGeo(r, seed) {
+    const g = new T.IcosahedronGeometry(r, 1), p = g.attributes.position;
+    for (let i = 0; i < p.count; i++) {
+      const x = p.getX(i), y = p.getY(i), z = p.getZ(i);
+      const k = 1 + (fbm(x * 1.3 + seed, y * 1.3, z * 1.3 + seed) - 0.5) * 0.8;
+      p.setXYZ(i, x * k, y * k, z * k);
+    }
+    g.computeVertexNormals(); return g;
+  }
+  const rock = (r, m, x, y, z, sx, sy, sz) => { const o = add(rockGeo(r, (seedN++) * 9.1), m, x, y, z); o.scale.set(sx || 1, sy || 1, sz || 1); o.rotation.y = rr(0, 6); return o; };
+  const UP = new T.Vector3(0, 1, 0);
+  function stick(a, b, r, m, parent, r2) {
+    const A = new T.Vector3(...a), B = new T.Vector3(...b), d = B.clone().sub(A);
+    const o = add(new T.CylinderGeometry(r2 || r, r, d.length(), 10), m, 0, 0, 0, parent);
+    o.position.copy(A).addScaledVector(d, 0.5); o.quaternion.setFromUnitVectors(UP, d.normalize()); return o;
+  }
+  function merge(list) {
+    const pos = [], nor = [], uv = [];
+    list.forEach(g => { const n = g.index ? g.toNonIndexed() : g; pos.push(...n.attributes.position.array); nor.push(...n.attributes.normal.array); uv.push(...n.attributes.uv.array); });
+    const out = new T.BufferGeometry();
+    out.setAttribute('position', new T.Float32BufferAttribute(pos, 3));
+    out.setAttribute('normal', new T.Float32BufferAttribute(nor, 3));
+    out.setAttribute('uv', new T.Float32BufferAttribute(uv, 2));
+    return out;
+  }
+  const tmp = new T.Object3D();
+  const mossBase = new T.IcosahedronGeometry(1, 0);
+  const mossA = [], mossB = [];
+  function moss(x, y, z, sx, sy, sz, n, size) {
+    for (let i = 0; i < n; i++) {
+      tmp.position.set(x + rr(-sx, sx), y + rr(-sy, sy), z + rr(-sz, sz));
+      tmp.rotation.set(rr(0, 6), rr(0, 6), rr(0, 6));
+      const s = (size || 0.5) * rr(0.45, 1); tmp.scale.set(s, s * rr(0.6, 1), s); tmp.updateMatrix();
+      (i % 3 ? mossA : mossB).push(mossBase.clone().applyMatrix4(tmp.matrix));
+    }
+  }
+  /* tuile canal : demi-cylindre couché, bombé vers le haut, axe le long de z */
+  const tileGeo = len => new T.CylinderGeometry(0.42, 0.52, len, 8, 1, true, -Math.PI / 2, Math.PI).rotateX(-Math.PI / 2);
+
+  /* ---------- socle ---------- */
+  {
+    const sh = new T.Shape();
+    // même contour que le plan de découpe (plans/generer_plan_socle.py) : arrière droit, avant organique
+    sh.moveTo(-23.5, 14.5); sh.lineTo(22, 14.5); sh.lineTo(22, -2);
+    sh.splineThru([[22.4, -6], [20.5, -10.5], [16, -15], [12, -17.5], [6, -17.8], [0, -16.8], [-6, -15.8], [-12, -14.5], [-18, -12.2], [-22.2, -8.5], [-23.5, -4]].map(p => new T.Vector2(p[0], p[1])));
+    sh.closePath();
+    const g = new T.ExtrudeGeometry(sh, { depth: 1.2, bevelEnabled: true, bevelSize: 0.4, bevelThickness: 0.4, bevelSegments: 2 });
+    g.rotateX(-Math.PI / 2); add(g, mat.sand, 0, -1.6, 0);
+    // caisson sous le plateau : il cache le réservoir, la pompe et le tuyau
+    const sk = new T.ExtrudeGeometry(sh, { depth: 5.5, bevelEnabled: false }); sk.rotateX(-Math.PI / 2);
+    const su = sk.attributes.uv; for (let i = 0; i < su.count; i++) su.setXY(i, su.getX(i) / 8, su.getY(i) / 8);
+    add(sk, mat.wood, 0, -7.1, 0).scale.set(0.985, 1, 0.985);
+  }
+
+  /* ---------- falaise d'écorce et abri ---------- */
+  bark(21, 20, 5, -9, 10, -11.5);          // paroi du fond
+  bark(5, 16, 9, -18.5, 8, -5.5);          // aile gauche
+  bark(6, 7.5, 5, -15.5, 3.75, -3);        // rebord sous le poteau gauche
+  bark(4, 8, 4, -18.5, 4, 0.5);            // avancée où s'appuie la pelle
+  bark(3.5, 9.5, 5, 0.3, 4.75, -7);        // pilier entre abri et escalier
+  // les poteaux descendent jusqu'au socle (plan de l'abri) ; l'écorce les entoure
+  stick([-14.5, 0, -3.5], [-14.5, 19.5, -3.5], 0.85, mat.wood);
+  stick([0.1, 0, -5.6], [0.1, 19.2, -5.6], 0.6, mat.wood);
+
+  const roof = new T.Group(); roof.position.set(-7.5, 19.5, -8); roof.rotation.x = 0.12; model.add(roof);
+  box(19, 0.3, 10.5, mat.wood, 0, 0, 0, roof);
+  bark(7, 1.3, 10, -6.5, 0.8, 0, roof);
+  bark(6.5, 1.4, 10.5, 7.2, 0.85, -0.3, roof);
+  bark(19, 1.5, 4.5, 0, 0.95, -3.4, roof);
+  for (let i = 0; i < 8; i++) {
+    const t = add(tileGeo(4.6), mat.tile, -3.1 + i * 0.95, 0.42 + (i % 2) * 0.12, 2.8, roof); t.rotation.y = rr(-0.05, 0.05);
+    if (i < 7) { const t2 = add(tileGeo(3), mat.tile, -2.6 + i * 0.95, 0.75, -0.2, roof); t2.rotation.y = rr(-0.06, 0.06); }
+  }
+
+  /* paille au sol */
+  {
+    const base = new T.BoxGeometry(0.07, 0.07, 1), list = [];
+    for (let i = 0; i < 520; i++) {
+      const x = rr(-13.5, 1.5), z = rr(-8.5, 2.5);
+      if (z > 1 && x < -10) continue;
+      tmp.position.set(x, rr(0.05, 0.35), z); tmp.rotation.set(rr(-0.2, 0.2), rr(0, 6.3), 0);
+      tmp.scale.set(1, 1, rr(0.8, 2)); tmp.updateMatrix(); list.push(base.clone().applyMatrix4(tmp.matrix));
+    }
+    add(merge(list), mat.straw);
+  }
+
+  /* pelle */
+  {
+    const top = new T.Vector3(-17.1, 9.6, 2.7), bot = new T.Vector3(-15.1, 2.2, 3.7), d = bot.clone().sub(top).normalize();
+    stick(top.toArray(), bot.toArray(), 0.13, mat.bamboo);
+    const s = new T.Shape(); s.moveTo(-0.85, 1.1); s.lineTo(0.85, 1.1); s.lineTo(0.9, -0.3); s.quadraticCurveTo(0.7, -1.2, 0, -1.4); s.quadraticCurveTo(-0.7, -1.2, -0.9, -0.3); s.closePath();
+    const b = add(new T.ExtrudeGeometry(s, { depth: 0.07, bevelEnabled: false }), mat.steel);
+    b.position.copy(bot).addScaledVector(d, 1.0); b.quaternion.setFromUnitVectors(UP, d.clone().negate());
+    rock(1.5, mat.corkRock, -18.3, 1.2, 4.2, 1.1, 1.3, 1);
+  }
+
+  /* ---------- escalier ---------- */
+  for (let i = 0; i < 10; i++) box(4.4, (i + 1) * 1.3, 1.2, mat.cork, 5.2, (i + 1) * 0.65, 0.4 - i * 1.2);
+  box(4.4, 13, 2, mat.cork, 5.2, 6.5, -12);
+  {
+    // limons du plan de l'escalier : le droit est abaissé au palier pour laisser passer vers la porte
+    const limon = pts => {
+      const s = new T.Shape(); pts.forEach((p, i) => i ? s.lineTo(p[0], p[1]) : s.moveTo(p[0], p[1])); s.closePath();
+      const g = new T.ExtrudeGeometry(s, { depth: 0.5, bevelEnabled: false }); g.rotateY(Math.PI / 2);
+      const uvs = g.attributes.uv; for (let i = 0; i < uvs.count; i++) uvs.setXY(i, uvs.getX(i) / 6, uvs.getY(i) / 6);
+      return g;
+    };
+    add(limon([[-2, 0], [13, 0], [13, 14.2], [9.8, 14.2], [-1, 2.5], [-2, 1.6]]), mat.cork, 2.5, 0, 0);
+    add(limon([[-2, 0], [13, 0], [13, 12.7], [9.8, 12.7], [9.8, 14.2], [-1, 2.5], [-2, 1.6]]), mat.cork, 7.4, 0, 0);
+    box(1.1, 0.3, 3.2, mat.cork, 7.95, 12.85, -11.4);   // le palier se prolonge jusqu'au mur de la maison
+  }
+  box(6.4, 19.5, 0.5, mat.corkBrick, 5.2, 9.75, -13.25);
+  bark(3, 5, 3, 2.6, 15.5, -11.5);
+
+  /* ---------- maisonnette ---------- */
+  const HX = 13.5, HZ = -8.5, FRONT = -4.5;
+  box(10.1, 6, 8.1, mat.teal, HX, 3, HZ);
+  box(10, 16, 8, mat.plaster, HX, 14, HZ);
+  {
+    const s = new T.Shape(); s.moveTo(-5, 0); s.lineTo(5, 0); s.lineTo(0, 4.5); s.closePath();
+    add(new T.ExtrudeGeometry(s, { depth: 8, bevelEnabled: false }), mat.gable, HX, 22, HZ - 4);
+    const a = Math.atan2(4.5, 5);
+    const l = bark(8.4, 0.9, 9.8, 10.45, 24.3, -8.3); l.rotation.z = a;
+    const r = bark(8.4, 0.9, 9.8, 16.55, 24.3, -8.3); r.rotation.z = -a;
+  }
+  // bandes d'écorce aux angles
+  bark(1.4, 10, 1.2, 8.7, 16.5, FRONT + 0.1);
+  bark(1.4, 6, 1.2, 18.3, 15, FRONT + 0.1);
+  // fenêtres et volets
+  [[12, 18.3], [15.6, 13.6]].forEach(([x, y]) => {
+    box(1.3, 2.9, 0.1, mat.windowGlow, x, y, FRONT + 0.06);     // calque éclairé par la guirlande intérieure
+    [-1, 1].forEach(sd => { const v = box(1.05, 2.9, 0.14, mat.shutter, x + sd * 1.2, y, FRONT + 0.22); v.rotation.y = -sd * 0.3; });
+  });
+  box(0.16, 3.4, 1.7, mat.shutter, 8.42, 14.9, -10.6);   // porte côté escalier
+  // soubassement en brique, niche et cloche
+  box(9.2, 4, 0.3, mat.redBrick, HX, 8, FRONT + 0.12);
+  box(1, 1.7, 0.1, mat.dark, 13.3, 8.6, FRONT + 0.3);
+  add(new T.CylinderGeometry(0.28, 0.38, 1.1, 12), mat.gold, 13.3, 8.6, FRONT + 0.55);
+  // auvent : chevrons ronds et tuiles canal
+  [9.6, 12.2, 14.8, 17.4].forEach(x => { const c = add(new T.CylinderGeometry(0.3, 0.3, 3.6, 10), mat.bamboo, x, 10.25, FRONT + 1.3); c.rotation.x = Math.PI / 2 + 0.25; });
+  const awn = new T.Group(); awn.position.set(HX, 10.95, FRONT + 1.4); awn.rotation.x = 0.25; model.add(awn);
+  box(9.8, 0.12, 3.5, mat.tile, 0, -0.12, 0, awn);
+  for (let i = 0; i < 11; i++) add(tileGeo(3.6), mat.tile, -4.5 + i * 0.9, (i % 2) * 0.1, 0, awn);
+  // sortie d'eau, bassin et muret
+  box(4, 3.2, 0.2, mat.dark, 14.5, 1.6, FRONT + 0.08);
+
+  /* ---------- rivière : source sous la maison, cascade, lit, bassin de reprise ---------- */
+  {
+    // seuil d'où l'eau tombe
+    bark(3.6, 2, 1.5, 14.5, 1, -3.85);
+    box(2.4, 0.3, 1.5, mat.water, 14.5, 2.05, -3.75);
+    const fall = new T.PlaneGeometry(2.4, 2.1), fu = fall.attributes.uv;
+    for (let i = 0; i < fu.count; i++) fu.setXY(i, fu.getX(i) * 0.45, (1 - fu.getY(i)) * 0.25);
+    add(fall, mat.water, 14.5, 1.1, -2.85).rotation.x = -0.12;
+    rock(1.1, mat.bark, 12.3, 1, -3.3, 1, 1.5, 1); rock(1.1, mat.bark, 16.7, 1, -3.3, 1, 1.5, 1);
+    // lit de la rivière : ruban qui suit une courbe, la texture coule dans le sens du courant
+    const cl = new T.CatmullRomCurve3([[14.5, -4.4], [14.8, -1], [13.8, 2.8], [11.7, 6.2], [11, 8.8], [11.4, 10.8]].map(p => new T.Vector3(p[0], 0, p[1])), false, 'catmullrom', 0.5);
+    const N = 60, pos = [], uv = [], idx = []; let dist = 0, prev = null;
+    for (let i = 0; i <= N; i++) {
+      const t = i / N, p = cl.getPoint(t), tg = cl.getTangent(t), nx = -tg.z, nz = tg.x, w = 1.3 + 0.5 * t;
+      if (prev) dist += p.distanceTo(prev); prev = p;
+      pos.push(p.x - nx * w, 0, p.z - nz * w, p.x + nx * w, 0, p.z + nz * w); uv.push(0, dist / 9, 0.45, dist / 9);
+      if (i < N) { const a = i * 2; idx.push(a, a + 2, a + 1, a + 1, a + 2, a + 3); }
+      if (i > 6 && i % 7 === 0) [-1, 1].forEach(sd => { const r = rr(0.6, 0.95); rock(r, mat.corkRock, p.x + sd * nx * (w + 0.6), r * 0.35, p.z + sd * nz * (w + 0.6), 1.2, 0.8, 1); });
+    }
+    const rg = new T.BufferGeometry();
+    rg.setAttribute('position', new T.Float32BufferAttribute(pos, 3)); rg.setAttribute('uv', new T.Float32BufferAttribute(uv, 2));
+    rg.setIndex(idx); rg.computeVertexNormals(); add(rg, mat.water, 0, 0.14, 0);
+    // bassin de reprise : l'eau y retombe vers la pompe cachée sous le socle
+    add(new T.CircleGeometry(2.6, 28).rotateX(-Math.PI / 2), mat.water, 11.5, 0.13, 11.8);
+    // trop-plein du bassin : l'eau y retombe vers le réservoir
+    add(new T.CylinderGeometry(0.6, 0.6, 0.4, 20), mat.corkRock, 11.5, 0.1, 13);
+    add(new T.CircleGeometry(0.35, 16).rotateX(-Math.PI / 2), mat.basin, 11.5, 0.31, 13);
+    for (let i = 0; i < 8; i++) { const a = -2.2 + i * 0.63, r = rr(0.6, 0.9); rock(r, mat.corkRock, 11.5 + Math.sin(a) * 3.1, r * 0.35, 11.8 + Math.cos(a) * 3.1, 1.2, 0.8, 1); }
+  }
+
+  /* ---------- pont ---------- */
+  {
+    const br = new T.Group(); br.position.set(10.3, 0, 6.6); br.rotation.y = -0.2; model.add(br);
+    const R = 11, H = 0.5, y0 = -R * Math.cos(H) + 0.45;
+    const at = (th, z, dy) => new T.Vector3(R * Math.sin(th), R * Math.cos(th) + y0 + (dy || 0), z);
+    for (let i = 0; i < 10; i++) { const th = -H + (i + 0.5) / 10 * 2 * H; const p = box(1.12, 0.22, 3.7, mat.deck, 0, 0, 0, br); p.position.copy(at(th, 0)); p.rotation.z = -th; }
+    [-1.7, 1.7].forEach(z => {
+      const ths = [-0.47, -0.16, 0.16, 0.47];
+      ths.forEach(th => stick(at(th, z, -0.2).toArray(), at(th, z, 2.5).toArray(), 0.13, mat.bamboo, br));
+      [1.25, 2.3].forEach((h, k) => {
+        const c = new T.CatmullRomCurve3([-0.52, -0.3, 0, 0.3, 0.52].map(th => at(th, z + (k ? 0.12 : -0.12), h)));
+        add(new T.TubeGeometry(c, 24, 0.085, 6), mat.bamboo, 0, 0, 0, br);
+      });
+      add(new T.TubeGeometry(new T.CatmullRomCurve3([-0.5, -0.25, 0, 0.25, 0.5].map(th => at(th, z, -0.15))), 20, 0.16, 6), mat.deck, 0, 0, 0, br);
+    });
+  }
+
+  /* ---------- éclairages LED ---------- */
+  // ruban LED sous le toit de l'abri, près du bord avant
+  const strip = new T.Mesh(new T.BoxGeometry(16, 0.12, 0.7), mat.stripGlow);
+  strip.position.set(0, -0.22, 3.2); roof.add(strip);
+  // feu de bois dans la cour, devant l'abri (trou Ø 8 du socle)
+  const FIRE = new T.Vector3(-6, 0, 5);
+  for (let i = 0; i < 6; i++) {
+    const a = i / 6 * Math.PI * 2 + 0.3;
+    const lg = add(new T.CylinderGeometry(0.22, 0.26, 2.4, 8), mat.log, FIRE.x + Math.cos(a) * 0.55, 0.75, FIRE.z + Math.sin(a) * 0.55);
+    lg.lookAt(FIRE.x, 2.2, FIRE.z); lg.rotateX(Math.PI / 2);
+  }
+  for (let i = 0; i < 7; i++) {
+    const a = i / 7 * Math.PI * 2;
+    rock(0.32, mat.corkRock, FIRE.x + Math.cos(a) * 1.5, 0.12, FIRE.z + Math.sin(a) * 1.5, 1.2, 0.8, 1);
+  }
+  const embers = add(new T.IcosahedronGeometry(0.45, 1), mat.ember, FIRE.x, 0.35, FIRE.z);
+  embers.scale.set(1, 0.6, 1);
+  const flames = [];
+  for (let i = 0; i < 3; i++) {
+    const f = add(new T.ConeGeometry(0.22 - i * 0.04, 0.9 - i * 0.15, 8), mat.ember, FIRE.x + (i - 1) * 0.18, 0.75, FIRE.z + (i % 2) * 0.12);
+    flames.push(f);
+  }
+
+  /* ---------- mousse ---------- */
+  moss(-13, 21.3, -8, 3, 0.3, 3, 34, 0.55); moss(-5, 21.5, -11.5, 5, 0.3, 1.5, 30, 0.55); moss(0.2, 21.4, -7.5, 2.2, 0.3, 3, 26, 0.55);
+  moss(-4.5, 20.4, -5.3, 0.6, 0.15, 1, 6, 0.35);
+  moss(-7.6, 10, -8.3, 0.6, 5.5, 0.4, 46, 0.5); moss(-11.5, 12.5, -8.6, 2, 0.5, 0.4, 14, 0.45);
+  moss(0.3, 10, -4.4, 1.3, 1.4, 0.6, 26, 0.5); moss(-14.5, 7.9, -1.6, 2.2, 0.5, 0.9, 26, 0.5);
+  moss(-17.2, 9.7, 2.5, 0.6, 0.4, 0.5, 10, 0.4);
+  moss(-17, 0.4, 7.5, 3, 0.3, 2.3, 40, 0.6); moss(-19.5, 0.5, 3.5, 1.3, 0.5, 1.5, 14, 0.5); moss(-10, 0.5, -8.3, 1.5, 0.7, 0.4, 12, 0.45);
+  moss(1.6, 0.5, 1.2, 0.9, 0.6, 1.5, 16, 0.45); moss(7.6, 0.5, 9.4, 1, 0.5, 1, 16, 0.5); moss(15.6, 0.7, 12, 1.5, 0.7, 1.4, 30, 0.55);
+  moss(19.3, 0.9, 6, 0.9, 1.3, 2.2, 26, 0.5); moss(19, 0.5, 0.8, 1.4, 0.5, 1.4, 20, 0.5);
+  moss(8.3, 7.5, -3.9, 0.5, 3.2, 0.5, 30, 0.45); moss(2.2, 6, -4.5, 0.4, 3, 0.6, 20, 0.45);
+  moss(HX, 27.3, -8.3, 0.6, 0.35, 3.8, 30, 0.55); moss(18.2, 23, -3.9, 0.8, 0.8, 0.5, 14, 0.5);
+  moss(15.6, 11.7, -3.9, 1.8, 0.35, 0.4, 18, 0.42); moss(9.9, 11.9, -4, 1, 0.6, 0.4, 10, 0.42);
+  add(merge(mossA), mat.moss); add(merge(mossB), mat.mossDark);
+
+  /* ---------- rendu ---------- */
+  const stage = document.getElementById('stage');
+  let renderer;
+  try { renderer = new T.WebGLRenderer({ antialias: true, alpha: true }); }
+  catch (e) { document.getElementById('err').hidden = false; return; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.outputEncoding = T.sRGBEncoding;
+  renderer.shadowMap.enabled = true; renderer.shadowMap.type = T.PCFSoftShadowMap;
+  stage.appendChild(renderer.domElement);
+
+  model.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
+  const catcher = new T.Mesh(new T.PlaneGeometry(160, 160).rotateX(-Math.PI / 2), new T.ShadowMaterial({ opacity: 0.22 }));
+  catcher.position.y = -7.12; catcher.receiveShadow = true; scene.add(catcher);
+
+  const hemi = new T.HemisphereLight(0xffffff, 0x8a7a66, 0.75); scene.add(hemi);
+  // lumières portées par les LED (visibles surtout la nuit)
+  const lampWin = new T.PointLight(0xffb45e, 0, 14, 2); lampWin.position.set(13.8, 15.5, FRONT + 2.5); scene.add(lampWin);
+  const lampAbri = new T.PointLight(0xffd59a, 0, 30, 2); lampAbri.position.set(-7.5, 17, -5); scene.add(lampAbri);
+  const lampFire = new T.PointLight(0xff7a26, 0, 16, 2); lampFire.position.set(FIRE.x, 1.6, FIRE.z); scene.add(lampFire);
+  const sun = new T.DirectionalLight(0xfff2de, 0.95); sun.position.set(-18, 46, 34); sun.castShadow = true;
+  sun.shadow.mapSize.set(2048, 2048); sun.shadow.bias = -0.0006; sun.shadow.normalBias = 0.06;
+  Object.assign(sun.shadow.camera, { left: -36, right: 36, top: 36, bottom: -36, near: 1, far: 140 }); scene.add(sun);
+  const fill = new T.DirectionalLight(0xcfe3ff, 0.3); fill.position.set(30, 20, 10); scene.add(fill);
+
+  const camera = new T.PerspectiveCamera(34, 1, 0.5, 600);
+  const controls = new T.OrbitControls(camera, renderer.domElement);
+  controls.enableDamping = true; controls.dampingFactor = 0.08;
+  controls.minDistance = 14; controls.maxDistance = 190; controls.maxPolarAngle = Math.PI * 0.53;
+  controls.autoRotateSpeed = 0.9;
+  const views = {
+    front: [[0, 23, 64], [0, 11.5, -1]],
+    top: [[0, 78, 10], [0, 4, 0]],
+    detail: [[36, 20, 30], [9, 10, -3]]
+  };
+  let goal = null;
+  function setView(name, instant) {
+    const v = views[name], aspect = stage.clientWidth / Math.max(1, stage.clientHeight);
+    const far = aspect < 1 ? Math.min(2.4, 0.95 / aspect) : 1;   // recule en format portrait
+    const tgt = new T.Vector3(...v[1]), pos = new T.Vector3(...v[0]).sub(tgt).multiplyScalar(far).add(tgt);
+    if (instant) { camera.position.copy(pos); controls.target.copy(tgt); controls.update(); } else goal = { pos, tgt };
+  }
+  function resize() {
+    const w = stage.clientWidth, h = Math.max(1, stage.clientHeight);
+    renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix();
+  }
+  resize(); setView('front', true);
+  new ResizeObserver(resize).observe(stage);
+
+  const btnRot = document.getElementById('btn-rotate');
+  const setRot = on => { controls.autoRotate = on; btnRot.setAttribute('aria-pressed', String(on)); };
+  setRot(!window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+  btnRot.addEventListener('click', () => setRot(!controls.autoRotate));
+  controls.addEventListener('start', () => { goal = null; setRot(false); });
+  // mode nuit : baisse le jour, allume les LED
+  let night = false;
+  const btnNight = document.getElementById('btn-night');
+  function setNight(on) {
+    night = on;
+    btnNight.setAttribute('aria-pressed', String(on));
+    document.body.classList.toggle('night', on);
+    hemi.intensity = on ? 0.12 : 0.75; sun.intensity = on ? 0.08 : 0.95; fill.intensity = on ? 0.05 : 0.3;
+    lampWin.intensity = on ? 1.4 : 0; lampAbri.intensity = on ? 2.4 : 0;
+    mat.windowGlow.emissiveIntensity = on ? 1.6 : 0.25;
+    mat.stripGlow.emissiveIntensity = on ? 2 : 0.4;
+  }
+  btnNight.addEventListener('click', () => setNight(!night));
+
+  [['btn-front', 'front'], ['btn-top', 'top'], ['btn-detail', 'detail']].forEach(([id, v]) =>
+    document.getElementById(id).addEventListener('click', () => { setRot(false); setView(v); }));
+
+  (function loop() {
+    requestAnimationFrame(loop);
+    if (goal) {
+      camera.position.lerp(goal.pos, 0.09); controls.target.lerp(goal.tgt, 0.09);
+      if (camera.position.distanceTo(goal.pos) < 0.05) goal = null;
+    }
+    waterTex.offset.y -= 0.004;
+    // scintillement du feu : deux sinus décalés et un peu de hasard
+    const t = performance.now() / 1000, flick = 0.75 + 0.15 * Math.sin(t * 11) + 0.1 * Math.sin(t * 23 + 1.3) + 0.08 * Math.random();
+    lampFire.intensity = (night ? 2.2 : 0.4) * flick;
+    mat.ember.emissiveIntensity = 0.9 + 0.6 * flick;
+    flames.forEach((f, i) => { f.scale.y = 0.75 + 0.35 * Math.sin(t * (9 + i * 3) + i) * flick; });
+    controls.update(); renderer.render(scene, camera);
+  })();
+})();
+</script>

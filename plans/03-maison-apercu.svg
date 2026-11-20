@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+<rect width="100%" height="100%" fill="white"/>
+<text x="14.00" y="14.00" font-family="Helvetica,Arial,sans-serif" font-size="5.5" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">Crèche en liège - étape 3 : la maison</text>
+<text x="14.00" y="20.00" font-family="Helvetica,Arial,sans-serif" font-size="3" fill="rgb(0,0,0)" text-anchor="start">Vues d'ensemble à l'échelle 1/2. Les 4 planches suivantes sont à l'échelle 1.</text>
+<polygon points="30.00,171.50 50.00,171.50 50.00,155.50 70.00,155.50 70.00,171.50 80.00,171.50 80.00,61.50 55.00,39.00 30.00,61.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="44.00,87.50 51.00,87.50 51.00,72.50 44.00,72.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="62.00,111.00 69.00,111.00 69.00,96.00 62.00,96.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="38.00,87.50 43.50,87.50 43.50,72.50 38.00,72.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="51.50,87.50 57.00,87.50 57.00,72.50 51.50,72.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="56.00,111.00 61.50,111.00 61.50,96.00 56.00,96.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="69.50,111.00 75.00,111.00 75.00,96.00 69.50,96.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="32.00,141.50 78.00,141.50 78.00,121.50 32.00,121.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="29.50,121.00 80.50,121.00 80.50,118.50 29.50,118.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="55.00,38.00 23.41,66.43 24.41,65.32 56.00,36.89" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="55.00,38.00 85.48,65.43 84.47,64.31 54.00,36.89" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="55.00" y="32.00" font-family="Helvetica,Arial,sans-serif" font-size="3" fill="rgb(0,0,0)" text-anchor="middle" font-weight="bold">FAÇADE</text>
+<polyline points="30.00,176.50 80.00,176.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="30.00,175.00 30.00,178.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="80.00,175.00 80.00,178.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="55.00" y="180.50" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="middle">100</text>
+<polyline points="89.00,61.50 89.00,171.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="87.50,61.50 90.50,61.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="87.50,171.50 90.50,171.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="91.00" y="117.50" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="start">220</text>
+<polyline points="100.00,39.00 100.00,171.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="98.50,39.00 101.50,39.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="98.50,171.50 101.50,171.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="102.00" y="106.25" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="start">265</text>
+<text x="27.00" y="131.50" font-family="Helvetica,Arial,sans-serif" font-size="2.5" fill="rgb(31,84,178)" text-anchor="end">brique H</text>
+<text x="27.00" y="119.50" font-family="Helvetica,Arial,sans-serif" font-size="2.5" fill="rgb(31,84,178)" text-anchor="end">auvent I</text>
+<text x="27.00" y="156.50" font-family="Helvetica,Arial,sans-serif" font-size="2.5" fill="rgb(31,84,178)" text-anchor="end">turquoise</text>
+<text x="27.00" y="165.50" font-family="Helvetica,Arial,sans-serif" font-size="2.5" fill="rgb(31,84,178)" text-anchor="end">sortie d'eau</text>
+<polygon points="135.00,171.50 175.00,171.50 175.00,61.50 135.00,61.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="131.00,66.50 181.00,66.50 181.00,37.00 131.00,37.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="140.25,105.50 148.75,105.50 148.75,88.50 140.25,88.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="175.00,121.50 192.00,121.50 192.00,118.50 175.00,118.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="155.00" y="32.00" font-family="Helvetica,Arial,sans-serif" font-size="3" fill="rgb(0,0,0)" text-anchor="middle" font-weight="bold">CÔTÉ GAUCHE</text>
+<polyline points="135.00,176.50 175.00,176.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="135.00,175.00 135.00,178.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="175.00,175.00 175.00,178.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="155.00" y="180.50" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="middle">80</text>
+<text x="144.50" y="109.50" font-family="Helvetica,Arial,sans-serif" font-size="2.5" fill="rgb(31,84,178)" text-anchor="middle">porte K</text>
+<text x="155.00" y="51.50" font-family="Helvetica,Arial,sans-serif" font-size="2.5" fill="rgb(31,84,178)" text-anchor="middle">toit E + F, 100 de long</text>
+<text x="177.00" y="125.50" font-family="Helvetica,Arial,sans-serif" font-size="2.5" fill="rgb(31,84,178)" text-anchor="start">auvent</text>
+<text x="176.00" y="169.50" font-family="Helvetica,Arial,sans-serif" font-size="2.5" fill="rgb(31,84,178)" text-anchor="start">avant</text>
+<text x="14.00" y="186.00" font-family="Helvetica,Arial,sans-serif" font-size="3.2" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">PIÈCES - contreplaqué 3 mm (une plaque de 60 × 30 cm suffit)</text>
+<text x="14.00" y="191.50" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">A  façade avant 100 × 265, avec 2 fenêtres et la sortie d'eau</text>
+<text x="14.00" y="196.30" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">B  façade arrière 100 × 265</text>
+<text x="14.00" y="201.10" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">C, D  côtés 74 × 220, collés entre les deux façades</text>
+<text x="14.00" y="205.90" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">E, F  pans de toit 85 × 100 et 82 × 100 (support de l'écorce)</text>
+<text x="14.00" y="210.70" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">G  2 raidisseurs 74 × 94, à plat à l'intérieur, à 100 et 215 mm du bas</text>
+<text x="14.00" y="215.50" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">H  parement brique 92 × 40    I  auvent 98 × 35    J  4 volets 11 × 30</text>
+<text x="14.00" y="220.30" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">K  porte 17 × 34    L  2 consoles d'auvent</text>
+<text x="14.00" y="225.10" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">Hors plaque : 4 chevrons en baguette ronde Ø 6, longueur 36 mm</text>
+<text x="14.00" y="233.90" font-family="Helvetica,Arial,sans-serif" font-size="3.2" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">MONTAGE</text>
+<text x="14.00" y="239.40" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">1. Découper les fenêtres avant le contour : percer, passer la lame, scier.</text>
+<text x="14.00" y="244.20" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">2. Coller C et D entre A et B, avec les raidisseurs G pour tenir l'équerre.</text>
+<text x="14.00" y="249.00" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">3. Peindre les murs, puis coller brique, volets, porte, consoles et auvent.</text>
+<text x="14.00" y="253.80" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">4. Poser le pan F, puis E par-dessus. Le jour au faîtage disparaît sous l'écorce.</text>
+<text x="14.00" y="258.60" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">5. Ne pas coller la maison sur le socle avant d'avoir posé le tuyau (étape rivière).</text>
+</svg>

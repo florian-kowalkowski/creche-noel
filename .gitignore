@@ -1,0 +1,10 @@
+# Python
+__pycache__/
+*.pyc
+
+# Réglages locaux de Claude Code
+.claude/
+
+# Fichiers temporaires de vérification
+_*.svg
+_*.html
