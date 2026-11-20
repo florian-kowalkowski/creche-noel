@@ -6,6 +6,7 @@ Produit des fichiers STL à côté de ce script, chacun déjà posé à plat sur
   rochers.stl, pelle.stl, tuiles-auvent.stl, tuiles-abri-avant.stl, tuiles-abri-arriere.stl   (PLA)
   fenetre-volets.stl (x 2), encadrement-sortie-eau.stl, porte-escalier.stl   (PLA, habillage de la façade)
   moule-4-tuiles.stl, emporte-piece-tuile.stl, reglettes-1,5mm.stl   (PLA, tuiles en argile autodurcissante)
+  moule-briques-auvent.stl, moule-briques-escalier.stl   (PLA, parements en briques d'argile)
   apercu-assemblage.stl : les 4 pièces du circuit d'eau à leur place, pour contrôle visuel seulement
 
 Cotes en millimètres. Le tracé de la rivière vient du plan du socle (../plans/generer_plan_socle.py) :
@@ -464,6 +465,53 @@ def make_rails():
     return Manifold.compose([slab(rect2d(0, y, 150, y + 10), 0, CLAY_T) for y in (0, 16)])
 
 
+# ----------------------------------------------------------------------------- briques en argile
+# Moule à empreinte : on presse l'argile dans le bac, on arase au ras des bords, on démoule en retournant.
+# Le fond du bac donne la face visible des briques ; les nervures donnent les joints en creux.
+BRICK_L, BRICK_H, MORTAR = 9.0, 3.0, 0.8     # brique finie (mm) et largeur de joint
+BRICK_T = 2.0                                 # épaisseur du parement en argile
+JOINT_DEPTH = 0.6
+
+
+def make_brick_mold(width, height, islands=(), seed=7):
+    """Moule pour un parement de width x height (cotes finies, après séchage).
+    islands : rectangles (x0, y0, x1, y1) en coordonnées du parement, vu de face, où l'argile doit manquer
+    (niche...). Le moule est inversé gauche-droite : une fois démoulé et retourné, le parement est à l'endroit."""
+    s = CLAY_SHRINK
+    W, H = width * s, height * s
+    lx, hy, j = BRICK_L * s, BRICK_H * s, MORTAR * s
+    rim = 2.5
+    mold = slab(rect2d(-rim, -rim, W + rim, H + rim), -2, BRICK_T) - slab(rect2d(0, 0, W, H), 0, BRICK_T + 1)
+    # joints : nervures horizontales entre les rangs, verticales décalées d'une demi-brique un rang sur deux
+    ridges = CrossSection()
+    pockets = [CrossSection(), CrossSection(), CrossSection()]
+    rng = np.random.default_rng(seed)
+    row, y = 0, 0.0
+    while y < H:
+        y1 = min(y + hy, H)
+        if y1 < H:
+            ridges += poly2d(rect2d(0, y1, W, min(y1 + j, H)))
+        x = -(lx + j) / 2 if row % 2 else 0.0
+        while x < W:
+            x1 = x + lx
+            if x1 + j < W:
+                ridges += poly2d(rect2d(max(x1, 0), y, x1 + j, y1))
+            bx0, bx1 = max(x, 0) + 0.05, min(x1, W) - 0.05
+            if bx1 - bx0 > 0.6 and y1 - y > 0.6:
+                pockets[int(rng.integers(3))] += poly2d(rect2d(bx0, y + 0.05, bx1, y1 - 0.05))   # briques un peu inégales
+            x = x1 + j
+        y = y1 + j
+        row += 1
+    mold += Manifold.extrude(ridges, JOINT_DEPTH)
+    for k, pk in enumerate(pockets):
+        if k:
+            mold -= Manifold.extrude(pk, 0.12 * k + 0.01).translate((0, 0, -0.12 * k))
+    for x0, y0, x1, y1 in islands:                                   # inversion gauche-droite du moule
+        mold += slab(rect2d((width - x1) * s, y0 * s, (width - x0) * s, y1 * s), 0, BRICK_T)
+    mold -= slab([(W / 2 - 3, H + rim + 0.1), (W / 2 + 3, H + rim + 0.1), (W / 2, H + rim - 2.4)], BRICK_T - 0.8, BRICK_T + 1)   # repère HAUT
+    return mold
+
+
 def write_stl(path, solid):
     mesh = solid.to_mesh()
     v = np.asarray(mesh.vert_properties, dtype=np.float32)[:, :3]
@@ -507,6 +555,8 @@ if __name__ == "__main__":
         ("moule-4-tuiles.stl", make_tile_mold(), 1),
         ("emporte-piece-tuile.stl", make_tile_cutter(), 1),
         ("reglettes-1,5mm.stl", make_rails(), 2),
+        ("moule-briques-auvent.stl", make_brick_mold(92, 40, [(39, 17, 49, 34)], seed=7), 1),
+        ("moule-briques-escalier.stl", make_brick_mold(64, 195, seed=8), 1),
     ]
     for name, solid, bodies in parts:
         solid = on_bed(solid)
