@@ -1,0 +1,3 @@
+# Les PDF et STL générés ne doivent jamais être modifiés par git (fins de ligne)
+*.pdf binary
+*.stl binary
