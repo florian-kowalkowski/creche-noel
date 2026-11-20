@@ -15,6 +15,7 @@ Ce fichier sert de point d'entrée pour reprendre le projet plus tard.
 | `plans/05-abri-plans-A4.pdf` | Abri : vue cotée + 2 planches, contreplaqué 5 mm |
 | `plans/06-pont-plans-A4.pdf` | Pont : 2 pages |
 | `plans/07-impression-3d-notice.pdf` | Schéma du circuit d'eau, réglages d'impression, montage |
+| `plans/09-tuiles-argile-notice.pdf` | Fabrication des tuiles en argile : cotes de la tuile et du flan, étapes d'une fournée, pose courant/couvert, finition, dépannage |
 | `plans/08-schema-electrique.pdf` | Schéma de branchement des LED : module micro-USB, résistances, zones |
 | `plans/0X-*-cotes.pdf` | **Plans cotés, pour tracer à la règle sans imprimante papier** : chaque pièce avec ses cotes et un tableau de coordonnées depuis une origine O |
 | `impression3d/fenetre-volets.stl`, `encadrement-sortie-eau.stl` | Habillage de la façade à coller par-dessus les découpes : fenêtre complète (encadrement, croisillon, appui, volets ouverts, × 2) et arc en pierre de la sortie d'eau. Ils cachent une découpe jusqu'à 3 mm trop grande |
@@ -42,6 +43,7 @@ python plans/generer_plan_pont.py
 python plans/generer_notice_impression.py
 python plans/generer_schema_electrique.py
 python plans/generer_plans_cotes.py
+python plans/generer_notice_tuiles.py
 python impression3d/generer_pieces_3d.py
 python impression3d/generer_gabarits.py
 ```

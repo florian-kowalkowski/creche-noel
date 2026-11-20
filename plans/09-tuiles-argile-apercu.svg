@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
+<rect width="100%" height="100%" fill="white"/>
+<text x="14.00" y="14.00" font-family="Helvetica,Arial,sans-serif" font-size="5.2" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">Crèche en liège - tuiles canal en argile autodurcissante</text>
+<text x="14.00" y="20.00" font-family="Helvetica,Arial,sans-serif" font-size="3" fill="rgb(0,0,0)" text-anchor="start">Fabrication par fournées de 4 tuiles avec le moule imprimé en 3D.</text>
+<text x="14.00" y="32.00" font-family="Helvetica,Arial,sans-serif" font-size="3.4" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">La tuile finie (après séchage), dessin agrandi 3 fois</text>
+<polygon points="20.00,62.00 86.00,62.00 86.00,50.00 20.00,47.00" fill="none" stroke="rgb(184,92,51)" stroke-width="0.6" stroke-linejoin="round"/>
+<polyline points="20.00,51.50 86.00,54.50" fill="none" stroke="rgb(31,84,178)" stroke-width="0.25" stroke-linejoin="round" stroke-dasharray="3 1.5"/>
+<polyline points="20.00,66.00 86.00,66.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="20.00,64.80 20.00,67.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="86.00,64.80 86.00,67.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="53.00" y="69.60" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(0,0,0)" text-anchor="middle">22 mm</text>
+<polyline points="16.00,47.00 16.00,62.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="14.80,47.00 17.20,47.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="14.80,62.00 17.20,62.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="14.00" y="55.50" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(0,0,0)" text-anchor="end">5 (Ø 10)</text>
+<polyline points="90.00,50.00 90.00,62.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="88.80,50.00 91.20,50.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="88.80,62.00 91.20,62.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="92.00" y="57.00" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(0,0,0)" text-anchor="start">4 (Ø 8)</text>
+<text x="53.00" y="44.00" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(31,84,178)" text-anchor="middle">vue de côté</text>
+<polygon points="145.00,62.00 144.87,60.04 144.49,58.12 143.86,56.26 142.99,54.50 141.90,52.87 140.61,51.39 139.13,50.10 137.50,49.01 135.74,48.14 133.88,47.51 131.96,47.13 130.00,47.00 128.04,47.13 126.12,47.51 124.26,48.14 122.50,49.01 120.87,50.10 119.39,51.39 118.10,52.87 117.01,54.50 116.14,56.26 115.51,58.12 115.13,60.04 115.00,62.00 119.50,62.00 119.59,60.63 119.86,59.28 120.30,57.98 120.91,56.75 121.67,55.61 122.58,54.58 123.61,53.67 124.75,52.91 125.98,52.30 127.28,51.86 128.63,51.59 130.00,51.50 131.37,51.59 132.72,51.86 134.02,52.30 135.25,52.91 136.39,53.67 137.42,54.58 138.33,55.61 139.09,56.75 139.70,57.98 140.14,59.28 140.41,60.63 140.50,62.00" fill="none" stroke="rgb(184,92,51)" stroke-width="0.6" stroke-linejoin="round"/>
+<text x="130.00" y="44.00" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(31,84,178)" text-anchor="middle">vue du gros bout</text>
+<polyline points="115.00,66.00 145.00,66.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="115.00,64.80 115.00,67.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="145.00,64.80 145.00,67.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="130.00" y="69.60" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(0,0,0)" text-anchor="middle">10 mm</text>
+<text x="148.00" y="60.00" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(0,0,0)" text-anchor="start">épaisseur 1,5</text>
+<text x="14.00" y="82.00" font-family="Helvetica,Arial,sans-serif" font-size="3.4" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">Le flan découpé à l'emporte-pièce (argile fraîche), agrandi 3 fois</text>
+<polygon points="39.48,92.00 80.52,92.00 75.67,160.05 44.33,160.05" fill="none" stroke="rgb(184,92,51)" stroke-width="0.6" stroke-linejoin="round"/>
+<text x="60.00" y="127.03" font-family="Helvetica,Arial,sans-serif" font-size="3" fill="rgb(184,92,51)" text-anchor="middle" font-weight="bold">flan</text>
+<polyline points="39.48,87.00 80.52,87.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="39.48,85.80 39.48,88.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="80.52,85.80 80.52,88.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="60.00" y="90.60" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(0,0,0)" text-anchor="middle">13,7 mm (gros bout)</text>
+<polyline points="44.33,163.05 75.67,163.05" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="44.33,161.85 44.33,164.25" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="75.67,161.85 75.67,164.25" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="60.00" y="166.65" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(0,0,0)" text-anchor="middle">10,4 mm (petit bout)</text>
+<polyline points="86.52,92.00 86.52,160.05" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="85.32,92.00 87.72,92.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="85.32,160.05 87.72,160.05" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="88.52" y="127.03" font-family="Helvetica,Arial,sans-serif" font-size="2.6" fill="rgb(0,0,0)" text-anchor="start">22,7 mm</text>
+<text x="118.00" y="96.00" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">Un peu plus grand que la tuile finie :</text>
+<text x="118.00" y="100.20" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">le moule et l'emporte-pièce compensent</text>
+<text x="118.00" y="104.40" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">le retrait de l'argile au séchage (3 %).</text>
+<text x="118.00" y="108.60" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start"></text>
+<text x="118.00" y="112.80" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">Pas d'emporte-pièce ? Tracer ce trapèze</text>
+<text x="118.00" y="117.00" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">sur un carton et découper au cutter</text>
+<text x="118.00" y="121.20" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="start">autour du gabarit.</text>
+<text x="14.00" y="172.00" font-family="Helvetica,Arial,sans-serif" font-size="3.4" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">Matériel</text>
+<text x="14.00" y="177.60" font-family="Helvetica,Arial,sans-serif" font-size="2.85" fill="rgb(0,0,0)" text-anchor="start">Imprimé en PLA : moule-4-tuiles (idéalement 2 exemplaires), emporte-pièce-tuile, réglettes-1,5mm.</text>
+<text x="14.00" y="182.10" font-family="Helvetica,Arial,sans-serif" font-size="2.85" fill="rgb(0,0,0)" text-anchor="start">Argile autodurcissante terre cuite (100 g suffisent pour 40 tuiles, chutes comprises), un rouleau,</text>
+<text x="14.00" y="186.60" font-family="Helvetica,Arial,sans-serif" font-size="2.85" fill="rgb(0,0,0)" text-anchor="start">talc ou maïzena, un pinceau sec, une éponge ou une vieille brosse à dents, un cutter.</text>
+<text x="14.00" y="194.10" font-family="Helvetica,Arial,sans-serif" font-size="3.4" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">Une fournée de 4 tuiles</text>
+<text x="14.00" y="199.70" font-family="Helvetica,Arial,sans-serif" font-size="2.85" fill="rgb(0,0,0)" text-anchor="start">1. Saupoudrer le moule de talc ou de maïzena, et chasser l'excès au pinceau sec.</text>
+<text x="14.00" y="204.20" font-family="Helvetica,Arial,sans-serif" font-size="2.85" fill="rgb(0,0,0)" text-anchor="start">2. Poser la boule d'argile entre les deux réglettes et étaler au rouleau, appuyé sur les réglettes :</text>
+<text x="14.00" y="208.70" font-family="Helvetica,Arial,sans-serif" font-size="2.85" fill="rgb(0,0,0)" text-anchor="start">    la feuille fait 1,5 mm partout.</text>
+<text x="14.00" y="213.20" font-family="Helvetica,Arial,sans-serif" font-size="2.85" fill="rgb(0,0,0)" text-anchor="start">3. Découper 4 flans à l'emporte-pièce (tranchant vers l'argile, rebord vers le haut).</text>
+<text x="14.00" y="217.70" font-family="Helvetica,Arial,sans-serif" font-size="2.85" fill="rgb(0,0,0)" text-anchor="start">4. Poser chaque flan sur un demi-cône, le grand côté sur le gros bout du cône.</text>
+<text x="14.00" y="222.20" font-family="Helvetica,Arial,sans-serif" font-size="2.85" fill="rgb(0,0,0)" text-anchor="start">    Le petit trait gravé sur la semelle repère le côté du gros bout.</text>
+<text x="14.00" y="226.70" font-family="Helvetica,Arial,sans-serif" font-size="2.85" fill="rgb(0,0,0)" text-anchor="start">5. Appuyer du bout des doigts pour que le flan épouse le cône. Lisser au doigt mouillé.</text>
+<text x="14.00" y="231.20" font-family="Helvetica,Arial,sans-serif" font-size="2.85" fill="rgb(0,0,0)" text-anchor="start">6. Texture terre cuite : tapoter à l'éponge ou à la brosse à dents.</text>
+<text x="14.00" y="235.70" font-family="Helvetica,Arial,sans-serif" font-size="2.85" fill="rgb(0,0,0)" text-anchor="start">7. Laisser raffermir 1 à 3 heures (stade « cuir » : ferme mais encore souple).</text>
+<text x="14.00" y="240.20" font-family="Helvetica,Arial,sans-serif" font-size="2.85" fill="rgb(0,0,0)" text-anchor="start">8. Démouler en faisant glisser chaque tuile vers le petit bout du cône.</text>
+<text x="14.00" y="244.70" font-family="Helvetica,Arial,sans-serif" font-size="2.85" fill="rgb(0,0,0)" text-anchor="start">9. Laisser finir de sécher 24 h, posée sans appuyer, puis ébavurer au papier de verre fin.</text>
+</svg>
