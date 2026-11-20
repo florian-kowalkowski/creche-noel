@@ -16,12 +16,16 @@ Ce fichier sert de point d'entrée pour reprendre le projet plus tard.
 | `plans/06-pont-plans-A4.pdf` | Pont : 2 pages |
 | `plans/07-impression-3d-notice.pdf` | Schéma du circuit d'eau, réglages d'impression, montage |
 | `plans/08-schema-electrique.pdf` | Schéma de branchement des LED : module micro-USB, résistances, zones |
+| `plans/0X-*-cotes.pdf` | **Plans cotés, pour tracer à la règle sans imprimante papier** : chaque pièce avec ses cotes et un tableau de coordonnées depuis une origine O |
+| `impression3d/gabarits/*.stl` | Gabarits de traçage de 2 mm à imprimer en 3D : évidement de la rivière, longeron du pont, crémaillère, limons |
 | `plans/*.svg` | Aperçu de la première page de chaque PDF |
 | `plans/generer_*.py` | Scripts qui produisent les PDF et SVG |
 | `impression3d/*.stl` | Pièces à imprimer, déjà orientées |
 | `impression3d/generer_pieces_3d.py` | Script qui produit les STL |
 
-Tous les gabarits PDF sont à l'échelle 1 : imprimer à 100 % et vérifier le trait de contrôle de 100 mm.
+Les gabarits PDF `0X-...-A4.pdf` sont à l'échelle 1 : imprimer à 100 % et vérifier le trait de contrôle de 100 mm.
+
+Sans imprimante papier : utiliser les plans cotés `0X-...-cotes.pdf` (à lire sur écran, sans y mesurer) et reporter les points à la règle et à l'équerre. Pour les formes longues à reporter, imprimer en 3D les gabarits de `impression3d/gabarits/` et tracer autour.
 
 ## Régénérer après une modification
 
@@ -35,7 +39,9 @@ python plans/generer_plan_abri.py
 python plans/generer_plan_pont.py
 python plans/generer_notice_impression.py
 python plans/generer_schema_electrique.py
+python plans/generer_plans_cotes.py
 python impression3d/generer_pieces_3d.py
+python impression3d/generer_gabarits.py
 ```
 
 - Les scripts de `plans` n'ont aucune dépendance. Ils écrivent le PDF directement, sans bibliothèque.
