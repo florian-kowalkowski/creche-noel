@@ -4,6 +4,7 @@
 Produit des fichiers STL à côté de ce script, chacun déjà posé à plat sur le plateau :
   bac-riviere.stl, bassin-reprise.stl, reservoir.stl, seuil-cascade.stl   (circuit d'eau, PETG)
   rochers.stl, pelle.stl, tuiles-auvent.stl, tuiles-abri-avant.stl, tuiles-abri-arriere.stl   (PLA)
+  fenetre-volets.stl (x 2), encadrement-sortie-eau.stl   (PLA, habillage de la façade)
   apercu-assemblage.stl : les 4 pièces du circuit d'eau à leur place, pour contrôle visuel seulement
 
 Cotes en millimètres. Le tracé de la rivière vient du plan du socle (../plans/generer_plan_socle.py) :
@@ -294,6 +295,68 @@ def make_tiles(n, pitch, length):
 
 # ----------------------------------------------------------------------------- export
 
+# ----------------------------------------------------------------------------- habillage de la façade
+# Pièces collées sur la façade A pour cacher une découpe imprécise. Repère : celui de la façade vue de
+# l'extérieur (X vers la droite, Y vers le haut). Elles s'impriment à plat, face visible en haut.
+
+def poly2d(pts):
+    return CrossSection([list(pts)], FillRule.NonZero)
+
+
+def slab(pts, z0, z1):
+    return Manifold.extrude(poly2d(pts), z1 - z0).translate((0, 0, z0))
+
+
+def rect2d(x0, y0, x1, y1):
+    return [(x0, y0), (x1, y0), (x1, y1), (x0, y1)]
+
+
+def make_window():
+    """Fenêtre complète : encadrement, croisillon, appui et volets ouverts.
+    L'ouverture de 14 x 30 est à X 0..14, Y 0..30 : on la cale sur le trou de la façade.
+    L'encadrement déborde de 3 mm tout autour et cache une découpe jusqu'à 3 mm trop grande."""
+    frame = slab(rect2d(-3, -3, 17, 33), 0, 2.4) - slab(rect2d(0, 0, 14, 30), -1, 3)
+    frame += slab(rect2d(6.4, 0, 7.6, 30), 0, 1.6) + slab(rect2d(0, 14.4, 14, 15.6), 0, 1.6)   # croisillon
+    frame += slab(rect2d(-5, -6, 19, -3), 0, 3.4)                                              # appui
+    for x0 in (-14, 17):                                                                       # volets ouverts
+        shutter = slab(rect2d(x0, 0, x0 + 11, 30), 0, 1.8)
+        for k in (1, 2):
+            gx = x0 + k * 11 / 3
+            shutter -= slab(rect2d(gx - 0.3, -1, gx + 0.3, 31), 1.3, 2)                        # joints de planches
+        shutter -= slab(rect2d(x0 - 1, 7, x0 + 12, 7.6), 1.3, 2)                                # pentures
+        shutter -= slab(rect2d(x0 - 1, 22.4, x0 + 12, 23), 1.3, 2)
+        frame += shutter
+    return frame
+
+
+def make_water_arch():
+    """Encadrement en pierre de la sortie d'eau (encoche 40 x 32 en bas de la façade, X 40..80).
+    Ouverture 39 x 26 + arc : le seuil (38 x 24) passe dedans. Posé à 2 mm du socle pour
+    passer au-dessus de la collerette du bac."""
+    y0, xa, xb, ys, top = 2.0, 40.5, 79.5, 26.0, 30.0
+    c = (xa + xb) / 2
+    half = (xb - xa) / 2
+    R = (half ** 2 + (top - ys) ** 2) / (2 * (top - ys))
+    cy = top - R
+    arc = lambda r, a0, a1, n=24: [(c + r * math.cos(a0 + (a1 - a0) * i / n), cy + r * math.sin(a0 + (a1 - a0) * i / n)) for i in range(n + 1)]
+    a_in = math.asin(half / R)
+    inner = [(xa, y0 - 1), (xa, ys)] + arc(R, math.pi / 2 + a_in, math.pi / 2 - a_in) + [(xb, ys), (xb, y0 - 1)]
+    Ro, xo = R + 8, 6.0
+    a_out = math.asin((half + xo) / Ro)
+    outer = [(xa - xo, y0)] + arc(Ro, math.pi / 2 + a_out, math.pi / 2 - a_out) + [(xb + xo, y0)]
+    stone = slab(outer, 0, 3) - slab(inner, -1, 4)
+    joints = []
+    for i in range(1, 7):                                                     # voussoirs de l'arc
+        a = math.pi / 2 + a_out - i * 2 * a_out / 7
+        p0, p1 = (c + (R - 1) * math.cos(a), cy + (R - 1) * math.sin(a)), (c + (Ro + 1) * math.cos(a), cy + (Ro + 1) * math.sin(a))
+        nx, ny = -math.sin(a) * 0.3, math.cos(a) * 0.3
+        joints.append(slab([(p0[0] - nx, p0[1] - ny), (p1[0] - nx, p1[1] - ny), (p1[0] + nx, p1[1] + ny), (p0[0] + nx, p0[1] + ny)], 2.4, 4))
+    for y in (9.5, 17.5):                                                     # assises des piédroits
+        for x0 in (xa - xo - 1, xb - 1):
+            joints.append(slab(rect2d(x0, y - 0.3, x0 + xo + 2, y + 0.3), 2.4, 4))
+    return stone - Manifold.compose(joints)
+
+
 def write_stl(path, solid):
     mesh = solid.to_mesh()
     v = np.asarray(mesh.vert_properties, dtype=np.float32)[:, :3]
@@ -331,6 +394,8 @@ if __name__ == "__main__":
         ("tuiles-auvent.stl", make_tiles(11, 9.0, 36), 1),
         ("tuiles-abri-avant.stl", make_tiles(8, 9.5, 46), 1),
         ("tuiles-abri-arriere.stl", make_tiles(7, 9.5, 30), 1),
+        ("fenetre-volets.stl", make_window(), 1),
+        ("encadrement-sortie-eau.stl", make_water_arch(), 1),
     ]
     for name, solid, bodies in parts:
         solid = on_bed(solid)
