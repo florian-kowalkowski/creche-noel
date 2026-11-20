@@ -19,6 +19,7 @@ Ce fichier sert de point d'entrée pour reprendre le projet plus tard.
 | `plans/08-schema-electrique.pdf` | Schéma de branchement des LED : module micro-USB, résistances, zones |
 | `plans/0X-*-cotes.pdf` | **Plans cotés, pour tracer à la règle sans imprimante papier** : chaque pièce avec ses cotes et un tableau de coordonnées depuis une origine O |
 | `impression3d/fenetre-volets.stl`, `encadrement-sortie-eau.stl` | Habillage de la façade à coller par-dessus les découpes : fenêtre complète (encadrement, croisillon, appui, volets ouverts, × 2) et arc en pierre de la sortie d'eau. Ils cachent une découpe jusqu'à 3 mm trop grande |
+| `impression3d/porte-escalier.stl` | Porte en bois du haut de l'escalier, à coller sur le côté gauche C sans découpe : vantail 17 × 34 en planches veinées, chambranle, seuil posé sur le palier, pentures et bouton |
 | `impression3d/moule-4-tuiles.stl`, `emporte-piece-tuile.stl`, `reglettes-1,5mm.stl` | Tuiles canal en argile autodurcissante : réglettes pour étaler l'argile à 1,5 mm, emporte-pièce du flan, moule à draper pour 4 tuiles (Ø 10/8 × 22 mm une fois sèches, retrait de 3 % compensé par `CLAY_SHRINK`) |
 | `impression3d/gabarits/*.stl` | Gabarits de traçage de 2 mm à imprimer en 3D : évidement de la rivière, longeron du pont, crémaillère, limons |
 | `plans/*.svg` | Aperçu de la première page de chaque PDF |

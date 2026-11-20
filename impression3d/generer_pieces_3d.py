@@ -4,7 +4,7 @@
 Produit des fichiers STL à côté de ce script, chacun déjà posé à plat sur le plateau :
   bac-riviere.stl, bassin-reprise.stl, reservoir.stl, seuil-cascade.stl   (circuit d'eau, PETG)
   rochers.stl, pelle.stl, tuiles-auvent.stl, tuiles-abri-avant.stl, tuiles-abri-arriere.stl   (PLA)
-  fenetre-volets.stl (x 2), encadrement-sortie-eau.stl   (PLA, habillage de la façade)
+  fenetre-volets.stl (x 2), encadrement-sortie-eau.stl, porte-escalier.stl   (PLA, habillage de la façade)
   moule-4-tuiles.stl, emporte-piece-tuile.stl, reglettes-1,5mm.stl   (PLA, tuiles en argile autodurcissante)
   apercu-assemblage.stl : les 4 pièces du circuit d'eau à leur place, pour contrôle visuel seulement
 
@@ -331,25 +331,26 @@ def grain_groove(xs, ys, width):
     return poly2d(left + right[::-1])
 
 
-def make_shutter(x0, hinge_left, seed):
-    """Volet de 11 x 30 en 3 planches d'épaisseurs inégales, veinage ondulé, un nœud,
-    et deux pentures métalliques en relief côté charnière."""
+def wood_board(x0, width, height, n_planks, seed, hinge_left, straps, strap_len, top=1.8):
+    """Panneau de planches verticales d'épaisseurs inégales, veinage ondulé en creux, un nœud
+    sur la planche du milieu, et des pentures de fer en relief côté charnière (Y des pentures : straps)."""
     rng = np.random.default_rng(seed)
-    pw, gap, top = 11 / 3, 0.45, 1.8
-    shutter = Manifold()
-    for i in range(3):
-        px0, px1 = x0 + i * pw + (gap / 2 if i else 0), x0 + (i + 1) * pw - (gap / 2 if i < 2 else 0)
+    pw, gap = width / n_planks, 0.45
+    board = Manifold()
+    for i in range(n_planks):
+        px0 = x0 + i * pw + (gap / 2 if i else 0)
+        px1 = x0 + (i + 1) * pw - (gap / 2 if i < n_planks - 1 else 0)
         h = top + rng.uniform(-0.15, 0.1)
-        plank = slab(rect2d(px0, 0, px1, 30), 0, h)
+        plank = slab(rect2d(px0, 0, px1, height), 0, h)
         # veinage : 2 rainures ondulées par planche, un peu de travers, qui contournent le nœud
-        knot = (rng.uniform(px0 + 1.2, px1 - 1.2), rng.uniform(6, 24)) if i == 1 else None
+        knot = (rng.uniform(px0 + 1.2, px1 - 1.2), rng.uniform(0.2 * height, 0.8 * height)) if i == n_planks // 2 else None
         grooves = []
         for j in (1, 2):
             base, ph, tilt = px0 + j * (px1 - px0) / 3, rng.uniform(0, 6.3), rng.uniform(-0.012, 0.012)
-            ys = [-1 + 0.5 * n for n in range(65)]
+            ys = [-1 + 0.5 * n for n in range(int(2 * (height + 2)) + 1)]
             xs = []
             for y in ys:
-                x = base + 0.22 * math.sin(y * 0.33 + ph) + 0.1 * math.sin(y * 1.3 + 2 * ph) + tilt * (y - 15)
+                x = base + 0.22 * math.sin(y * 0.33 + ph) + 0.1 * math.sin(y * 1.3 + 2 * ph) + tilt * (y - height / 2)
                 if knot:
                     d = (y - knot[1]) / 2.2
                     x += (0.75 if x > knot[0] else -0.75) * math.exp(-d * d)
@@ -362,14 +363,32 @@ def make_shutter(x0, hinge_left, seed):
         for g in grooves:
             cut += g
         plank -= Manifold.extrude(cut, 1).translate((0, 0, h - 0.35))
-        shutter += plank
+        board += plank
     # pentures : bandes de fer en relief, du côté de la charnière, terminées par un rond
-    hx0, hx1 = (x0, x0 + 9.2) if hinge_left else (x0 + 11 - 9.2, x0 + 11)
+    hx0, hx1 = (x0, x0 + strap_len) if hinge_left else (x0 + width - strap_len, x0 + width)
     tip = hx1 if hinge_left else hx0
-    for y in (6.8, 22.6):
-        shutter += slab(rect2d(hx0, y, hx1, y + 0.9), 0, top + 0.45)
-        shutter += Manifold.cylinder(top + 0.45, 0.75, 0.75, 20).translate((tip, y + 0.45, 0))
-    return shutter
+    for y in straps:
+        board += slab(rect2d(hx0, y, hx1, y + 0.9), 0, top + 0.45)
+        board += Manifold.cylinder(top + 0.45, 0.75, 0.75, 20).translate((tip, y + 0.45, 0))
+    return board
+
+
+def make_shutter(x0, hinge_left, seed):
+    """Volet de 11 x 30 en 3 planches."""
+    return wood_board(x0, 11, 30, 3, seed, hinge_left, (6.8, 22.6), 9.2)
+
+
+def make_door():
+    """Porte en haut de l'escalier, à coller sur le côté gauche C de la maison (repère porte K).
+    Vantail 17 x 34 (X 0..17, Y 0..34) en 4 planches, chambranle en relief, seuil en pierre dessous,
+    pentures côté gauche et bouton à droite. Le dessous du seuil (Y -2) se pose sur le palier."""
+    leaf = wood_board(0, 17, 34, 4, 11, True, (6, 26.5), 13.5, top=1.7)
+    frame = slab(rect2d(-2.2, 0, 19.2, 36.2), 0, 2.6) - slab(rect2d(0, 0, 17, 34), -1, 3)
+    sill = slab(rect2d(-3.2, -2, 20.2, 0), 0, 3.2)
+    knob = Manifold.cylinder(2.7, 0.8, 0.8, 24).translate((14.6, 16.5, 0))
+    plate = slab(rect2d(14.0, 14.2, 15.2, 18.8), 0, 2.1)                      # platine du bouton
+    keyhole = slab(rect2d(14.45, 14.6, 14.75, 15.6), 1.7, 3)
+    return leaf + frame + sill + plate + knob - keyhole
 
 
 def make_water_arch():
@@ -484,6 +503,7 @@ if __name__ == "__main__":
         ("tuiles-abri-arriere.stl", make_tiles(7, 9.5, 30), 1),
         ("fenetre-volets.stl", make_window(), 1),
         ("encadrement-sortie-eau.stl", make_water_arch(), 1),
+        ("porte-escalier.stl", make_door(), 1),
         ("moule-4-tuiles.stl", make_tile_mold(), 1),
         ("emporte-piece-tuile.stl", make_tile_cutter(), 1),
         ("reglettes-1,5mm.stl", make_rails(), 2),
