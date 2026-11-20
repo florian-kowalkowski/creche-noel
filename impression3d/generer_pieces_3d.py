@@ -318,15 +318,57 @@ def make_window():
     frame = slab(rect2d(-3, -3, 17, 33), 0, 2.4) - slab(rect2d(0, 0, 14, 30), -1, 3)
     frame += slab(rect2d(6.4, 0, 7.6, 30), 0, 1.6) + slab(rect2d(0, 14.4, 14, 15.6), 0, 1.6)   # croisillon
     frame += slab(rect2d(-5, -6, 19, -3), 0, 3.4)                                              # appui
-    for x0 in (-14, 17):                                                                       # volets ouverts
-        shutter = slab(rect2d(x0, 0, x0 + 11, 30), 0, 1.8)
-        for k in (1, 2):
-            gx = x0 + k * 11 / 3
-            shutter -= slab(rect2d(gx - 0.3, -1, gx + 0.3, 31), 1.3, 2)                        # joints de planches
-        shutter -= slab(rect2d(x0 - 1, 7, x0 + 12, 7.6), 1.3, 2)                                # pentures
-        shutter -= slab(rect2d(x0 - 1, 22.4, x0 + 12, 23), 1.3, 2)
-        frame += shutter
+    for side, x0 in ((-1, -14), (1, 17)):                                                      # volets ouverts
+        frame += make_shutter(x0, hinge_left=(side > 0), seed=3 + side)
     return frame
+
+
+def grain_groove(xs, ys, width):
+    """Rainure de veinage : un trait ondulé d'épaisseur width, donné par sa ligne médiane."""
+    left = [(x - width / 2, y) for x, y in zip(xs, ys)]
+    right = [(x + width / 2, y) for x, y in zip(xs, ys)]
+    return poly2d(left + right[::-1])
+
+
+def make_shutter(x0, hinge_left, seed):
+    """Volet de 11 x 30 en 3 planches d'épaisseurs inégales, veinage ondulé, un nœud,
+    et deux pentures métalliques en relief côté charnière."""
+    rng = np.random.default_rng(seed)
+    pw, gap, top = 11 / 3, 0.45, 1.8
+    shutter = Manifold()
+    for i in range(3):
+        px0, px1 = x0 + i * pw + (gap / 2 if i else 0), x0 + (i + 1) * pw - (gap / 2 if i < 2 else 0)
+        h = top + rng.uniform(-0.15, 0.1)
+        plank = slab(rect2d(px0, 0, px1, 30), 0, h)
+        # veinage : 2 rainures ondulées par planche, un peu de travers, qui contournent le nœud
+        knot = (rng.uniform(px0 + 1.2, px1 - 1.2), rng.uniform(6, 24)) if i == 1 else None
+        grooves = []
+        for j in (1, 2):
+            base, ph, tilt = px0 + j * (px1 - px0) / 3, rng.uniform(0, 6.3), rng.uniform(-0.012, 0.012)
+            ys = [-1 + 0.5 * n for n in range(65)]
+            xs = []
+            for y in ys:
+                x = base + 0.22 * math.sin(y * 0.33 + ph) + 0.1 * math.sin(y * 1.3 + 2 * ph) + tilt * (y - 15)
+                if knot:
+                    d = (y - knot[1]) / 2.2
+                    x += (0.75 if x > knot[0] else -0.75) * math.exp(-d * d)
+                xs.append(x)
+            grooves.append(grain_groove(xs, ys, 0.45))
+        if knot:
+            ring = CrossSection.circle(0.95, 24).scale((0.75, 1.3)) - CrossSection.circle(0.45, 16).scale((0.75, 1.3))
+            grooves.append(ring.translate(knot))
+        cut = CrossSection()
+        for g in grooves:
+            cut += g
+        plank -= Manifold.extrude(cut, 1).translate((0, 0, h - 0.35))
+        shutter += plank
+    # pentures : bandes de fer en relief, du côté de la charnière, terminées par un rond
+    hx0, hx1 = (x0, x0 + 9.2) if hinge_left else (x0 + 11 - 9.2, x0 + 11)
+    tip = hx1 if hinge_left else hx0
+    for y in (6.8, 22.6):
+        shutter += slab(rect2d(hx0, y, hx1, y + 0.9), 0, top + 0.45)
+        shutter += Manifold.cylinder(top + 0.45, 0.75, 0.75, 20).translate((tip, y + 0.45, 0))
+    return shutter
 
 
 def make_water_arch():
