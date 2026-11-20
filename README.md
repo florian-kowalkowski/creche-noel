@@ -115,6 +115,23 @@ Choix retenu : LED unitaires de récupération, soudées, alimentées en 5 V par
 - Câblage : deux fils communs (+ et −) sous le plateau, une dérivation par LED. Résistances et soudures dans le caisson, isolées par gaine thermorétractable, pour pouvoir y accéder.
 - La pompe garde son propre port USB. Les câbles sortent par une encoche à l'arrière, dans la bande de liège.
 
+## Écorce pour l'habillage (toit de la maison, abri)
+
+L'écorce de la photo est du liège (chêne-liège), absent des forêts d'Île-de-France. Écorces locales au rendu proche :
+
+| Écorce | Où la trouver | Rendu |
+|---|---|---|
+| Pin (sylvestre, noir) | Plaques au pied des pins, troncs tombés | La meilleure : épaisse, en écailles, brun-rouge à gris, se casse en morceaux nets |
+| Chêne | Branches et troncs morts au sol | Crevasses grises, très proche du liège ; idéale pour le toit et l'abri |
+| Peuplier, châtaignier âgés | Morceaux tombés de vieux arbres | Épaisse et sillonnée, belle en bandes |
+
+- À éviter : le bouleau (trop blanc et lisse), l'écorce molle, spongieuse ou moisie, celle ramassée au sol très humide.
+- Uniquement sur du bois mort, jamais sur un arbre vivant. En forêt domaniale, un petit ramassage de bois mort pour usage personnel est généralement toléré ; en forêt privée, demander au propriétaire. Mousse : quelques poignées seulement.
+- Préparation : brosser à sec à la brosse dure (terre, toiles, insectes), sans laver à grande eau.
+- Séchage au séchoir à filament : au maximum de l'appareil, idéalement 60 à 65 °C (les insectes meurent vers 56 °C maintenus 30 min à cœur ; à 45-50 °C l'écorce sèche mais ils peuvent survivre). 10 h pour moins de 1 cm d'épaisseur, 12 à 24 h au-delà. L'écorce est sèche quand son poids ne baisse plus. La caler à plat contre le gondolage, et poser le pin sur papier cuisson (la résine suinte).
+- Après séchage : si elle s'effrite, la durcir au pinceau avec colle vinylique et eau moitié-moitié. Coller au pistolet à colle, la mousse cache les joints.
+- Quantité : l'équivalent de 3 ou 4 plaques de 30 × 20 cm. À défaut, les magasins de crèches et de terrariums vendent du liège naturel.
+
 ## Ce qui n'a pas été vérifié
 
 - Les PDF n'ont pas été affichés tels quels : seuls leurs équivalents SVG ont été contrôlés à l'écran.
