@@ -132,6 +132,26 @@ L'écorce de la photo est du liège (chêne-liège), absent des forêts d'Île-d
 - Après séchage : si elle s'effrite, la durcir au pinceau avec colle vinylique et eau moitié-moitié. Coller au pistolet à colle, la mousse cache les joints.
 - Quantité : l'équivalent de 3 ou 4 plaques de 30 × 20 cm. À défaut, les magasins de crèches et de terrariums vendent du liège naturel.
 
+## Peinture de la maison
+
+Reprendre les couleurs de la photo : un enduit provençal patiné, pas une couleur unie.
+
+| Zone | Couleur |
+|---|---|
+| Façade, partie haute | Ocre jaune au centre, passant au vert d'eau sur les bords, touches orangé-rosé sous le toit |
+| Soubassement (sous la brique) | Turquoise ou vert d'eau plus franc |
+| Volets | Bordeaux, rouge brique un peu passé |
+| Parement brique | Rouge-brun, joints clairs |
+| Porte | Le bordeaux des volets, ou vert olive, ou bleu lavande passé |
+
+1. Sous-couche : gesso, ou colle vinylique diluée, pour que le contreplaqué ne boive pas la peinture.
+2. Effet crépi (facultatif) : fine couche d'enduit de rebouchage à la spatule, tapotée à l'éponge avant séchage, ou un peu de sable fin dans la première couche.
+3. Fond crème ou sable clair partout.
+4. Taches de couleur à l'éponge, sans couvrir : ocre jaune au centre, vert d'eau sur les bords et dans les angles, pointe d'orangé-rosé en haut. Les couleurs se fondent comme un vieil enduit délavé.
+5. Patine : jus brun très dilué dans les angles, sous l'auvent et sous les fenêtres (coulures de pluie), puis léger brossage à sec blanc sur les reliefs.
+
+Peinture acrylique mate. Tubes utiles : ocre jaune, terre de Sienne naturelle, vert d'eau ou turquoise, blanc de titane, rouge oxyde (ou terre de Sienne brûlée), brun Van Dyck pour les jus. Faire un essai sur une chute de contreplaqué, et rester dans des tons délavés : une couleur trop vive fait « jouet ».
+
 ## Ce qui n'a pas été vérifié
 
 - Les PDF n'ont pas été affichés tels quels : seuls leurs équivalents SVG ont été contrôlés à l'écran.
