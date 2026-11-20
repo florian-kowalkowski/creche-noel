@@ -6,7 +6,7 @@
 <polygon points="18.00,108.00 60.00,108.00 60.00,92.00 18.00,92.00" fill="none" stroke="rgb(140,102,51)" stroke-width="0.3" stroke-linejoin="round"/>
 <polygon points="184.95,108.00 193.00,108.00 193.00,92.00 184.95,92.00" fill="none" stroke="rgb(140,102,51)" stroke-width="0.3" stroke-linejoin="round"/>
 <polygon points="55.80,40.80 57.90,40.80 57.90,21.60 55.80,21.60" fill="none" stroke="rgb(140,102,51)" stroke-width="0.3" stroke-linejoin="round"/>
-<text x="20.80" y="102.40" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(140,102,51)" text-anchor="start">plateau 10 mm</text>
+<text x="20.80" y="102.40" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(140,102,51)" text-anchor="start">plateau 20 mm</text>
 <text x="20.80" y="175.20" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(140,102,51)" text-anchor="start">fond 5 mm</text>
 <text x="59.30" y="32.80" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(140,102,51)" text-anchor="start">façade</text>
 <polygon points="33.40,92.00 60.00,92.00 60.00,87.20 66.30,72.80 66.30,63.20 36.20,63.20 36.20,53.60 33.40,53.60" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>

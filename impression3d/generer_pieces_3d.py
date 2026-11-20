@@ -24,7 +24,8 @@ from generer_plan_socle import POOL_C, RIVER_AXIS, TRAY_MARGIN, spline  # noqa: 
 
 # ----------------------------------------------------------------------------- paramètres
 TUBE_OD = 10.0       # diamètre EXTÉRIEUR du tuyau (silicone 8 x 10 mm, sur l'embout de 8,4 mm de la pompe)
-PLATE = 10.0         # épaisseur du plateau du socle
+PLATE = 20.0         # épaisseur du plateau du socle
+TRAY_DEPTH = 9.0     # profondeur du pied du bac sous le dessus du plateau (il pend dans l'évidement)
 CAVITY = 55.0        # hauteur libre du caisson (entretoises)
 CLEAR = 0.4          # jeu entre une pièce imprimée et le bois
 WALL = 2.0           # épaisseur des parois en contact avec l'eau
@@ -106,7 +107,7 @@ def make_tray():
     foot = (RIVER - disc(POOL_C, POOL_R + 0.5)).offset(-CLEAR)
     behind_house = cs([(-100, -44.2), (400, -44.2), (400, 400), (-100, 400)])     # pas de collerette sous la façade
     flange = (foot.offset(FLANGE) - disc(POOL_C, POOL_R + FLANGE + 0.7)) ^ behind_house
-    tray = ext(foot, -(PLATE - 1), 0) + ext(flange, 0, FLANGE_T) - ext(foot.offset(-WALL), TRAY_FLOOR, 3)
+    tray = ext(foot, -TRAY_DEPTH, 0) + ext(flange, 0, FLANGE_T) - ext(foot.offset(-WALL), TRAY_FLOOR, 3)
     tray -= ext(along(-4.5, 0.6, 8), WEIR, 3)                      # échancrure du déversoir
     tray += ext(along(-3, 5, 7), WEIR - 1.2, WEIR)                 # bec qui porte l'eau au-dessus du bassin
     if ROCKY_BED:
@@ -186,7 +187,9 @@ def make_cup():
     """Bassin de reprise : godet amovible avec trop-plein, posé dans l'ouverture ronde."""
     stand = (POOL_C[0], POOL_C[1] + 12)
     r_up, r_low = POOL_R - CLEAR, POOL_R - 4
-    cup = cyl(POOL_C, r_up, -PLATE, 0, 96) + cyl(POOL_C, r_low, -18, -PLATE + 0.01, 96)
+    cup = cyl(POOL_C, r_up, max(-PLATE, -18), 0, 96)
+    if PLATE < 18:                                                 # plateau mince : le fond dépasse dessous, plus étroit
+        cup += cyl(POOL_C, r_low, -18, -PLATE + 0.01, 96)
     # collerette, interrompue franchement du côté où arrive la rivière
     cup += ext(disc(POOL_C, POOL_R + FLANGE) - disc(POOL_C, r_up - 0.5) - along(-10, 16, 24), 0, FLANGE_T)
     cup -= cyl(POOL_C, r_up - WALL, -8, 3, 96) + cyl(POOL_C, r_low - WALL, -16, -7.99, 96)

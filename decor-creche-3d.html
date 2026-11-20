@@ -284,9 +284,9 @@
     const g = new T.ExtrudeGeometry(sh, { depth: 1.2, bevelEnabled: true, bevelSize: 0.4, bevelThickness: 0.4, bevelSegments: 2 });
     g.rotateX(-Math.PI / 2); add(g, mat.sand, 0, -1.6, 0);
     // caisson sous le plateau : il cache le réservoir, la pompe et le tuyau
-    const sk = new T.ExtrudeGeometry(sh, { depth: 5.5, bevelEnabled: false }); sk.rotateX(-Math.PI / 2);
+    const sk = new T.ExtrudeGeometry(sh, { depth: 6, bevelEnabled: false }); sk.rotateX(-Math.PI / 2);
     const su = sk.attributes.uv; for (let i = 0; i < su.count; i++) su.setXY(i, su.getX(i) / 8, su.getY(i) / 8);
-    add(sk, mat.wood, 0, -7.1, 0).scale.set(0.985, 1, 0.985);
+    add(sk, mat.wood, 0, -7.6, 0).scale.set(0.985, 1, 0.985);
   }
 
   /* ---------- falaise d'écorce et abri ---------- */
@@ -477,7 +477,7 @@
 
   model.traverse(o => { if (o.isMesh) { o.castShadow = true; o.receiveShadow = true; } });
   const catcher = new T.Mesh(new T.PlaneGeometry(160, 160).rotateX(-Math.PI / 2), new T.ShadowMaterial({ opacity: 0.22 }));
-  catcher.position.y = -7.12; catcher.receiveShadow = true; scene.add(catcher);
+  catcher.position.y = -7.62; catcher.receiveShadow = true; scene.add(catcher);
 
   const hemi = new T.HemisphereLight(0xffffff, 0x8a7a66, 0.75); scene.add(hemi);
   // lumières portées par les LED (visibles surtout la nuit)

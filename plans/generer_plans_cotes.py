@@ -356,7 +356,7 @@ def socle():
 
     # page 1 : contour
     p = Canvas(LW, LH)
-    header(p, "Socle - plan coté 1/3 : contour du plateau (contreplaqué 10 mm)")
+    header(p, "Socle - plan coté 1/3 : contour du plateau (contreplaqué 20 mm)")
     T, k = socle_view(p, (24, 42, 165, 140))
     Q = lambda q: T(*so(q))
     p.poly([Q(q) for q in SO.OUTLINE], CUT, True)

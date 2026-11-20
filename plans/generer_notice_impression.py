@@ -39,7 +39,7 @@ def page1():
     R(0, -10, 60, 0, WOOD)
     R(238.5, -10, 250, 0, WOOD)
     R(54, 32, 57, 44, WOOD)
-    cv.text(T(4, 0)[0], T(0, -6.5)[1], "plateau 10 mm", 2.4, WOOD[1])
+    cv.text(T(4, 0)[0], T(0, -6.5)[1], "plateau 20 mm", 2.4, WOOD[1])
     cv.text(T(4, 0)[0], T(0, -54)[1] - 3.2, "fond 5 mm", 2.4, WOOD[1])
     cv.text(T(59, 0)[0], T(0, 37)[1], "façade", 2.4, WOOD[1])
 

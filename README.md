@@ -1,6 +1,6 @@
 # Décor de crèche en liège
 
-Reproduction à fabriquer à la main d'un décor de crèche vu en photo : abri en écorce, escalier, maisonnette, pont, une rivière en circuit fermé avec mini cascade, et un éclairage LED (fenêtres, abri, feu de bois). Le socle fait 46 × 32 cm pour 7 cm de haut.
+Reproduction à fabriquer à la main d'un décor de crèche vu en photo : abri en écorce, escalier, maisonnette, pont, une rivière en circuit fermé avec mini cascade, et un éclairage LED (fenêtres, abri, feu de bois). Le socle fait 46 × 32 cm pour 8 cm de haut.
 
 Ce fichier sert de point d'entrée pour reprendre le projet plus tard.
 
@@ -67,6 +67,7 @@ python impression3d/generer_gabarits.py
 |---|---|---|---|
 | `TUBE_OD` | `impression3d/generer_pieces_3d.py` | 10 mm | On change de tuyau (actuel : silicone 8 × 10 mm) |
 | `RES` | idem | 115 × 75 mm | La pompe ne rentre pas. Zone libre à gauche, hors de dessous le bassin : 51 × 70 mm. Garder `RESERVOIR` identique dans `plans/generer_plan_socle.py` |
+| `PLATE` | idem | 20 mm | On change l'épaisseur du plateau : le bassin, le réservoir et le plan du socle en dépendent |
 | `CAVITY` | idem | 55 mm | La pompe et la courbe du tuyau ne tiennent pas en hauteur (51 mm libres dans le réservoir). Reporter la valeur dans les textes du plan du socle (entretoises, hauteur du caisson, chant) |
 | `CLEAR` | idem | 0,4 mm | Les pièces imprimées forcent ou flottent dans le bois |
 | `WEIR`, `CUP_LEVEL` | idem | −3 et −6 mm | On veut plus ou moins d'eau dans la rivière |
@@ -79,11 +80,11 @@ python impression3d/generer_gabarits.py
 ## Choix de conception à connaître
 
 - **Outils** : scie sauteuse et scie à chantourner, pas de découpe laser ni de CNC. Les assemblages sont donc à plat-joint, sans queues droites.
-- **Socle en caisson** de 70 mm : plateau contreplaqué 10 mm, 12 entretoises de 55 mm, fond 5 mm, chant fermé par une bande de liège. Il cache le réservoir, la pompe et le tuyau.
+- **Socle en caisson** de 80 mm : plateau contreplaqué 20 mm, 12 entretoises de 55 mm, fond 5 mm, chant fermé par une bande de liège. Il cache le réservoir, la pompe et le tuyau.
 - **Rivière encastrée** : le bac imprimé tombe dans un évidement du plateau et tient par une collerette. Un déversoir garde 4 mm d'eau pompe arrêtée.
 - **Lit de rivière et fond du bassin en galets** : le fond est relevé en galets aplatis de tailles variées avec un grain de sable entre eux, et des blocs sont pris dans les berges de la rivière. Les galets restent à distance des parois et du trop-plein, et les blocs sont rognés pour ne jamais dépasser à l'extérieur du bac, qui garde donc la même forme pour s'encastrer dans le bois. Pas de blocs dans le bassin : sa marche intérieure (3,6 mm) est trop étroite pour en porter de crédibles.
 - **Bassin de reprise amovible**, non collé : c'est l'accès à la pompe.
-- **Pompe couchée sur le flanc** : sa sortie est sur le dessus, et un tuyau de 10 mm ne peut pas se courber à 90° sous le plateau. On la couche donc sur le flanc, à gauche du réservoir, ventouses contre la paroi (le fabricant prévoit cette pose), embout vers la droite : le tuyau part à l'horizontale et remonte doucement vers l'encoche. C'est pour cette pompe que le caisson est passé de 55 à 70 mm et le réservoir de 95 à 115 mm de long. Couchée, elle fait 38 mm de haut : garder le réservoir rempli jusqu'à 1 cm du bord.
+- **Pompe couchée sur le flanc** : sa sortie est sur le dessus, et un tuyau de 10 mm ne peut pas se courber à 90° sous le plateau. On la couche donc sur le flanc, à gauche du réservoir, ventouses contre la paroi (le fabricant prévoit cette pose), embout vers la droite : le tuyau part à l'horizontale et remonte doucement vers l'encoche. C'est pour cette pompe que les entretoises sont passées de 40 à 55 mm et le réservoir de 95 à 115 mm de long. Le plateau de 20 mm ne change rien pour la pompe : le réservoir est dessous. Couchée, elle fait 38 mm de haut : garder le réservoir rempli jusqu'à 1 cm du bord.
 - **Abri** : structure en U en contreplaqué 5 mm, entièrement habillée d'écorce de liège. Les poteaux descendent jusqu'au socle.
 - **Escalier** : deux crémaillères collées dans les limons portent les marches. Le limon droit est abaissé au palier pour laisser passer vers la porte.
 - **Matières imprimées** : PETG pour ce qui touche l'eau, PLA pour rochers, pelle et tuiles.
