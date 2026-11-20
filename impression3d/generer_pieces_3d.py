@@ -5,6 +5,7 @@ Produit des fichiers STL à côté de ce script, chacun déjà posé à plat sur
   bac-riviere.stl, bassin-reprise.stl, reservoir.stl, seuil-cascade.stl   (circuit d'eau, PETG)
   rochers.stl, pelle.stl, tuiles-auvent.stl, tuiles-abri-avant.stl, tuiles-abri-arriere.stl   (PLA)
   fenetre-volets.stl (x 2), encadrement-sortie-eau.stl   (PLA, habillage de la façade)
+  moule-4-tuiles.stl, emporte-piece-tuile.stl, reglettes-1,5mm.stl   (PLA, tuiles en argile autodurcissante)
   apercu-assemblage.stl : les 4 pièces du circuit d'eau à leur place, pour contrôle visuel seulement
 
 Cotes en millimètres. Le tracé de la rivière vient du plan du socle (../plans/generer_plan_socle.py) :
@@ -17,7 +18,7 @@ import struct
 import sys
 
 import numpy as np
-from manifold3d import CrossSection, FillRule, Manifold
+from manifold3d import CrossSection, FillRule, JoinType, Manifold
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "plans"))
@@ -399,6 +400,51 @@ def make_water_arch():
     return stone - Manifold.compose(joints)
 
 
+# ----------------------------------------------------------------------------- tuiles en argile
+# Tuile canal finie (après séchage) : Ø extérieur 10 mm au gros bout, 8 mm au petit bout, 22 mm de long,
+# 1,5 mm d'épaisseur. Le moule et l'emporte-pièce sont agrandis de CLAY_SHRINK pour compenser le retrait.
+TILE_D_BIG, TILE_D_SMALL, TILE_LEN, CLAY_T = 10.0, 8.0, 22.0, 1.5
+CLAY_SHRINK = 1.03
+
+
+def _tile_inner():
+    """Rayons intérieurs (gros et petit bout) et longueur, côté moule (argile fraîche)."""
+    s = CLAY_SHRINK
+    return (TILE_D_BIG / 2 - CLAY_T) * s, (TILE_D_SMALL / 2 - CLAY_T) * s, TILE_LEN * s
+
+
+def make_tile_mold():
+    """Moule à draper pour 4 tuiles : 4 demi-cônes couchés sur une semelle. L'argile se pose dessus ;
+    la forme conique sert de dépouille : la tuile glisse vers le petit bout pour démouler."""
+    r1, r2, L = _tile_inner()
+    pitch, margin, base = 17.0, 5.0, 3.0
+    W = 4 * pitch
+    mold = box(0, -(L + 2 * margin), W, 0, -base, 0)          # box() prend des Y de plan : ici Y = 0..L+2m
+    for i in range(4):
+        cone = Manifold.cylinder(L, r1, r2, 64).rotate((-90, 0, 0))
+        cone = cone.translate((pitch / 2 + i * pitch, margin, 0)).trim_by_plane((0, 0, 1), 0)
+        mold += cone
+    # petit trait en bout de semelle côté gros bout, pour repérer le sens
+    mold -= box(2, -1.6, 6, -0.6, -0.5, 1)
+    return mold
+
+
+def make_tile_cutter():
+    """Emporte-pièce : découpe dans la feuille d'argile le flan d'une tuile (demi-cône déroulé)."""
+    r1, r2, L = _tile_inner()
+    w1, w2 = math.pi * (r1 + CLAY_T / 2), math.pi * (r2 + CLAY_T / 2)
+    slant = math.hypot(L, r1 - r2)
+    blank = poly2d([(-w1 / 2, 0), (w1 / 2, 0), (w2 / 2, slant), (-w2 / 2, slant)])
+    wall = blank.offset(0.8, JoinType.Miter) - blank
+    flange = blank.offset(4.0, JoinType.Round) - blank.offset(0.4, JoinType.Miter)
+    return Manifold.extrude(wall, 10) + Manifold.extrude(flange, 1.2)
+
+
+def make_rails():
+    """Deux réglettes de 1,5 mm : on étale l'argile au rouleau entre elles pour une épaisseur régulière."""
+    return Manifold.compose([slab(rect2d(0, y, 150, y + 10), 0, CLAY_T) for y in (0, 16)])
+
+
 def write_stl(path, solid):
     mesh = solid.to_mesh()
     v = np.asarray(mesh.vert_properties, dtype=np.float32)[:, :3]
@@ -438,6 +484,9 @@ if __name__ == "__main__":
         ("tuiles-abri-arriere.stl", make_tiles(7, 9.5, 30), 1),
         ("fenetre-volets.stl", make_window(), 1),
         ("encadrement-sortie-eau.stl", make_water_arch(), 1),
+        ("moule-4-tuiles.stl", make_tile_mold(), 1),
+        ("emporte-piece-tuile.stl", make_tile_cutter(), 1),
+        ("reglettes-1,5mm.stl", make_rails(), 2),
     ]
     for name, solid, bodies in parts:
         solid = on_bed(solid)
