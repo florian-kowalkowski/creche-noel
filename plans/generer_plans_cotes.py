@@ -220,6 +220,43 @@ def escalier():
 
 # ----------------------------------------------------------------------------- abri
 
+ROOF_TILT = 0.12          # pente du toit de l'abri vers l'avant (radians), comme dans la maquette
+
+
+def posts_cell(cv, slot, q17, q12, r17, r12, roof_depth):
+    """Les deux poteaux de l'abri, dessinés et cotés. Leur longueur suit la pente du toit."""
+    x, y, w, h = slot
+    cv.text(x, y + 4, "Poteaux de l'abri", 3.8, bold=True)
+    cv.text(x, y + 9, "Branches bien sèches et droites, ou tourillons de bois. Posés debout sur le socle.", 2.7)
+    tilt = math.tan(ROOF_TILT)
+    posts = [("gauche", 2 * r17, AB.H_BACK - (roof_depth - q17[1]) * tilt, SO.POSTS[0][0]),
+             ("droit", 2 * r12, AB.H_BACK - (roof_depth - q12[1]) * tilt, SO.POSTS[1][0])]
+    k, base = 0.5, y + 118
+    for i, (name, d, L, c) in enumerate(posts):
+        px = x + 22 + i * 30
+        bev = d * tilt
+        pts = [(px, base), (px + d * k, base), (px + d * k, base - (L - bev) * k), (px, base - L * k)]
+        cv.poly(pts, CUT, True)
+        cv.text(px + d * k / 2, base + 4, "Ø %s" % f(d), 2.6, anchor="middle")
+        dim_v(cv, px - 3, base - L * k, base, f(L))
+        cv.text(px + d * k / 2, base - L * k - 3, name, 2.6, BLUE, anchor="middle")
+    rows = [("Longueurs, mesurées du socle au dessous du toit :", True, BLACK)]
+    for name, d, L, c in posts:
+        X, Y = so(c)
+        rows.append(("Poteau %s : Ø %s, longueur %s mm" % (name, f(d), f(L)), True, RED))
+        rows.append(("    au socle : centre X %s ; Y %s (plan coté du socle, p. 3)" % (f(X), f(Y)), False, BLACK))
+        rows.append(("    haut coupé en biais : %s mm plus bas côté avant" % f(d * tilt), False, BLACK))
+    rows += [("", False, BLACK),
+             ("Le toit penche vers l'avant (%s mm sur ses %s mm de profondeur) :" % (f(roof_depth * tilt), f(roof_depth)), False, BLACK),
+             ("c'est pourquoi le poteau gauche, plus en avant, est plus court.", False, BLACK),
+             ("Le biais du haut (environ %s°) fait porter le toit à plat." % f(math.degrees(ROOF_TILT)), False, BLACK),
+             ("", False, BLACK),
+             ("Conseil : couper 3 mm plus long, présenter le toit à blanc", False, BLUE),
+             ("sur la paroi et les poteaux, puis recouper à la demande.", False, BLUE),
+             ("Tourillons du commerce : Ø 16 ou 18 pour le gauche, Ø 12 pour le droit.", False, BLUE)]
+    table(cv, x + 92, y + 18, rows, 2.6, 3.9)
+
+
 def abri():
     p1 = Canvas(PW, PH)
     header(p1, "Abri - plans cotés (contreplaqué 5 mm)")
@@ -258,20 +295,8 @@ def abri():
     p3 = Canvas(PW, PH)
     header(p3, "Abri - plans cotés (suite)")
     s1, s2 = cell_slots(p3)
-    cell(p3, *s1, "W - Équerre de renfort (× 4)", ["Triangle rectangle : deux côtés de 40 à l'équerre."], AB.W["outline"], draw_w=0.4)
-    list_cell(p3, *s2[:2], "Poteaux et récapitulatif", [
-        "T  joue gauche : 165 × 160 (page 1)",
-        "U  joue droite : 95 × 198 (page 1)",
-        "V  paroi du fond : %g × %g (page 2)" % (vx1 - vx0, AB.H_BACK),
-        "X  toit : %g × %g (page 2)" % (rx1 - rx0, ry1 - ry0),
-        "W  4 équerres 40 × 40",
-        "Poteau gauche : branche Ø 17, longueur 186",
-        "Poteau droit : branche Ø 12, longueur 188",
-        "",
-        "Le toit X se pose à blanc sur la paroi et les poteaux :",
-        "recouper les poteaux à la demande avant de coller.",
-        "Positions des poteaux sur le socle : plan coté du socle, page 3.",
-    ])
+    posts_cell(p3, s1, q17, q12, r17, r12, ry1 - ry0)
+    cell(p3, *s2, "W - Équerre de renfort (× 4)", ["Triangle rectangle : deux côtés de 40 à l'équerre."], AB.W["outline"], draw_w=0.4)
     return [p1, p2, p3]
 
 

@@ -193,51 +193,78 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 10 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> >>
 endobj
 10 0 obj
-<< /Length 2982 >>
+<< /Length 4711 >>
 stream
 1 j 1 J
 BT /F2 14.17 Tf 0.000 0.000 0.000 rg 39.69 807.87 Td (Abri - plans cotés \(suite\)) Tj ET
 BT /F1 7.94 Tf 0.780 0.180 0.100 rg 39.69 792.28 Td (Dessin réduit : ne pas mesurer sur l'écran, reporter les cotes à la règle.) Tj ET
-BT /F2 10.77 Tf 0.000 0.000 0.000 rg 39.69 768.19 Td (W - Équerre de renfort \(× 4\)) Tj ET
-BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 754.02 Td (Triangle rectangle : deux côtés de 40 à l'équerre.) Tj ET
+BT /F2 10.77 Tf 0.000 0.000 0.000 rg 39.69 768.19 Td (Poteaux de l'abri) Tj ET
+BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 754.02 Td (Branches bien sèches et droites, ou tourillons de bois. Posés debout sur le socle.) Tj ET
 1.417 w 0.000 0.000 0.000 RG [] 0 d
-79.37 527.81 m 285.73 527.81 l 79.37 734.17 l h S
-BT /F2 7.94 Tf 0.780 0.180 0.100 rg 68.31 520.72 Td (O) Tj ET
-BT /F1 6.80 Tf 0.780 0.180 0.100 rg 71.26 518.56 Td (1) Tj ET
-BT /F1 6.80 Tf 0.780 0.180 0.100 rg 292.14 520.92 Td (2) Tj ET
-BT /F1 6.80 Tf 0.780 0.180 0.100 rg 73.61 739.45 Td (3) Tj ET
-BT /F1 7.37 Tf 0.000 0.000 0.000 rg 308.41 733.04 Td (Origine O : coin bas gauche.) Tj ET
-BT /F1 7.37 Tf 0.000 0.000 0.000 rg 308.41 722.55 Td (X vers la droite, Y vers le haut, en mm.) Tj ET
-BT /F2 7.37 Tf 0.780 0.180 0.100 rg 308.41 712.06 Td (Points du contour \(n : X ; Y\) :) Tj ET
-BT /F1 7.09 Tf 0.780 0.180 0.100 rg 308.41 701.57 Td (1 : 0 ; 0) Tj ET
-BT /F1 7.09 Tf 0.780 0.180 0.100 rg 308.41 691.65 Td (2 : 40 ; 0) Tj ET
-BT /F1 7.09 Tf 0.780 0.180 0.100 rg 308.41 681.73 Td (3 : 0 ; 40) Tj ET
+102.05 445.04 m 126.14 445.04 l 126.14 705.67 l 102.05 708.58 l h S
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 106.72 433.70 Td (Ø 17) Tj ET
 0.567 w 0.000 0.000 0.000 RG [] 0 d
-79.37 505.13 m 285.73 505.13 l S
+93.54 708.58 m 93.54 445.04 l S
 0.567 w 0.000 0.000 0.000 RG [] 0 d
-79.37 509.39 m 79.37 500.88 l S
+89.29 708.58 m 97.80 708.58 l S
 0.567 w 0.000 0.000 0.000 RG [] 0 d
-285.73 509.39 m 285.73 500.88 l S
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 178.58 494.36 Td (40) Tj ET
+89.29 445.04 m 97.80 445.04 l S
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 75.97 573.97 Td (186) Tj ET
+BT /F1 7.37 Tf 0.120 0.330 0.700 rg 103.04 717.08 Td (gauche) Tj ET
+1.417 w 0.000 0.000 0.000 RG [] 0 d
+187.09 445.04 m 204.09 445.04 l 204.09 710.12 l 187.09 712.17 l h S
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 188.22 433.70 Td (Ø 12) Tj ET
 0.567 w 0.000 0.000 0.000 RG [] 0 d
-65.20 734.17 m 65.20 527.81 l S
+178.58 712.17 m 178.58 445.04 l S
 0.567 w 0.000 0.000 0.000 RG [] 0 d
-60.94 734.17 m 69.45 734.17 l S
+174.33 712.17 m 182.83 712.17 l S
 0.567 w 0.000 0.000 0.000 RG [] 0 d
-60.94 527.81 m 69.45 527.81 l S
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 51.59 628.16 Td (40) Tj ET
-BT /F2 10.77 Tf 0.000 0.000 0.000 rg 39.69 382.68 Td (Poteaux et récapitulatif) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 365.67 Td (T  joue gauche : 165 × 160 \(page 1\)) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 353.20 Td (U  joue droite : 95 × 198 \(page 1\)) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 340.72 Td (V  paroi du fond : 220 × 198 \(page 2\)) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 328.25 Td (X  toit : 195 × 113 \(page 2\)) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 315.78 Td (W  4 équerres 40 × 40) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 303.31 Td (Poteau gauche : branche Ø 17, longueur 186) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 290.83 Td (Poteau droit : branche Ø 12, longueur 188) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 278.36 Td () Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 265.89 Td (Le toit X se pose à blanc sur la paroi et les poteaux :) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 253.42 Td (recouper les poteaux à la demande avant de coller.) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 240.94 Td (Positions des poteaux sur le socle : plan coté du socle, page 3.) Tj ET
+174.33 445.04 m 182.83 445.04 l S
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 153.07 575.77 Td (188,5) Tj ET
+BT /F1 7.37 Tf 0.120 0.330 0.700 rg 186.38 720.67 Td (droit) Tj ET
+BT /F2 7.37 Tf 0.000 0.000 0.000 rg 300.47 728.50 Td (Longueurs, mesurées du socle au dessous du toit :) Tj ET
+BT /F2 7.37 Tf 0.780 0.180 0.100 rg 300.47 717.45 Td (Poteau gauche : Ø 17, longueur 186 mm) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 300.47 706.39 Td (    au socle : centre X 90 ; Y 110 \(plan coté du socle, p. 3\)) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 300.47 695.34 Td (    haut coupé en biais : 2 mm plus bas côté avant) Tj ET
+BT /F2 7.37 Tf 0.780 0.180 0.100 rg 300.47 684.28 Td (Poteau droit : Ø 12, longueur 188,5 mm) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 300.47 673.23 Td (    au socle : centre X 236 ; Y 89 \(plan coté du socle, p. 3\)) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 300.47 662.17 Td (    haut coupé en biais : 1,5 mm plus bas côté avant) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 300.47 651.12 Td () Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 300.47 640.06 Td (Le toit penche vers l'avant \(13,5 mm sur ses 113 mm de profondeur\) :) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 300.47 629.01 Td (c'est pourquoi le poteau gauche, plus en avant, est plus court.) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 300.47 617.95 Td (Le biais du haut \(environ 7°\) fait porter le toit à plat.) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 300.47 606.90 Td () Tj ET
+BT /F1 7.37 Tf 0.120 0.330 0.700 rg 300.47 595.84 Td (Conseil : couper 3 mm plus long, présenter le toit à blanc) Tj ET
+BT /F1 7.37 Tf 0.120 0.330 0.700 rg 300.47 584.79 Td (sur la paroi et les poteaux, puis recouper à la demande.) Tj ET
+BT /F1 7.37 Tf 0.120 0.330 0.700 rg 300.47 573.73 Td (Tourillons du commerce : Ø 16 ou 18 pour le gauche, Ø 12 pour le droit.) Tj ET
+BT /F2 10.77 Tf 0.000 0.000 0.000 rg 39.69 382.68 Td (W - Équerre de renfort \(× 4\)) Tj ET
+BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 368.50 Td (Triangle rectangle : deux côtés de 40 à l'équerre.) Tj ET
+1.417 w 0.000 0.000 0.000 RG [] 0 d
+79.37 142.30 m 285.73 142.30 l 79.37 348.66 l h S
+BT /F2 7.94 Tf 0.780 0.180 0.100 rg 68.31 135.21 Td (O) Tj ET
+BT /F1 6.80 Tf 0.780 0.180 0.100 rg 71.26 133.05 Td (1) Tj ET
+BT /F1 6.80 Tf 0.780 0.180 0.100 rg 292.14 135.41 Td (2) Tj ET
+BT /F1 6.80 Tf 0.780 0.180 0.100 rg 73.61 353.94 Td (3) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 308.41 347.53 Td (Origine O : coin bas gauche.) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 308.41 337.04 Td (X vers la droite, Y vers le haut, en mm.) Tj ET
+BT /F2 7.37 Tf 0.780 0.180 0.100 rg 308.41 326.55 Td (Points du contour \(n : X ; Y\) :) Tj ET
+BT /F1 7.09 Tf 0.780 0.180 0.100 rg 308.41 316.06 Td (1 : 0 ; 0) Tj ET
+BT /F1 7.09 Tf 0.780 0.180 0.100 rg 308.41 306.14 Td (2 : 40 ; 0) Tj ET
+BT /F1 7.09 Tf 0.780 0.180 0.100 rg 308.41 296.22 Td (3 : 0 ; 40) Tj ET
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+79.37 119.62 m 285.73 119.62 l S
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+79.37 123.87 m 79.37 115.37 l S
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+285.73 123.87 m 285.73 115.37 l S
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 178.58 108.85 Td (40) Tj ET
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+65.20 348.66 m 65.20 142.30 l S
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+60.94 348.66 m 69.45 348.66 l S
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+60.94 142.30 m 69.45 142.30 l S
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 51.59 242.65 Td (40) Tj ET
 endstream
 endobj
 xref
@@ -256,5 +283,5 @@ xref
 trailer
 << /Size 11 /Root 1 0 R >>
 startxref
-14732
+16461
 %%EOF
