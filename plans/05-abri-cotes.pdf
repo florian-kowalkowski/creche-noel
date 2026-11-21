@@ -4,7 +4,7 @@
 << /Type /Catalog /Pages 2 0 R >>
 endobj
 2 0 obj
-<< /Type /Pages /Count 2 /Kids [5 0 R 7 0 R] >>
+<< /Type /Pages /Count 3 /Kids [5 0 R 7 0 R 9 0 R] >>
 endobj
 3 0 obj
 << /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
@@ -108,7 +108,92 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 8 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> >>
 endobj
 8 0 obj
-<< /Length 2678 >>
+<< /Length 5603 >>
+stream
+1 j 1 J
+BT /F2 14.17 Tf 0.000 0.000 0.000 rg 39.69 807.87 Td (Abri - plans cotés \(suite\)) Tj ET
+BT /F1 7.94 Tf 0.780 0.180 0.100 rg 39.69 792.28 Td (Dessin réduit : ne pas mesurer sur l'écran, reporter les cotes à la règle.) Tj ET
+BT /F2 10.77 Tf 0.000 0.000 0.000 rg 39.69 768.19 Td (V - Paroi du fond) Tj ET
+BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 754.02 Td (Vue de face, depuis l'intérieur de l'abri. 220 × 198.) Tj ET
+0.709 w 0.120 0.330 0.700 RG [8.50 4.25] 0 d
+272.83 502.02 m 272.83 724.79 l S
+BT /F2 7.37 Tf 0.120 0.330 0.700 rg 270.99 610.57 Td (a) Tj ET
+1.417 w 0.000 0.000 0.000 RG [] 0 d
+79.37 502.02 m 337.32 502.02 l 337.32 734.17 l 79.37 734.17 l h S
+BT /F2 7.94 Tf 0.780 0.180 0.100 rg 68.31 494.93 Td (O) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 360.00 733.04 Td (Origine O : coin bas gauche.) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 360.00 722.55 Td (X vers la droite, Y vers le haut, en mm.) Tj ET
+BT /F2 7.37 Tf 0.000 0.000 0.000 rg 360.00 712.06 Td (Rectangle 220 × 198.) Tj ET
+BT /F2 7.37 Tf 0.120 0.330 0.700 rg 360.00 701.57 Td (a  passage des fils LED \(derrière l'écorce\)) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 360.00 691.09 Td (    trait à X 165, de Y 0 à 190) Tj ET
+BT /F1 7.37 Tf 0.120 0.330 0.700 rg 360.00 677.76 Td (Les joues T \(à gauche\) et U \(à droite\)) Tj ET
+BT /F1 7.37 Tf 0.120 0.330 0.700 rg 360.00 667.28 Td (se collent contre ses deux chants.) Tj ET
+BT /F1 7.37 Tf 0.120 0.330 0.700 rg 360.00 656.79 Td (Équerres W dans les 4 angles intérieurs.) Tj ET
+BT /F1 7.37 Tf 0.120 0.330 0.700 rg 360.00 646.30 Td (Rectangle : vérifier l'équerre) Tj ET
+BT /F1 7.37 Tf 0.120 0.330 0.700 rg 360.00 635.81 Td (par les diagonales \(296,4\).) Tj ET
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+79.37 479.34 m 337.32 479.34 l S
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+79.37 483.59 m 79.37 475.09 l S
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+337.32 483.59 m 337.32 475.09 l S
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 202.39 468.57 Td (220) Tj ET
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+65.20 734.17 m 65.20 502.02 l S
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+60.94 734.17 m 69.45 734.17 l S
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+60.94 502.02 m 69.45 502.02 l S
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 47.62 615.26 Td (198) Tj ET
+BT /F2 10.77 Tf 0.000 0.000 0.000 rg 39.69 382.68 Td (X - Toit) Tj ET
+BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 368.50 Td (Vu de dessus, avant en bas. 195 × 113.) Tj ET
+0.709 w 0.120 0.330 0.700 RG [8.50 4.25] 0 d
+130.30 216.38 m 129.92 219.29 l 128.79 222.00 l 127.01 224.33 l 124.68 226.12 l 121.97 227.24 l 119.06 227.62 l 116.14 227.24 l 113.43 226.12 l 111.10 224.33 l 109.32 222.00 l 108.19 219.29 l 107.81 216.38 l 108.19 213.47 l 109.32 210.76 l 111.10 208.43 l 113.43 206.64 l 116.14 205.52 l 119.06 205.13 l 121.97 205.52 l 124.68 206.64 l 127.01 208.43 l 128.79 210.76 l 129.92 213.47 l h S
+BT /F2 7.37 Tf 0.120 0.330 0.700 rg 117.21 213.54 Td (a) Tj ET
+0.709 w 0.120 0.330 0.700 RG [8.50 4.25] 0 d
+320.13 244.16 m 319.86 246.21 l 319.06 248.13 l 317.80 249.77 l 316.16 251.03 l 314.24 251.82 l 312.19 252.09 l 310.13 251.82 l 308.22 251.03 l 306.58 249.77 l 305.32 248.13 l 304.52 246.21 l 304.25 244.16 l 304.52 242.10 l 305.32 240.19 l 306.58 238.55 l 308.22 237.28 l 310.13 236.49 l 312.19 236.22 l 314.24 236.49 l 316.16 237.28 l 317.80 238.55 l 319.06 240.19 l 319.86 242.10 l h S
+BT /F2 7.37 Tf 0.120 0.330 0.700 rg 310.35 241.32 Td (b) Tj ET
+0.709 w 0.120 0.330 0.700 RG [8.50 4.25] 0 d
+138.90 228.28 m 297.64 228.28 l 297.64 238.87 l 138.90 238.87 l h S
+BT /F2 7.37 Tf 0.120 0.330 0.700 rg 216.43 230.74 Td (c) Tj ET
+1.417 w 0.000 0.000 0.000 RG [] 0 d
+79.37 199.18 m 337.32 199.18 l 337.32 348.66 l 79.37 348.66 l h S
+BT /F2 7.94 Tf 0.780 0.180 0.100 rg 68.31 192.09 Td (O) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 360.00 347.53 Td (Origine O : coin bas gauche.) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 360.00 337.04 Td (X vers la droite, Y vers le haut, en mm.) Tj ET
+BT /F2 7.37 Tf 0.000 0.000 0.000 rg 360.00 326.55 Td (Rectangle 195 × 113.) Tj ET
+BT /F2 7.37 Tf 0.120 0.330 0.700 rg 360.00 316.06 Td (a  appui du poteau Ø 17 \(dessous\)) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 360.00 305.57 Td (    Ø 17, centre X 30 ; Y 13) Tj ET
+BT /F2 7.37 Tf 0.120 0.330 0.700 rg 360.00 295.09 Td (b  appui du poteau Ø 12 \(dessous\)) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 360.00 284.60 Td (    Ø 12, centre X 176 ; Y 34) Tj ET
+BT /F2 7.37 Tf 0.120 0.330 0.700 rg 360.00 274.11 Td (c  LED de l'abri, collées dessous) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 360.00 263.62 Td (    X 45 à 165 ; Y 22 à 30) Tj ET
+BT /F1 7.37 Tf 0.120 0.330 0.700 rg 360.00 250.30 Td (L'arrière \(en haut\) repose sur la paroi V.) Tj ET
+BT /F1 7.37 Tf 0.120 0.330 0.700 rg 360.00 239.81 Td (Rien à percer : les repères servent) Tj ET
+BT /F1 7.37 Tf 0.120 0.330 0.700 rg 360.00 229.32 Td (à placer les poteaux et les LED.) Tj ET
+BT /F1 7.37 Tf 0.120 0.330 0.700 rg 360.00 218.83 Td (Reporter les repères sur le dessous) Tj ET
+BT /F1 7.37 Tf 0.120 0.330 0.700 rg 360.00 208.35 Td (en retournant la planche de gauche à droite.) Tj ET
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+79.37 176.50 m 337.32 176.50 l S
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+79.37 180.76 m 79.37 172.25 l S
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+337.32 180.76 m 337.32 172.25 l S
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 202.39 165.73 Td (195) Tj ET
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+65.20 348.66 m 65.20 199.18 l S
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+60.94 348.66 m 69.45 348.66 l S
+0.567 w 0.000 0.000 0.000 RG [] 0 d
+60.94 199.18 m 69.45 199.18 l S
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 47.62 271.09 Td (113) Tj ET
+endstream
+endobj
+9 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 10 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> >>
+endobj
+10 0 obj
+<< /Length 2982 >>
 stream
 1 j 1 J
 BT /F2 14.17 Tf 0.000 0.000 0.000 rg 39.69 807.87 Td (Abri - plans cotés \(suite\)) Tj ET
@@ -141,30 +226,35 @@ BT /F1 7.94 Tf 0.000 0.000 0.000 rg 178.58 494.36 Td (40) Tj ET
 0.567 w 0.000 0.000 0.000 RG [] 0 d
 60.94 527.81 m 69.45 527.81 l S
 BT /F1 7.94 Tf 0.000 0.000 0.000 rg 51.59 628.16 Td (40) Tj ET
-BT /F2 10.77 Tf 0.000 0.000 0.000 rg 39.69 382.68 Td (Pièces rectangulaires et poteaux) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 365.67 Td (V  paroi du fond : 220 × 198) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 353.20 Td (X  toit : 195 × 113) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 340.72 Td (Poteau gauche : branche Ø 17, longueur 186) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 328.25 Td (Poteau droit : branche Ø 12, longueur 188) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 315.78 Td () Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 303.31 Td (Le toit X se pose à blanc sur la paroi et les poteaux :) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 290.83 Td (recouper les poteaux à la demande avant de coller.) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 278.36 Td (Positions des poteaux : voir le plan coté du socle.) Tj ET
+BT /F2 10.77 Tf 0.000 0.000 0.000 rg 39.69 382.68 Td (Poteaux et récapitulatif) Tj ET
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 365.67 Td (T  joue gauche : 165 × 160 \(page 1\)) Tj ET
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 353.20 Td (U  joue droite : 95 × 198 \(page 1\)) Tj ET
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 340.72 Td (V  paroi du fond : 220 × 198 \(page 2\)) Tj ET
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 328.25 Td (X  toit : 195 × 113 \(page 2\)) Tj ET
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 315.78 Td (W  4 équerres 40 × 40) Tj ET
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 303.31 Td (Poteau gauche : branche Ø 17, longueur 186) Tj ET
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 290.83 Td (Poteau droit : branche Ø 12, longueur 188) Tj ET
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 278.36 Td () Tj ET
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 265.89 Td (Le toit X se pose à blanc sur la paroi et les poteaux :) Tj ET
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 253.42 Td (recouper les poteaux à la demande avant de coller.) Tj ET
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 240.94 Td (Positions des poteaux sur le socle : plan coté du socle, page 3.) Tj ET
 endstream
 endobj
 xref
-0 9
+0 11
 0000000000 65535 f 
 0000000015 00000 n 
 0000000064 00000 n 
-0000000127 00000 n 
-0000000224 00000 n 
-0000000326 00000 n 
-0000000468 00000 n 
-0000005751 00000 n 
-0000005893 00000 n 
+0000000133 00000 n 
+0000000230 00000 n 
+0000000332 00000 n 
+0000000474 00000 n 
+0000005757 00000 n 
+0000005899 00000 n 
+0000011554 00000 n 
+0000011697 00000 n 
 trailer
-<< /Size 9 /Root 1 0 R >>
+<< /Size 11 /Root 1 0 R >>
 startxref
-8623
+14732
 %%EOF

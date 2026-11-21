@@ -231,21 +231,48 @@ def abri():
          [("chant de la paroi V, repère", "trace", rect(0, 0, 5, AB.H_BACK))], ["Partie basse (points 2 à 4) : le pilier."],
          origin="bas, côté arrière")
 
+    # paroi V et toit X, avec leurs repères calculés depuis le plan du socle
+    vx0, vx1 = AB.BACK
+    led = [c for c, r, n, _, _ in SO.LED_HOLES if "abri" in n][0]
+    rx0, ry0, rx1, ry1 = AB.ROOF
+    on_roof = lambda c: (c[0] - rx0, ry1 - c[1])                   # vu de dessus, avant en bas
+    (p17, r17, _), (p12, r12, _) = SO.POSTS
+    q17, q12 = on_roof(p17), on_roof(p12)
     p2 = Canvas(PW, PH)
     header(p2, "Abri - plans cotés (suite)")
     s1, s2 = cell_slots(p2)
-    cell(p2, *s1, "W - Équerre de renfort (× 4)", ["Triangle rectangle : deux côtés de 40 à l'équerre."], AB.W["outline"], draw_w=0.4)
-    list_cell(p2, *s2[:2], "Pièces rectangulaires et poteaux", [
-        "V  paroi du fond : 220 × 198",
-        "X  toit : 195 × 113",
+    wire_x = led[0] - vx0
+    cell(p2, *s1, "V - Paroi du fond", ["Vue de face, depuis l'intérieur de l'abri. %g × %g." % (vx1 - vx0, AB.H_BACK)],
+         rect(0, 0, vx1 - vx0, AB.H_BACK),
+         [("passage des fils LED (derrière l'écorce)", "trace", [(wire_x, 0), (wire_x, AB.H_BACK - 8)])],
+         ["Les joues T (à gauche) et U (à droite)", "se collent contre ses deux chants.",
+          "Équerres W dans les 4 angles intérieurs.", "Rectangle : vérifier l'équerre", "par les diagonales (296,4)."])
+    cell(p2, *s2, "X - Toit", ["Vu de dessus, avant en bas. %g × %g." % (rx1 - rx0, ry1 - ry0)],
+         rect(0, 0, rx1 - rx0, ry1 - ry0),
+         [("appui du poteau Ø %g (dessous)" % (2 * r17), "trace", circle(q17, r17, 24)),
+          ("appui du poteau Ø %g (dessous)" % (2 * r12), "trace", circle(q12, r12, 24)),
+          ("LED de l'abri, collées dessous", "trace", rect(45, 22, 165, 30))],
+         ["L'arrière (en haut) repose sur la paroi V.", "Rien à percer : les repères servent", "à placer les poteaux et les LED.",
+          "Reporter les repères sur le dessous", "en retournant la planche de gauche à droite."])
+
+    p3 = Canvas(PW, PH)
+    header(p3, "Abri - plans cotés (suite)")
+    s1, s2 = cell_slots(p3)
+    cell(p3, *s1, "W - Équerre de renfort (× 4)", ["Triangle rectangle : deux côtés de 40 à l'équerre."], AB.W["outline"], draw_w=0.4)
+    list_cell(p3, *s2[:2], "Poteaux et récapitulatif", [
+        "T  joue gauche : 165 × 160 (page 1)",
+        "U  joue droite : 95 × 198 (page 1)",
+        "V  paroi du fond : %g × %g (page 2)" % (vx1 - vx0, AB.H_BACK),
+        "X  toit : %g × %g (page 2)" % (rx1 - rx0, ry1 - ry0),
+        "W  4 équerres 40 × 40",
         "Poteau gauche : branche Ø 17, longueur 186",
         "Poteau droit : branche Ø 12, longueur 188",
         "",
         "Le toit X se pose à blanc sur la paroi et les poteaux :",
         "recouper les poteaux à la demande avant de coller.",
-        "Positions des poteaux : voir le plan coté du socle.",
+        "Positions des poteaux sur le socle : plan coté du socle, page 3.",
     ])
-    return [p1, p2]
+    return [p1, p2, p3]
 
 
 # ----------------------------------------------------------------------------- pont
