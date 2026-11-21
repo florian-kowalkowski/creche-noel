@@ -1,81 +1,80 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="210mm" height="297mm" viewBox="0 0 210 297">
 <rect width="100%" height="100%" fill="white"/>
-<text x="14.00" y="14.00" font-family="Helvetica,Arial,sans-serif" font-size="5.5" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">Crèche en liège - étape 4 : escalier et mur de briques</text>
-<text x="14.00" y="20.00" font-family="Helvetica,Arial,sans-serif" font-size="3" fill="rgb(0,0,0)" text-anchor="start">Vues d'ensemble à l'échelle 0,6. Les 4 planches suivantes sont à l'échelle 1.</text>
-<polygon points="24.00,156.00 114.00,156.00 114.00,70.80 94.80,70.80 30.00,141.00 24.00,146.40" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polygon points="30.00,156.00 31.80,156.00 31.80,150.00 30.00,150.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="30.00,150.00 39.00,150.00 39.00,148.20 30.00,148.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="37.20,148.20 39.00,148.20 39.00,142.20 37.20,142.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="37.20,142.20 46.20,142.20 46.20,140.40 37.20,140.40" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="44.40,140.40 46.20,140.40 46.20,134.40 44.40,134.40" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="44.40,134.40 53.40,134.40 53.40,132.60 44.40,132.60" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="51.60,132.60 53.40,132.60 53.40,126.60 51.60,126.60" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="51.60,126.60 60.60,126.60 60.60,124.80 51.60,124.80" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="58.80,124.80 60.60,124.80 60.60,118.80 58.80,118.80" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="58.80,118.80 67.80,118.80 67.80,117.00 58.80,117.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="66.00,117.00 67.80,117.00 67.80,111.00 66.00,111.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="66.00,111.00 75.00,111.00 75.00,109.20 66.00,109.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="73.20,109.20 75.00,109.20 75.00,103.20 73.20,103.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="73.20,103.20 82.20,103.20 82.20,101.40 73.20,101.40" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="80.40,101.40 82.20,101.40 82.20,95.40 80.40,95.40" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="80.40,95.40 89.40,95.40 89.40,93.60 80.40,93.60" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="87.60,93.60 89.40,93.60 89.40,87.60 87.60,87.60" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="87.60,87.60 96.60,87.60 96.60,85.80 87.60,85.80" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="94.80,85.80 96.60,85.80 96.60,79.80 94.80,79.80" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="94.80,79.80 114.00,79.80 114.00,78.00 94.80,78.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="114.00,156.00 117.00,156.00 117.00,39.00 114.00,39.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<text x="69.00" y="70.00" font-family="Helvetica,Arial,sans-serif" font-size="3" fill="rgb(0,0,0)" text-anchor="middle" font-weight="bold">PROFIL</text>
-<polyline points="24.00,161.00 114.00,161.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="24.00,159.50 24.00,162.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="114.00,159.50 114.00,162.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<text x="69.00" y="165.00" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="middle">150</text>
-<polyline points="123.00,78.00 123.00,156.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="121.50,78.00 124.50,78.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="121.50,156.00 124.50,156.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<text x="125.00" y="118.00" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="start">130 (palier)</text>
-<polyline points="147.00,39.00 147.00,156.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="145.50,39.00 148.50,39.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="145.50,156.00 148.50,156.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<text x="149.00" y="98.50" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="start">195 (mur S)</text>
-<text x="48.00" y="102.00" font-family="Helvetica,Arial,sans-serif" font-size="2.5" fill="rgb(31,84,178)" text-anchor="middle">limon M ou N</text>
-<text x="60.00" y="144.00" font-family="Helvetica,Arial,sans-serif" font-size="2.5" fill="rgb(31,84,178)" text-anchor="start">marche : giron 12, hauteur 13</text>
-<polygon points="163.00,156.00 201.40,156.00 201.40,39.00 163.00,39.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polygon points="166.00,156.00 169.00,156.00 169.00,70.80 166.00,70.80" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polygon points="195.40,156.00 198.40,156.00 198.40,79.80 195.40,79.80" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<polyline points="169.00,148.20 195.40,148.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="169.00,140.40 195.40,140.40" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="169.00,132.60 195.40,132.60" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="169.00,124.80 195.40,124.80" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="169.00,117.00 195.40,117.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="169.00,109.20 195.40,109.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="169.00,101.40 195.40,101.40" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="169.00,93.60 195.40,93.60" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="169.00,85.80 195.40,85.80" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="169.00,78.00 195.40,78.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="195.40,78.00 202.00,78.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<text x="182.20" y="34.00" font-family="Helvetica,Arial,sans-serif" font-size="3" fill="rgb(0,0,0)" text-anchor="middle" font-weight="bold">FACE</text>
-<polyline points="166.00,161.00 198.40,161.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="166.00,159.50 166.00,162.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polyline points="198.40,159.50 198.40,162.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<text x="182.20" y="165.00" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="middle">54</text>
-<text x="182.20" y="60.00" font-family="Helvetica,Arial,sans-serif" font-size="2.5" fill="rgb(31,84,178)" text-anchor="middle">mur S</text>
-<text x="182.20" y="75.60" font-family="Helvetica,Arial,sans-serif" font-size="2.5" fill="rgb(31,84,178)" text-anchor="middle">palier R, vers la porte à droite</text>
-<text x="14.00" y="176.00" font-family="Helvetica,Arial,sans-serif" font-size="3.2" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">PIÈCES</text>
-<text x="14.00" y="181.50" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">M, N  limons gauche et droit, contreplaqué 5 mm, 150 × 142</text>
-<text x="14.00" y="186.30" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">O  2 crémaillères, contreplaqué 3 mm, 137 × 127</text>
-<text x="14.00" y="191.10" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">P  9 marches 44 × 15    Q  10 contremarches 44 × 10    R  palier 55 × 32  (3 mm)</text>
-<text x="14.00" y="195.90" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">S  mur de briques, contreplaqué 5 mm, 64 × 195</text>
-<text x="14.00" y="204.70" font-family="Helvetica,Arial,sans-serif" font-size="3.2" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">MONTAGE</text>
-<text x="14.00" y="210.20" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">1. Coller une crémaillère O sur la face intérieure de chaque limon, sur le tireté :</text>
-<text x="14.00" y="215.00" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">    bas et arrière alignés. Attention, les deux limons se font en miroir.</text>
-<text x="14.00" y="219.80" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">2. Réunir les deux limons par le palier R et la première contremarche Q,</text>
-<text x="14.00" y="224.60" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">    avec 44 mm entre eux. Vérifier l'équerre et laisser sécher.</text>
-<text x="14.00" y="229.40" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">3. Monter de bas en haut : une contremarche, puis la marche posée dessus.</text>
-<text x="14.00" y="234.20" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">    Chaque marche passe sous la contremarche suivante.</text>
-<text x="14.00" y="239.00" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">4. Coller le mur S au dos de l'escalier, centré.</text>
-<text x="14.00" y="243.80" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">5. Finition : liège en feuille de 2 mm sur les marches, ou peinture sablée.</text>
-<text x="14.00" y="248.60" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">    Sur le mur, graver les joints de briques au cutter avant peinture.</text>
-<text x="14.00" y="257.40" font-family="Helvetica,Arial,sans-serif" font-size="3.2" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">SUR LE SOCLE</text>
-<text x="14.00" y="262.90" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">L'escalier se place sur le tracé bleu du plan du socle, palier contre le mur du fond,</text>
-<text x="14.00" y="267.70" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="start">limon droit N à 6 mm du mur gauche de la maison. Le palier R comble cet espace.</text>
+<text x="14.00" y="14.00" font-family="Helvetica,Arial,sans-serif" font-size="5.5" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">Crèche en liège - étape 4 : escalier en blocs empilés</text>
+<text x="14.00" y="20.00" font-family="Helvetica,Arial,sans-serif" font-size="3" fill="rgb(0,0,0)" text-anchor="start">9 blocs découpés dans une planche de 15 mm, empilés et collés. Vues réduites, cotes en mm.</text>
+<polygon points="24.00,152.00 108.00,152.00 108.00,143.00 24.00,143.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<text x="25.80" y="148.50" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(31,84,178)" text-anchor="start">B1</text>
+<polygon points="32.10,143.00 108.00,143.00 108.00,134.00 32.10,134.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<text x="33.90" y="139.50" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(31,84,178)" text-anchor="start">B2</text>
+<polygon points="40.20,134.00 108.00,134.00 108.00,125.00 40.20,125.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<text x="42.00" y="130.50" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(31,84,178)" text-anchor="start">B3</text>
+<polygon points="48.30,125.00 108.00,125.00 108.00,116.00 48.30,116.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<text x="50.10" y="121.50" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(31,84,178)" text-anchor="start">B4</text>
+<polygon points="56.40,116.00 108.00,116.00 108.00,107.00 56.40,107.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<text x="58.20" y="112.50" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(31,84,178)" text-anchor="start">B5</text>
+<polygon points="64.50,107.00 108.00,107.00 108.00,98.00 64.50,98.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<text x="66.30" y="103.50" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(31,84,178)" text-anchor="start">B6</text>
+<polygon points="72.60,98.00 108.00,98.00 108.00,89.00 72.60,89.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<text x="74.40" y="94.50" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(31,84,178)" text-anchor="start">B7</text>
+<polygon points="80.70,89.00 108.00,89.00 108.00,80.00 80.70,80.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<text x="82.50" y="85.50" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(31,84,178)" text-anchor="start">B8</text>
+<polygon points="88.80,80.00 108.00,80.00 108.00,71.00 88.80,71.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<text x="90.60" y="76.50" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(31,84,178)" text-anchor="start">B9</text>
+<polygon points="108.00,152.00 111.00,152.00 111.00,35.00 108.00,35.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="66.00" y="34.00" font-family="Helvetica,Arial,sans-serif" font-size="3" fill="rgb(0,0,0)" text-anchor="middle" font-weight="bold">PROFIL</text>
+<polyline points="24.00,157.00 108.00,157.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="24.00,155.50 24.00,158.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="108.00,155.50 108.00,158.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="66.00" y="161.00" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="middle">140</text>
+<polyline points="117.00,71.00 117.00,152.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="115.50,71.00 118.50,71.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="115.50,152.00 118.50,152.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="119.00" y="112.50" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="start">135 (palier)</text>
+<text x="24.00" y="110.60" font-family="Helvetica,Arial,sans-serif" font-size="2.5" fill="rgb(31,84,178)" text-anchor="start">giron 13,5</text>
+<text x="24.00" y="114.60" font-family="Helvetica,Arial,sans-serif" font-size="2.5" fill="rgb(31,84,178)" text-anchor="start">hauteur 15</text>
+<polygon points="143.00,152.00 181.40,152.00 181.40,35.00 143.00,35.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="146.00,152.00 178.40,152.00 178.40,143.00 146.00,143.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="146.00,143.00 178.40,143.00 178.40,134.00 146.00,134.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="146.00,134.00 178.40,134.00 178.40,125.00 146.00,125.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="146.00,125.00 178.40,125.00 178.40,116.00 146.00,116.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="146.00,116.00 178.40,116.00 178.40,107.00 146.00,107.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="146.00,107.00 178.40,107.00 178.40,98.00 146.00,98.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="146.00,98.00 178.40,98.00 178.40,89.00 146.00,89.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="146.00,89.00 178.40,89.00 178.40,80.00 146.00,80.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="146.00,80.00 182.00,80.00 182.00,71.00 146.00,71.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<text x="164.00" y="34.00" font-family="Helvetica,Arial,sans-serif" font-size="3" fill="rgb(0,0,0)" text-anchor="middle" font-weight="bold">FACE</text>
+<polyline points="146.00,157.00 178.40,157.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="146.00,155.50 146.00,158.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polyline points="178.40,155.50 178.40,158.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<text x="162.20" y="161.00" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="middle">54</text>
+<text x="162.20" y="48.80" font-family="Helvetica,Arial,sans-serif" font-size="2.5" fill="rgb(31,84,178)" text-anchor="middle">mur S, 195 de haut</text>
+<text x="183.00" y="73.40" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(31,84,178)" text-anchor="start">palier 60 :</text>
+<text x="183.00" y="76.90" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(31,84,178)" text-anchor="start">touche la maison</text>
+<text x="14.00" y="168.00" font-family="Helvetica,Arial,sans-serif" font-size="3.2" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">DÉBIT : 9 blocs dans une planche de 15 mm</text>
+<text x="14.00" y="174.00" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="start">B1 : 54 × 140 mm  (en bas)</text>
+<text x="14.00" y="178.60" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="start">B2 : 54 × 126,5 mm</text>
+<text x="14.00" y="183.20" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="start">B3 : 54 × 113 mm</text>
+<text x="14.00" y="187.80" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="start">B4 : 54 × 99,5 mm</text>
+<text x="14.00" y="192.40" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="start">B5 : 54 × 86 mm</text>
+<text x="80.00" y="174.00" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="start">B6 : 54 × 72,5 mm</text>
+<text x="80.00" y="178.60" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="start">B7 : 54 × 59 mm</text>
+<text x="80.00" y="183.20" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="start">B8 : 54 × 45,5 mm</text>
+<text x="80.00" y="187.80" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="start">B9 : 60 × 32 mm  (palier)</text>
+<text x="146.00" y="174.00" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="start">Mur S : 64 × 195,</text>
+<text x="146.00" y="178.60" font-family="Helvetica,Arial,sans-serif" font-size="2.8" fill="rgb(0,0,0)" text-anchor="start">contreplaqué 5 mm</text>
+<text x="14.00" y="205.00" font-family="Helvetica,Arial,sans-serif" font-size="3.1" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">MONTAGE</text>
+<text x="14.00" y="209.40" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">1. Débiter une bande de 54 mm de large sur toute la longueur de la planche (largeur des marches).</text>
+<text x="14.00" y="213.80" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">    Puis recouper à la longueur de chaque bloc. Le palier B9 se coupe à part, en 60 mm de large.</text>
+<text x="14.00" y="218.20" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">2. Poncer les faces visibles et marquer au crayon le dos de chaque bloc : tous les dos sont alignés.</text>
+<text x="14.00" y="222.60" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">3. Coller B1 sur le socle, dos contre le mur du fond. Puis B2 sur B1, dos alignés, côté gauche aligné,</text>
+<text x="14.00" y="227.00" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">    et ainsi de suite jusqu'à B9. Serrer avec un serre-joint ou un poids pendant le séchage.</text>
+<text x="14.00" y="231.40" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">4. Le palier B9 dépasse de 6 mm côté maison : il vient toucher le mur, juste sous la porte.</text>
+<text x="14.00" y="235.80" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">5. Coller le mur S (et son parement de briques) contre le dos de l'escalier.</text>
+<text x="14.00" y="242.20" font-family="Helvetica,Arial,sans-serif" font-size="3.1" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">FINITION</text>
+<text x="14.00" y="246.60" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">Les tranches du contreplaqué se voient sur les côtés et les contremarches : les masquer avec du liège</text>
+<text x="14.00" y="251.00" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">en feuille de 2 mm, de l'écorce, ou de l'enduit de rebouchage peint en pierre. Dessus des marches :</text>
+<text x="14.00" y="255.40" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">liège en feuille ou peinture sablée. Un jus brun dans les angles des marches les vieillit.</text>
+<text x="14.00" y="261.80" font-family="Helvetica,Arial,sans-serif" font-size="3.1" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">PORTE</text>
+<text x="14.00" y="266.20" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">Le palier est à 135 mm (5 mm plus haut qu'avec l'ancien escalier) : la porte imprimée se colle avec</text>
+<text x="14.00" y="270.60" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">son seuil posé sur le palier, le vantail de Y 137 à 171 sur le côté C de la maison.</text>
 </svg>

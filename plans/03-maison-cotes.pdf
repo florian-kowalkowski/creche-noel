@@ -143,8 +143,8 @@ BT /F1 7.94 Tf 0.780 0.180 0.100 rg 39.69 792.28 Td (Dessin réduit : ne pas mesu
 BT /F2 10.77 Tf 0.000 0.000 0.000 rg 39.69 768.19 Td (C - Côté gauche \(et D, côté droit\)) Tj ET
 BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 754.02 Td (Vu de l'extérieur, avant à droite. D est identique, sans porte.) Tj ET
 0.709 w 0.120 0.330 0.700 RG [8.50 4.25] 0 d
-89.23 618.52 m 111.57 618.52 l 111.57 663.20 l 89.23 663.20 l h S
-BT /F2 7.37 Tf 0.120 0.330 0.700 rg 98.56 638.03 Td (a) Tj ET
+89.23 625.09 m 111.57 625.09 l 111.57 669.78 l 89.23 669.78 l h S
+BT /F2 7.37 Tf 0.120 0.330 0.700 rg 98.56 644.60 Td (a) Tj ET
 1.417 w 0.000 0.000 0.000 RG [] 0 d
 79.37 445.04 m 176.62 445.04 l 176.62 734.17 l 79.37 734.17 l h S
 BT /F2 7.94 Tf 0.780 0.180 0.100 rg 68.31 437.95 Td (O) Tj ET
@@ -152,7 +152,7 @@ BT /F1 7.37 Tf 0.000 0.000 0.000 rg 360.00 733.04 Td (Origine O : coin bas gauch
 BT /F1 7.37 Tf 0.000 0.000 0.000 rg 360.00 722.55 Td (X vers la droite, Y vers le haut, en mm.) Tj ET
 BT /F2 7.37 Tf 0.000 0.000 0.000 rg 360.00 712.06 Td (Rectangle 74 × 220.) Tj ET
 BT /F2 7.37 Tf 0.120 0.330 0.700 rg 360.00 701.57 Td (a  porte K, repère) Tj ET
-BT /F1 7.37 Tf 0.000 0.000 0.000 rg 360.00 691.09 Td (    X 7,5 à 24,5 ; Y 132 à 166) Tj ET
+BT /F1 7.37 Tf 0.000 0.000 0.000 rg 360.00 691.09 Td (    X 7,5 à 24,5 ; Y 137 à 171) Tj ET
 BT /F1 7.37 Tf 0.120 0.330 0.700 rg 360.00 677.76 Td (C et D se collent entre A et B :) Tj ET
 BT /F1 7.37 Tf 0.120 0.330 0.700 rg 360.00 667.28 Td (leur largeur 74 = 80 - 2 × 3 mm.) Tj ET
 0.567 w 0.000 0.000 0.000 RG [] 0 d

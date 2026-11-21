@@ -166,7 +166,7 @@ def maison():
     header(p2, "Maison - plans cotés (suite)")
     s1, s2 = cell_slots(p2)
     cell(p2, *s1, "C - Côté gauche (et D, côté droit)", ["Vu de l'extérieur, avant à droite. D est identique, sans porte."],
-         MA.C["outline"], [("porte K, repère", "trace", rect(7.5, 132, 24.5, 166))],
+         MA.C["outline"], [("porte K, repère", "trace", rect(7.5, 137, 24.5, 171))],
          ["C et D se collent entre A et B :", "leur largeur 74 = 80 - 2 × 3 mm."])
     cell(p2, *s2, "H - Parement brique", ["Collé sur la façade, sur le repère c de A."], MA.H["outline"],
          [("niche de la clochette, à découper", "cut", rect(39, 17, 49, 34))])
@@ -196,34 +196,26 @@ def maison():
 
 def escalier():
     p1 = Canvas(PW, PH)
-    header(p1, "Escalier - plans cotés")
+    header(p1, "Escalier - plans cotés (blocs empilés)")
     s1, s2 = cell_slots(p1)
-    note = ["Crémaillère O collée côté intérieur,", "bas et arrière alignés sur le limon", "(tirets bleus)."]
-    cell(p1, *s1, "M - Limon gauche (contreplaqué 5 mm)", ["Origine au pied de l'escalier."], ES.WALL_L,
-         [(None, "trace", ES.RACK_ON_WALL)], note, origin="bas, côté pied de l'escalier")
-    cell(p1, *s2, "N - Limon droit (contreplaqué 5 mm)", ["Abaissé au palier (points 3 à 5) : passage vers la porte."], ES.WALL_R,
-         [(None, "trace", ES.RACK_ON_WALL)], note, origin="bas, côté pied de l'escalier")
-
-    p2 = Canvas(PW, PH)
-    header(p2, "Escalier - plans cotés (suite)")
-    s1, s2 = cell_slots(p2)
-    cell(p2, *s1, "O - Crémaillère (contreplaqué 3 mm, × 2)",
-         ["10 marches : giron 12, hauteur 13. Première hauteur 10, puis 13."], ES.RACK, origin="bas, côté pied de l'escalier")
-    list_cell(p2, *s2[:2], "Pièces rectangulaires (à tracer à l'équerre)", [
-        "P  marche : 44 × 15, contreplaqué 3 mm (× 9)",
-        "Q  contremarche : 44 × 10, contreplaqué 3 mm (× 10)",
-        "R  palier : 55 × 32, contreplaqué 3 mm",
-        "S  mur de briques : 64 × 195, contreplaqué 5 mm",
+    rows = ["9 blocs découpés dans une planche de 15 mm (largeur x profondeur) :", ""]
+    for i, (name, w, d) in enumerate(ES.BLOCKS):
+        tag = "  (en bas)" if i == 0 else ("  (palier, côté maison +6)" if i == ES.STEPS - 1 else "")
+        rows.append("%s : %s × %s%s" % (name, f(w), f(d), tag))
+    rows += ["",
+             "Chaque marche : hauteur 15 (la planche), giron %s." % f(ES.RUN),
+             "Empiler B1 à B9, dos alignés contre le mur du fond, côté gauche aligné.",
+             "Palier à %s : la porte se pose dessus (vantail Y 137 à 171 sur le côté C)." % f(ES.TOP)]
+    list_cell(p1, *s1[:2], "Blocs de l'escalier", rows)
+    list_cell(p1, *s2[:2], "Mur de briques", [
+        "S  mur : %s × %s, contreplaqué 5 mm, collé contre le dos de l'escalier." % ES.WALL_S,
+        "Parement : moule-briques-escalier (voir la notice des briques).",
         "",
-        "Astuce : débiter une bande de 44 mm de large,",
-        "puis la recouper tous les 15 mm (marches) et tous les 10 mm (contremarches).",
-        "Crémaillère : tracer d'abord le rectangle 137 × 127, puis les marches",
-        "en reportant 12 mm à l'horizontale et 13 mm à la verticale, à l'équerre.",
-        "",
-        "Gabarits à imprimer en 3D (dossier impression3d/gabarits) :",
-        "gabarit-cremaillere, gabarit-limon-gauche, gabarit-limon-droit.",
+        "Astuce : débiter d'abord une bande de 54 mm de large dans la planche,",
+        "puis la recouper à la longueur de chaque bloc, à l'équerre.",
+        "Poncer les tranches avant collage : elles seront visibles sur les côtés.",
     ])
-    return [p1, p2]
+    return [p1]
 
 
 # ----------------------------------------------------------------------------- abri

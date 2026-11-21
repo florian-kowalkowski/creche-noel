@@ -38,7 +38,7 @@ A = part("A - FAÇADE AVANT", ["100 × 265", "égout à 220"],
 B = part("B - FAÇADE ARRIÈRE", ["100 × 265"], PENTA, (50, 238),
          traces=[rect(25, 0, 75, 60)], notes=[(50, 64, "trappe d'accès 50 × 60"), (50, 30, "(facultative)")])
 C = part("C - CÔTÉ GAUCHE", ["74 × 220", "vu de l'extérieur,", "avant à droite"], rect(0, 0, 74, EAVE), (42, 110),
-         traces=[rect(7.5, 132, 24.5, 166)], notes=[(16, 169, "porte K")])
+         traces=[rect(7.5, 137, 24.5, 171)], notes=[(16, 174, "porte K")])
 Dp = part("D - CÔTÉ DROIT", ["74 × 220"], rect(0, 0, 74, EAVE), (37, 110))
 E = part("E - PAN DE TOIT", ["85 × 100", "recouvre F au faîtage"], rect(0, 0, 85, 100), (42.5, 55))
 F = part("F - PAN DE TOIT", ["82 × 100"], rect(0, 0, 82, 100), (41, 55))
@@ -160,7 +160,7 @@ def overview():
     Q = lambda pts: [Ts(*q) for q in pts]
     cv.poly(Q(rect(0, 0, D, EAVE)), CUT, True)
     cv.poly(Q(rect(-8, 210, D + 12, RIDGE + 4)), THIN, True)
-    cv.poly(Q(rect(3 + 7.5, 132, 3 + 24.5, 166)), THIN, True)
+    cv.poly(Q(rect(3 + 7.5, 137, 3 + 24.5, 171)), THIN, True)
     cv.poly(Q(rect(D, 100, D + 34, 106)), THIN, True)
     cv.text(ox2 + 40 * k, oy - 2, "CÔTÉ GAUCHE", 3, bold=True, anchor="middle")
     a0, b0 = Ts(0, 0)

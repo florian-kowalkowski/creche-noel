@@ -11,7 +11,7 @@ Ce fichier sert de point d'entrée pour reprendre le projet plus tard.
 | `decor-creche-3d.html` | Maquette 3D interactive (Three.js). Vue d'ensemble stylisée, publiée sur https://claude.ai/artifact/Twbd7q9toUVPy76Lyu1K8F |
 | `plans/02-socle-gabarit-A4.pdf` | Socle : vue d'ensemble + 4 feuilles A4 paysage à assembler |
 | `plans/03-maison-gabarits-A4.pdf` | Maison : 4 planches, contreplaqué 3 mm |
-| `plans/04-escalier-gabarits-A4.pdf` | Escalier et mur de briques : 4 planches |
+| `plans/04-escalier-gabarits-A4.pdf` | Escalier en 9 blocs empilés (planche de 15 mm) : vues cotées, débit, montage |
 | `plans/05-abri-plans-A4.pdf` | Abri : vue cotée + 2 planches, contreplaqué 5 mm |
 | `plans/06-pont-plans-A4.pdf` | Pont : 2 pages |
 | `plans/07-impression-3d-notice.pdf` | Schéma du circuit d'eau, réglages d'impression, montage |
@@ -23,7 +23,7 @@ Ce fichier sert de point d'entrée pour reprendre le projet plus tard.
 | `impression3d/porte-escalier.stl` | Porte en bois du haut de l'escalier, à coller sur le côté gauche C sans découpe : vantail 17 × 34 en planches veinées, chambranle, seuil posé sur le palier, pentures et bouton |
 | `impression3d/moule-4-tuiles.stl`, `emporte-piece-tuile.stl`, `reglettes-1,5mm.stl` | Tuiles canal en argile autodurcissante : réglettes pour étaler l'argile à 1,5 mm, emporte-pièce du flan, moule à draper pour 4 tuiles (Ø 10/8 × 22 mm une fois sèches, retrait de 3 % compensé par `CLAY_SHRINK`) |
 | `impression3d/moule-briques-auvent.stl`, `moule-briques-escalier.stl` | Moules à empreinte pour les parements en briques d'argile de 2 mm : mur sous l'auvent (92 × 40, avec la niche) et mur du haut de l'escalier (64 × 195). Moules inversés gauche-droite, retrait compensé |
-| `impression3d/gabarits/*.stl` | Gabarits de traçage de 2 mm à imprimer en 3D : évidement de la rivière, longeron du pont, crémaillère, limons |
+| `impression3d/gabarits/*.stl` | Gabarits de traçage de 2 mm à imprimer en 3D : évidement de la rivière, longeron du pont |
 | `plans/*.svg` | Aperçu de la première page de chaque PDF |
 | `plans/generer_*.py` | Scripts qui produisent les PDF et SVG |
 | `impression3d/*.stl` | Pièces à imprimer, déjà orientées |
@@ -83,7 +83,7 @@ python impression3d/generer_gabarits.py
 | `CUP_PEBBLES` | idem | 110 | Plus ou moins de galets au fond du bassin de reprise (10 mm d'eau, galets jusqu'à 3 mm) |
 | `FRONT`, `OUTLINE` | `plans/generer_plan_socle.py` | — | On veut une autre forme de socle |
 | `W`, `D`, `EAVE`, `RIDGE` | `plans/generer_plan_maison.py` | 100, 80, 220, 265 | On change la taille de la maison |
-| `RISE`, `RUN`, `STEPS` | `plans/generer_plan_escalier.py` | 13, 12, 10 | On change l'escalier (le palier doit rester à la hauteur de la porte, 130 mm) |
+| `BOARD`, `STEPS`, `DEPTH`, `LANDING` | `plans/generer_plan_escalier.py` | 15, 9, 140, 32 | On change de planche ou d'escalier. Le palier (BOARD × STEPS = 135 mm) fixe la hauteur de la porte |
 
 ## Choix de conception à connaître
 
@@ -94,7 +94,7 @@ python impression3d/generer_gabarits.py
 - **Bassin de reprise amovible**, non collé : c'est l'accès à la pompe.
 - **Pompe couchée sur le flanc** : sa sortie est sur le dessus, et un tuyau de 10 mm ne peut pas se courber à 90° sous le plateau. On la couche donc sur le flanc, à gauche du réservoir, ventouses contre la paroi (le fabricant prévoit cette pose), embout vers la droite : le tuyau part à l'horizontale et remonte doucement vers l'encoche. C'est pour cette pompe que les entretoises sont passées de 40 à 55 mm et le réservoir de 95 à 115 mm de long. Le plateau de 20 mm ne change rien pour la pompe : le réservoir est dessous. Couchée, elle fait 38 mm de haut : garder le réservoir rempli jusqu'à 1 cm du bord.
 - **Abri** : structure en U en contreplaqué 5 mm, entièrement habillée d'écorce de liège. Les poteaux descendent jusqu'au socle.
-- **Escalier** : deux crémaillères collées dans les limons portent les marches. Le limon droit est abaissé au palier pour laisser passer vers la porte.
+- **Escalier en blocs empilés** : 9 blocs découpés dans une planche de 15 mm, chacun plus court que celui du dessous (giron 13,5 mm), collés les uns sur les autres. Plus simple que la version à limons et crémaillères, abandonnée. Le palier, à 135 mm, est élargi à 60 mm pour toucher le mur de la maison ; la porte imprimée se pose dessus (vantail de Y 137 à 171 sur le côté C). Les tranches du contreplaqué se masquent au liège, à l'écorce ou à l'enduit.
 - **Matières imprimées** : PETG pour ce qui touche l'eau, PLA pour rochers, pelle et tuiles.
 
 ## Éclairage LED (USB 5 V)

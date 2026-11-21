@@ -32,7 +32,7 @@
 <text x="27.00" y="165.50" font-family="Helvetica,Arial,sans-serif" font-size="2.5" fill="rgb(31,84,178)" text-anchor="end">sortie d'eau</text>
 <polygon points="135.00,171.50 175.00,171.50 175.00,61.50 135.00,61.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
 <polygon points="131.00,66.50 181.00,66.50 181.00,37.00 131.00,37.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
-<polygon points="140.25,105.50 148.75,105.50 148.75,88.50 140.25,88.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
+<polygon points="140.25,103.00 148.75,103.00 148.75,86.00 140.25,86.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
 <polygon points="175.00,121.50 192.00,121.50 192.00,118.50 175.00,118.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
 <text x="155.00" y="32.00" font-family="Helvetica,Arial,sans-serif" font-size="3" fill="rgb(0,0,0)" text-anchor="middle" font-weight="bold">CÔTÉ GAUCHE</text>
 <polyline points="135.00,176.50 175.00,176.50" fill="none" stroke="rgb(0,0,0)" stroke-width="0.2" stroke-linejoin="round"/>
