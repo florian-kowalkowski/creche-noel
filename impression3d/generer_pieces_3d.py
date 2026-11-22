@@ -36,7 +36,10 @@ CLEAR = 0.4          # jeu entre une pièce imprimée et le bois
 WALL = 2.0           # épaisseur des parois en contact avec l'eau
 FLANGE, FLANGE_T = 4.5, 1.6   # collerette qui repose sur le plateau
 TRAY_FLOOR = -7.0    # dessus du fond de la rivière (0 = dessus du plateau)
-WEIR = -3.0          # crête du déversoir : niveau de l'eau dans la rivière
+WEIR = -4.2          # crête du déversoir : niveau de l'eau dans la rivière (-3 sur le premier tirage, recoupé)
+NOTCH_HALF = 9.0     # demi-largeur de l'échancrure du déversoir (8 sur le premier tirage)
+CUP_NOTCH = -4.6     # fond du passage dans le bassin de reprise, sous la crête du déversoir
+BANK_H = 5.0         # hauteur des berges rapportées au-dessus de la collerette du bac
 CUP_LEVEL = -6.0     # haut du trop-plein : niveau de l'eau dans le bassin de reprise
 POOL_R = 30.0        # rayon de l'ouverture ronde du plateau
 RES = (35, 75, 150, 150)      # emprise du réservoir sur le plan du socle (x0, y0, x1, y1)
@@ -113,8 +116,7 @@ def make_tray():
     behind_house = cs([(-100, -44.2), (400, -44.2), (400, 400), (-100, 400)])     # pas de collerette sous la façade
     flange = (foot.offset(FLANGE) - disc(POOL_C, POOL_R + FLANGE + 0.7)) ^ behind_house
     tray = ext(foot, -TRAY_DEPTH, 0) + ext(flange, 0, FLANGE_T) - ext(foot.offset(-WALL), TRAY_FLOOR, 3)
-    tray -= ext(along(-4.5, 0.6, 8), WEIR, 3)                      # échancrure du déversoir
-    tray += ext(along(-3, 5, 7), WEIR - 1.2, WEIR)                 # bec qui porte l'eau au-dessus du bassin
+    tray -= ext(along(-4.5, 0.6, NOTCH_HALF), WEIR, 3)             # échancrure du déversoir
     if ROCKY_BED:
         tray = pebble_floor(tray, foot)
     return tray
@@ -188,6 +190,33 @@ def pebble_floor(tray, foot):
     return tray + (Manifold.compose(blocks) ^ inside)
 
 
+def make_banks():
+    """Berges rapportées : deux bourrelets rocheux collés sur la collerette du bac, de chaque côté du lit.
+    Ils montent le bord de BANK_H mm sans réimprimer le bac. Face côté eau dans l'alignement de la paroi."""
+    foot = (RIVER - disc(POOL_C, POOL_R + 0.5)).offset(-CLEAR)
+    behind_house = cs([(-100, -44.2), (400, -44.2), (400, 400), (-100, 400)])
+    ring = (foot.offset(FLANGE) - foot.offset(-WALL)) ^ behind_house
+    ring -= disc(POOL_C, POOL_R + 0.5 + CLEAR + WALL + 0.6)        # la paroi du bout (déversoir) reste libre
+    (ax, ay), (bx, by) = RIVER_AXIS[0], RIVER_AXIS[1]               # le bout amont (sous la façade) aussi
+    k = math.hypot(bx - ax, by - ay)
+    t, half = ((bx - ax) / k, (by - ay) / k), 13 + TRAY_MARGIN - CLEAR - WALL
+    ring -= cs([(ax + t[0] * a - t[1] * l, ay + t[1] * a + t[0] * l) for a, l in ((-10, -half), (3, -half), (3, half), (-10, half))])
+    top = FLANGE_T + BANK_H
+    # dessous plat posé sur la collerette (à 1,6 mm) ; côté extérieur plus bas, en talus
+    banks = ext(ring - foot.offset(FLANGE - 2.5), FLANGE_T, top - 2.2) + ext(ring ^ foot.offset(FLANGE - 2.5), FLANGE_T, top)
+    banks -= ext(disc(POOL_C, POOL_R + FLANGE + 0.4) - along(-10, 16, 23.6), -1, FLANGE_T + 0.2)
+    # sous le nez du seuil de cascade : la berge passe dessous avec 0,6 mm de jeu
+    nose = CrossSection([[(35.4, 40), (35.4, 11.2), (44.4, 2.2), (44.4, -2), (90, -2), (90, 40)]], FillRule.NonZero)
+    banks -= Manifold.extrude(nose, 60).transform(np.array([[0, 0, 1, 115.0], [1, 0, 0, 0], [0, 1, 0, 0]], dtype=float))
+
+    def rough(p):
+        x, y, z = p
+        a = min(max((z - FLANGE_T - 0.2) / (top - FLANGE_T), 0.0), 1.0)          # le dessous reste plat
+        n = (_noise(x * 0.35, y * 0.35, 1.7) - 0.5) * 2.2 + (_noise(x * 1.1, y * 1.1, 5.3) - 0.5) * 0.8
+        return (x, y, z + a * n)
+    return banks.refine_to_length(0.8).warp(rough)
+
+
 def make_cup():
     """Bassin de reprise : godet amovible avec trop-plein, posé dans l'ouverture ronde."""
     stand = (POOL_C[0], POOL_C[1] + 12)
@@ -198,7 +227,7 @@ def make_cup():
     # collerette, interrompue franchement du côté où arrive la rivière
     cup += ext(disc(POOL_C, POOL_R + FLANGE) - disc(POOL_C, r_up - 0.5) - along(-10, 16, 24), 0, FLANGE_T)
     cup -= cyl(POOL_C, r_up - WALL, -8, 3, 96) + cyl(POOL_C, r_low - WALL, -16, -7.99, 96)
-    cup -= ext(along(-1, 4, 9), WEIR - 1.6, 3)                     # passage du bec de la rivière
+    cup -= ext(along(-1, 4, 9), CUP_NOTCH, 3)                      # passage de l'eau du déversoir
     cup += cyl(stand, 6, -18, CUP_LEVEL)                           # trop-plein
     cup -= cyl(stand, 3.5, -19, 1)
     if ROCKY_BED:
@@ -560,8 +589,9 @@ def report(name, solid, bodies=1):
 
 if __name__ == "__main__":
     tray, cup, res, spout = make_tray(), make_cup(), make_reservoir(), make_spout()
+    banks = make_banks()
     parts = [
-        ("bac-riviere.stl", tray, 1), ("bassin-reprise.stl", cup, 1), ("reservoir.stl", res, 1), ("seuil-cascade.stl", spout, 1),
+        ("bac-riviere.stl", tray, 1), ("berges-riviere.stl", banks, 2), ("bassin-reprise.stl", cup, 1), ("reservoir.stl", res, 1), ("seuil-cascade.stl", spout, 1),
         ("rochers.stl", make_rocks(), 16), ("pelle.stl", make_shovel(), 1),
         ("tuiles-auvent.stl", make_tiles(11, 9.0, 36), 1),
         ("tuiles-abri-avant.stl", make_tiles(8, 9.5, 46), 1),
@@ -579,7 +609,9 @@ if __name__ == "__main__":
         solid = on_bed(solid)
         write_stl(os.path.join(HERE, name), solid)
         report(name, solid, bodies)
-    write_stl(os.path.join(HERE, "apercu-assemblage.stl"), Manifold.compose([tray, cup, res, spout]))
+    write_stl(os.path.join(HERE, "apercu-assemblage.stl"), Manifold.compose([tray, cup, res, spout, banks]))
     inner = (RES[2] - RES[0] - 4.8) * (RES[3] - RES[1] - 4.8) * (CAVITY - 1 - 2.4) / 1000
     print("Réservoir : environ %d mL utiles. Jeu bec/bassin vérifié : %s" % (inner * 0.75, "oui" if (tray ^ cup).is_empty() else "NON, COLLISION"))
+    print("Collision berges/bac : %s ; berges/seuil : %s ; berges/bassin : %s" % tuple(
+        "non" if (banks ^ o).volume() < 0.01 else "OUI" for o in (tray, spout, cup)))
     print("Collision bassin/réservoir : %s ; bac/seuil : %s" % ("non" if (cup ^ res).is_empty() else "OUI", "non" if (tray ^ spout).is_empty() else "OUI"))
