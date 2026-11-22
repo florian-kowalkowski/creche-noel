@@ -36,11 +36,13 @@ CLEAR = 0.4          # jeu entre une pièce imprimée et le bois
 WALL = 2.0           # épaisseur des parois en contact avec l'eau
 FLANGE, FLANGE_T = 4.5, 1.6   # collerette qui repose sur le plateau
 TRAY_FLOOR = -7.0    # dessus du fond de la rivière (0 = dessus du plateau)
-WEIR = -4.2          # crête du déversoir : niveau de l'eau dans la rivière (-3 sur le premier tirage, recoupé)
-NOTCH_HALF = 9.0     # demi-largeur de l'échancrure du déversoir (8 sur le premier tirage)
-CUP_NOTCH = -4.6     # fond du passage dans le bassin de reprise, sous la crête du déversoir
-BANK_H = 5.0         # hauteur des berges rapportées au-dessus de la collerette du bac
-CUP_LEVEL = -6.0     # haut du trop-plein : niveau de l'eau dans le bassin de reprise
+WEIR = -4.0          # crête du déversoir : niveau de l'eau dans la rivière pompe arrêtée
+NOTCH_HALF = 14.0    # demi-largeur de l'échancrure du déversoir (28 mm : presque toute la largeur du lit)
+CUP_NOTCH = -5.6     # dessus de la chute du bassin : la lèvre qui reçoit l'eau du déversoir
+BANK_H = 5.0         # hauteur des berges au-dessus de la collerette du bac
+FLOOR_DROP = 1.5     # pente du lit : le fond monte de 1,5 mm vers l'amont, l'eau y court plus vite
+STAND_R, STAND_IN = 9.0, 7.4  # trop-plein du bassin : un gros tube déborde sans faire monter l'eau
+CUP_LEVEL = -9.0     # haut du trop-plein : niveau de l'eau dans le bassin de reprise
 POOL_R = 30.0        # rayon de l'ouverture ronde du plateau
 RES = (35, 75, 150, 150)      # emprise du réservoir sur le plan du socle (x0, y0, x1, y1)
 ROCKY_BED = True     # fond de rivière en galets (False : fond lisse)
@@ -116,10 +118,31 @@ def make_tray():
     behind_house = cs([(-100, -44.2), (400, -44.2), (400, 400), (-100, 400)])     # pas de collerette sous la façade
     flange = (foot.offset(FLANGE) - disc(POOL_C, POOL_R + FLANGE + 0.7)) ^ behind_house
     tray = ext(foot, -TRAY_DEPTH, 0) + ext(flange, 0, FLANGE_T) - ext(foot.offset(-WALL), TRAY_FLOOR, 3)
-    tray -= ext(along(-4.5, 0.6, NOTCH_HALF), WEIR, 3)             # échancrure du déversoir
+    tray -= ext(along(-4.5, 8, NOTCH_HALF), WEIR, 3)               # échancrure du déversoir, à travers la paroi arrondie
+    tray += make_banks()                                           # berges d'une seule pièce avec le bac
     if ROCKY_BED:
         tray = pebble_floor(tray, foot)
-    return tray
+    return slope_floor(tray)
+
+
+def slope_floor(tray):
+    """Incline le lit : le fond (et ses galets) monte de FLOOR_DROP mm vers l'amont, rien à la sortie.
+    Le dessous du bac et la collerette ne bougent pas ; entre les deux, les parois s'étirent sans se retourner."""
+    frame = river_frame()
+    P = np.array([p for p, _, _, _ in frame])
+    S = np.array([s for _, _, _, s in frame])
+    L = S[-1]
+
+    def warp(v):
+        v = np.array(v, dtype=float)
+        d = (v[:, 0][:, None] - P[:, 0]) ** 2 + (-v[:, 1][:, None] - P[:, 1]) ** 2
+        drop = FLOOR_DROP * np.clip(1 - S[d.argmin(axis=1)] / (L - 20), 0, 1)    # plat sur les 20 derniers mm
+        z = v[:, 2]
+        w = np.where(z < TRAY_FLOOR, (z + TRAY_DEPTH) / (TRAY_DEPTH + TRAY_FLOOR),
+                     np.where(z < WEIR, 1.0, (-1.0 - z) / (-1.0 - WEIR)))
+        v[:, 2] = z + drop * np.clip(w, 0, 1)
+        return v
+    return tray.refine_to_length(1.0).warp_batch(warp)
 
 
 def _bed_spots(rng, n, margin_of):
@@ -191,8 +214,8 @@ def pebble_floor(tray, foot):
 
 
 def make_banks():
-    """Berges rapportées : deux bourrelets rocheux collés sur la collerette du bac, de chaque côté du lit.
-    Ils montent le bord de BANK_H mm sans réimprimer le bac. Face côté eau dans l'alignement de la paroi."""
+    """Berges : deux bourrelets rocheux sur la collerette du bac, de chaque côté du lit, imprimés avec lui.
+    Ils montent le bord de BANK_H mm. Face côté eau dans l'alignement de la paroi."""
     foot = (RIVER - disc(POOL_C, POOL_R + 0.5)).offset(-CLEAR)
     behind_house = cs([(-100, -44.2), (400, -44.2), (400, 400), (-100, 400)])
     ring = (foot.offset(FLANGE) - foot.offset(-WALL)) ^ behind_house
@@ -202,8 +225,8 @@ def make_banks():
     t, half = ((bx - ax) / k, (by - ay) / k), 13 + TRAY_MARGIN - CLEAR - WALL
     ring -= cs([(ax + t[0] * a - t[1] * l, ay + t[1] * a + t[0] * l) for a, l in ((-10, -half), (3, -half), (3, half), (-10, half))])
     top = FLANGE_T + BANK_H
-    # dessous plat posé sur la collerette (à 1,6 mm) ; côté extérieur plus bas, en talus
-    banks = ext(ring - foot.offset(FLANGE - 2.5), FLANGE_T, top - 2.2) + ext(ring ^ foot.offset(FLANGE - 2.5), FLANGE_T, top)
+    # pleines jusqu'au plateau (près du bassin il n'y a pas de collerette) ; côté extérieur plus bas, en talus
+    banks = ext(ring - foot.offset(FLANGE - 2.5), 0, top - 2.2) + ext(ring ^ foot.offset(FLANGE - 2.5), 0, top)
     banks -= ext(disc(POOL_C, POOL_R + FLANGE + 0.4) - along(-10, 16, 23.6), -1, FLANGE_T + 0.2)
     # sous le nez du seuil de cascade : la berge passe dessous avec 0,6 mm de jeu
     nose = CrossSection([[(35.4, 40), (35.4, 11.2), (44.4, 2.2), (44.4, -2), (90, -2), (90, 40)]], FillRule.NonZero)
@@ -219,17 +242,23 @@ def make_banks():
 
 def make_cup():
     """Bassin de reprise : godet amovible avec trop-plein, posé dans l'ouverture ronde."""
-    stand = (POOL_C[0], POOL_C[1] + 12)
+    stand = (POOL_C[0], POOL_C[1] + 14)
     r_up, r_low = POOL_R - CLEAR, POOL_R - 4
+    if PLATE >= 18:                                                # plateau épais : un seul alésage, pas de marche
+        r_low = r_up
     cup = cyl(POOL_C, r_up, max(-PLATE, -18), 0, 96)
     if PLATE < 18:                                                 # plateau mince : le fond dépasse dessous, plus étroit
         cup += cyl(POOL_C, r_low, -18, -PLATE + 0.01, 96)
     # collerette, interrompue franchement du côté où arrive la rivière
     cup += ext(disc(POOL_C, POOL_R + FLANGE) - disc(POOL_C, r_up - 0.5) - along(-10, 16, 24), 0, FLANGE_T)
     cup -= cyl(POOL_C, r_up - WALL, -8, 3, 96) + cyl(POOL_C, r_low - WALL, -16, -7.99, 96)
-    cup -= ext(along(-1, 4, 9), CUP_NOTCH, 3)                      # passage de l'eau du déversoir
-    cup += cyl(stand, 6, -18, CUP_LEVEL)                           # trop-plein
-    cup -= cyl(stand, 3.5, -19, 1)
+    # chute : l'eau tombe du déversoir du bac sur une lèvre qui enjambe le jour entre les deux pièces,
+    # puis dans le bassin. La lèvre fait partie du bassin, qui se soulève toujours sans rien démonter.
+    lip = along(-4, 12, NOTCH_HALF + 1) ^ disc(POOL_C, POOL_R + 0.5 + CLEAR - 0.2)    # 0,2 mm avant le bac
+    cup -= ext(lip, CUP_NOTCH, 3)
+    cup += ext(lip - disc(POOL_C, r_up - WALL), CUP_NOTCH - 2, CUP_NOTCH)
+    cup += cyl(stand, STAND_R, -18, CUP_LEVEL)                     # trop-plein
+    cup -= cyl(stand, STAND_IN, -19, 1)
     if ROCKY_BED:
         cup = pebble_cup(cup, stand, r_low - WALL)
     return cup
@@ -243,7 +272,7 @@ def pebble_cup(cup, stand, r_floor):
     while len(spots) < CUP_PEBBLES:
         r = pebble_size(rng)
         x, y = rng.uniform(-r_floor, r_floor, 2) + c
-        if math.hypot(x - c[0], y - c[1]) < r_floor - r - 0.6 and math.hypot(x - st[0], y - st[1]) > 6 + r + 0.5:
+        if math.hypot(x - c[0], y - c[1]) < r_floor - r - 0.6 and math.hypot(x - st[0], y - st[1]) > STAND_R + r + 0.5:
             spots.append((x, y, r))
     return raise_pebbles(cup, -16.0, spots, rng, 3.0)
 
@@ -589,9 +618,8 @@ def report(name, solid, bodies=1):
 
 if __name__ == "__main__":
     tray, cup, res, spout = make_tray(), make_cup(), make_reservoir(), make_spout()
-    banks = make_banks()
     parts = [
-        ("bac-riviere.stl", tray, 1), ("berges-riviere.stl", banks, 2), ("bassin-reprise.stl", cup, 1), ("reservoir.stl", res, 1), ("seuil-cascade.stl", spout, 1),
+        ("bac-riviere.stl", tray, 1), ("bassin-reprise.stl", cup, 1), ("reservoir.stl", res, 1), ("seuil-cascade.stl", spout, 1),
         ("rochers.stl", make_rocks(), 16), ("pelle.stl", make_shovel(), 1),
         ("tuiles-auvent.stl", make_tiles(11, 9.0, 36), 1),
         ("tuiles-abri-avant.stl", make_tiles(8, 9.5, 46), 1),
@@ -609,9 +637,7 @@ if __name__ == "__main__":
         solid = on_bed(solid)
         write_stl(os.path.join(HERE, name), solid)
         report(name, solid, bodies)
-    write_stl(os.path.join(HERE, "apercu-assemblage.stl"), Manifold.compose([tray, cup, res, spout, banks]))
+    write_stl(os.path.join(HERE, "apercu-assemblage.stl"), Manifold.compose([tray, cup, res, spout]))
     inner = (RES[2] - RES[0] - 4.8) * (RES[3] - RES[1] - 4.8) * (CAVITY - 1 - 2.4) / 1000
-    print("Réservoir : environ %d mL utiles. Jeu bec/bassin vérifié : %s" % (inner * 0.75, "oui" if (tray ^ cup).is_empty() else "NON, COLLISION"))
-    print("Collision berges/bac : %s ; berges/seuil : %s ; berges/bassin : %s" % tuple(
-        "non" if (banks ^ o).volume() < 0.01 else "OUI" for o in (tray, spout, cup)))
-    print("Collision bassin/réservoir : %s ; bac/seuil : %s" % ("non" if (cup ^ res).is_empty() else "OUI", "non" if (tray ^ spout).is_empty() else "OUI"))
+    print("Réservoir : environ %d mL utiles. Jeu bac/bassin vérifié : %s" % (inner * 0.75, "oui" if (tray ^ cup).is_empty() else "NON, COLLISION"))
+    print("Collision bassin/réservoir : %s ; bac/seuil : %s" % ("non" if (cup ^ res).is_empty() else "OUI", "non" if (tray ^ spout).volume() < 0.01 else "OUI"))

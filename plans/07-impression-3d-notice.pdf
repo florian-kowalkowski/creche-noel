@@ -16,7 +16,7 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 6 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> >>
 endobj
 6 0 obj
-<< /Length 5450 >>
+<< /Length 5962 >>
 stream
 1 j 1 J
 BT /F2 15.59 Tf 0.000 0.000 0.000 rg 39.69 802.20 Td (Crèche en liège - étape 7 : le circuit d'eau) Tj ET
@@ -41,19 +41,21 @@ BT /F1 6.80 Tf 0.550 0.400 0.200 rg 168.09 748.91 Td (façade) Tj ET
 1.417 w 0.780 0.180 0.100 RG [] 0 d
 120.47 662.74 m 120.47 463.18 l 455.81 463.18 l 455.81 426.90 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
-171.07 581.10 m 171.07 540.28 l 400.25 540.28 l 400.25 562.05 l 410.17 562.05 l 410.17 567.50 l 396.28 567.50 l 396.28 549.35 l 175.04 549.35 l 175.04 581.10 l h S
+171.07 581.10 m 171.07 540.28 l 400.25 540.28 l 400.25 562.96 l 396.28 562.96 l 396.28 549.35 l 348.66 549.35 l 175.04 556.16 l 175.04 581.10 l h S
+0.709 w 0.120 0.330 0.700 RG [8.50 4.25] 0 d
+249.45 611.04 m 396.28 611.04 l S
 1.701 w 0.120 0.330 0.700 RG [] 0 d
-175.04 567.50 m 410.17 567.50 l 412.16 553.89 l S
+175.04 564.77 m 398.27 564.77 l 401.44 556.61 l 410.17 556.61 l 414.14 540.28 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
-401.24 559.33 m 401.24 535.75 l 410.17 535.75 l 410.17 499.46 l 475.65 499.46 l 475.65 553.89 l 481.61 553.89 l 481.61 508.54 l 414.14 508.54 l 414.14 544.82 l 405.21 544.82 l 405.21 559.33 l h S
+400.65 555.70 m 400.65 546.63 l 410.17 546.63 l 410.17 499.46 l 475.65 499.46 l 475.65 540.28 l 481.61 540.28 l 481.61 508.54 l 414.14 508.54 l 414.14 555.70 l h S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
-493.51 553.89 m 499.46 553.89 l 499.46 499.46 l 513.35 499.46 l 513.35 535.75 l 523.28 535.75 l 523.28 581.10 l 519.31 581.10 l 519.31 544.82 l 509.39 544.82 l 509.39 508.54 l 493.51 508.54 l h S
+493.51 540.28 m 499.46 540.28 l 499.46 499.46 l 523.28 499.46 l 523.28 581.10 l 519.31 581.10 l 519.31 508.54 l 493.51 508.54 l h S
 1.701 w 0.120 0.330 0.700 RG [] 0 d
-414.14 553.89 m 475.65 553.89 l S
+414.14 540.28 m 475.65 540.28 l S
 1.701 w 0.120 0.330 0.700 RG [] 0 d
-499.46 553.89 m 509.39 553.89 l S
+499.46 540.28 m 519.31 540.28 l S
 1.701 w 0.120 0.330 0.700 RG [] 0 d
-487.56 553.89 m 487.56 481.32 l S
+487.56 540.28 m 487.56 481.32 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
 348.66 531.21 m 348.66 354.33 l 539.15 354.33 l 539.15 531.21 l 534.39 531.21 l 534.39 365.22 l 353.42 365.22 l 353.42 531.21 l h S
 1.701 w 0.120 0.330 0.700 RG [] 0 d
@@ -66,31 +68,35 @@ BT /F2 7.94 Tf 0.000 0.000 0.000 rg 253.42 594.71 Td (2 bac de rivière) Tj ET
 BT /F2 7.94 Tf 0.000 0.000 0.000 rg 428.03 599.24 Td (3 bassin) Tj ET
 BT /F2 7.94 Tf 0.000 0.000 0.000 rg 356.60 408.76 Td (4 réservoir) Tj ET
 BT /F1 6.80 Tf 0.120 0.330 0.700 rg 195.87 608.31 Td (cascade : 21 mm) Tj ET
-BT /F1 6.80 Tf 0.120 0.330 0.700 rg 249.45 556.16 Td (4 mm d'eau) Tj ET
+BT /F1 6.80 Tf 0.120 0.330 0.700 rg 249.45 524.41 Td (lit en pente, 2 à 3 mm d'eau) Tj ET
+BT /F1 6.80 Tf 0.120 0.330 0.700 rg 257.39 621.92 Td (berges : 5 mm au-dessus de la collerette) Tj ET
+BT /F1 6.80 Tf 0.120 0.330 0.700 rg 383.24 526.68 Td (chute) Tj ET
 BT /F1 6.80 Tf 0.120 0.330 0.700 rg 474.52 572.03 Td (trop-plein) Tj ET
 BT /F1 6.80 Tf 0.780 0.180 0.100 rg 249.45 431.43 Td (tuyau souple, sous le plateau) Tj ET
 BT /F2 8.79 Tf 0.000 0.000 0.000 rg 39.69 286.30 Td (COMMENT ÇA MARCHE) Tj ET
 BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 271.56 Td (La pompe, au fond du réservoir, pousse l'eau dans le tuyau jusqu'au seuil, à l'intérieur de la maison.) Tj ET
 BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 259.09 Td (L'eau sort par l'ouverture de la façade et tombe de 21 mm dans le bac de rivière : c'est la cascade.) Tj ET
-BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 246.61 Td (Un déversoir au bout du bac garde 4 mm d'eau dans la rivière, même pompe arrêtée.) Tj ET
-BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 234.14 Td (L'eau passe par le bec dans le bassin, 3 mm plus bas, puis retombe au réservoir par le trop-plein.) Tj ET
-BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 221.67 Td (Le bassin n'est pas collé : on le soulève pour atteindre la pompe et pour remettre de l'eau.) Tj ET
-BT /F2 8.79 Tf 0.000 0.000 0.000 rg 39.69 199.28 Td (À SAVOIR) Tj ET
-BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 184.54 Td (Pompe : uniquement une mini pompe immergée en basse tension \(USB 5 V\), à débit réglable.) Tj ET
-BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 172.06 Td (    Pompe retenue : 38 × 37 × 28 mm, embout de 8,4 mm sur le dessus. La coucher sur le flanc dans) Tj ET
-BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 159.59 Td (    la partie gauche du réservoir, ventouses contre la paroi, embout vers la droite, grille dégagée.) Tj ET
-BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 147.12 Td (    Jamais de pompe en 230 V dans un caisson en bois.) Tj ET
-BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 134.65 Td (Tuyau : silicone 8 × 10 mm ; le logement du seuil est prévu pour 10 mm extérieur. Si le vôtre) Tj ET
-BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 122.17 Td (    est différent, changer TUBE_OD en tête du script generer_pieces_3d.py et le relancer.) Tj ET
-BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 109.70 Td (Eau : environ 350 mL en tout. Compléter chaque semaine ; l'eau déminéralisée évite le calcaire.) Tj ET
-BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 97.23 Td (Le socle doit être de niveau, sinon la rivière se vide d'un côté.) Tj ET
+BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 246.61 Td (Le lit descend de 1,5 mm vers l'aval. Au bout, un déversoir de 28 mm de large garde 3 mm d'eau) Tj ET
+BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 234.14 Td (pompe arrêtée. Des berges de 5 mm, imprimées avec le bac, retiennent l'eau en marche.) Tj ET
+BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 221.67 Td (L'eau tombe du déversoir sur la lèvre du bassin, puis dans le bassin, 5 mm plus bas : c'est la chute.) Tj ET
+BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 209.20 Td (Elle retombe au réservoir par le trop-plein, un tube de 15 mm qui avale le débit sans faire monter l'eau.) Tj ET
+BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 196.72 Td (Le bassin n'est pas collé : on le soulève pour atteindre la pompe et pour remettre de l'eau.) Tj ET
+BT /F2 8.79 Tf 0.000 0.000 0.000 rg 39.69 174.33 Td (À SAVOIR) Tj ET
+BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 159.59 Td (Pompe : uniquement une mini pompe immergée en basse tension \(USB 5 V\), à débit réglable.) Tj ET
+BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 147.12 Td (    Pompe retenue : 38 × 37 × 28 mm, embout de 8,4 mm sur le dessus. La coucher sur le flanc dans) Tj ET
+BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 134.65 Td (    la partie gauche du réservoir, ventouses contre la paroi, embout vers la droite, grille dégagée.) Tj ET
+BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 122.17 Td (    Jamais de pompe en 230 V dans un caisson en bois.) Tj ET
+BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 109.70 Td (Tuyau : silicone 8 × 10 mm ; le logement du seuil est prévu pour 10 mm extérieur. Si le vôtre) Tj ET
+BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 97.23 Td (    est différent, changer TUBE_OD en tête du script generer_pieces_3d.py et le relancer.) Tj ET
+BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 84.76 Td (Eau : environ 350 mL en tout. Compléter chaque semaine ; l'eau déminéralisée évite le calcaire.) Tj ET
+BT /F1 7.65 Tf 0.000 0.000 0.000 rg 39.69 72.28 Td (Le socle doit être de niveau, sinon la rivière se vide d'un côté.) Tj ET
 endstream
 endobj
 7 0 obj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Contents 8 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> >>
 endobj
 8 0 obj
-<< /Length 7514 >>
+<< /Length 7516 >>
 stream
 1 j 1 J
 BT /F2 15.59 Tf 0.000 0.000 0.000 rg 39.69 802.20 Td (Pièces à imprimer - Creality K1C) Tj ET
@@ -102,15 +108,15 @@ BT /F2 7.94 Tf 0.000 0.000 0.000 rg 362.83 751.18 Td (Supports) Tj ET
 0.567 w 0.000 0.000 0.000 RG [] 0 d
 39.69 746.08 m 555.59 746.08 l S
 BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 734.17 Td (bac-riviere.stl) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 204.09 734.17 Td (83 × 144 × 11) Tj ET
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 204.09 734.17 Td (83 × 145 × 17) Tj ET
 BT /F1 7.94 Tf 0.000 0.000 0.000 rg 306.14 734.17 Td (PETG) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 362.83 734.17 Td (oui, sous la collerette et le bec) Tj ET
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 362.83 734.17 Td (oui, sous la collerette) Tj ET
 0.567 w 0.000 0.000 0.000 RG [] 0 d
 39.69 729.07 m 555.59 729.07 l S
 BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 717.17 Td (bassin-reprise.stl) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 204.09 717.17 Td (69 × 64 × 20) Tj ET
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 204.09 717.17 Td (69 × 65 × 20) Tj ET
 BT /F1 7.94 Tf 0.000 0.000 0.000 rg 306.14 717.17 Td (PETG) Tj ET
-BT /F1 7.94 Tf 0.000 0.000 0.000 rg 362.83 717.17 Td (oui, sous la collerette) Tj ET
+BT /F1 7.94 Tf 0.000 0.000 0.000 rg 362.83 717.17 Td (oui, sous la collerette et la lèvre) Tj ET
 0.567 w 0.000 0.000 0.000 RG [] 0 d
 39.69 712.06 m 555.59 712.06 l S
 BT /F1 7.94 Tf 0.000 0.000 0.000 rg 39.69 700.16 Td (reservoir.stl) Tj ET
@@ -193,10 +199,10 @@ xref
 0000000224 00000 n 
 0000000326 00000 n 
 0000000468 00000 n 
-0000005970 00000 n 
-0000006112 00000 n 
+0000006482 00000 n 
+0000006624 00000 n 
 trailer
 << /Size 9 /Root 1 0 R >>
 startxref
-13678
+14192
 %%EOF

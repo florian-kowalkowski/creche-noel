@@ -50,14 +50,15 @@ def page1():
     L([(31, 18), (31, -30), (200, -30), (200, -34)], (0.5, RED, None))
     L([(35, 18), (35, -26), (204, -26), (204, -34)], (0.5, RED, None))
     # 2 bac de rivière
-    cv.poly([T(*p) for p in [(60.5, 0), (60.5, -9), (176, -9), (176, -4.2), (181, -4.2), (181, -3), (174, -3), (174, -7), (62.5, -7), (62.5, 0)]], CUT, True)
-    L([(62.5, -3), (181, -3), (182, -6)], WATER)
+    cv.poly([T(*p) for p in [(60.5, 0), (60.5, -9), (176, -9), (176, -4), (174, -4), (174, -7), (150, -7), (62.5, -5.5), (62.5, 0)]], CUT, True)
+    cv.poly([T(100, 6.6), T(174, 6.6)], TRACE)
+    L([(62.5, -3.6), (175, -3.6), (176.6, -5.4), (181, -5.4), (183, -9)], WATER)
     # 3 bassin de reprise
-    cv.poly([T(*p) for p in [(176.5, -4.8), (176.5, -10), (181, -10), (181, -18), (214, -18), (214, -6), (217, -6), (217, -16), (183, -16), (183, -8), (178.5, -8), (178.5, -4.8)]], CUT, True)
-    cv.poly([T(*p) for p in [(223, -6), (226, -6), (226, -18), (233, -18), (233, -10), (238, -10), (238, 0), (236, 0), (236, -8), (231, -8), (231, -16), (223, -16)]], CUT, True)
-    L([(183, -6), (214, -6)], WATER)
-    L([(226, -6), (231, -6)], WATER)
-    L([(220, -6), (220, -22)], WATER)
+    cv.poly([T(*p) for p in [(176.2, -5.6), (176.2, -7.6), (181, -7.6), (181, -18), (214, -18), (214, -9), (217, -9), (217, -16), (183, -16), (183, -5.6)]], CUT, True)
+    cv.poly([T(*p) for p in [(223, -9), (226, -9), (226, -18), (238, -18), (238, 0), (236, 0), (236, -16), (223, -16)]], CUT, True)
+    L([(183, -9), (214, -9)], WATER)
+    L([(226, -9), (236, -9)], WATER)
+    L([(220, -9), (220, -22)], WATER)
     # 4 réservoir et pompe
     cv.poly([T(*p) for p in [(150, -11), (150, -50), (246, -50), (246, -11), (243.6, -11), (243.6, -47.6), (152.4, -47.6), (152.4, -11)]], CUT, True)
     L([(152.4, -22), (243.6, -22)], WATER)
@@ -67,15 +68,19 @@ def page1():
     for u, z, s in [(40, 28, "1 seuil"), (118, 3, "2 bac de rivière"), (198, 4, "3 bassin"), (165, -38, "4 réservoir")]:
         cv.text(T(u, 0)[0], T(0, z)[1], s, 2.8, BLACK, True, "middle")
     cv.text(T(73, 0)[0], T(0, 6)[1], "cascade : 21 mm", 2.4, BLUE)
-    cv.text(T(100, 0)[0], T(0, -5.5)[1], "4 mm d'eau", 2.4, BLUE)
+    cv.text(T(100, 0)[0], T(0, -12.5)[1], "lit en pente, 2 à 3 mm d'eau", 2.4, BLUE)
+    cv.text(T(104, 0)[0], T(0, 9)[1], "berges : 5 mm au-dessus de la collerette", 2.4, BLUE)
+    cv.text(T(176, 0)[0], T(0, -12)[1], "chute", 2.4, BLUE, anchor="end")
     cv.text(T(222, 0)[0], T(0, -2)[1], "trop-plein", 2.4, BLUE, anchor="middle")
     cv.text(T(100, 0)[0], T(0, -33)[1], "tuyau souple, sous le plateau", 2.4, RED)
 
     y = block(cv, 14, 196, "COMMENT ÇA MARCHE", [
         "La pompe, au fond du réservoir, pousse l'eau dans le tuyau jusqu'au seuil, à l'intérieur de la maison.",
         "L'eau sort par l'ouverture de la façade et tombe de 21 mm dans le bac de rivière : c'est la cascade.",
-        "Un déversoir au bout du bac garde 4 mm d'eau dans la rivière, même pompe arrêtée.",
-        "L'eau passe par le bec dans le bassin, 3 mm plus bas, puis retombe au réservoir par le trop-plein.",
+        "Le lit descend de 1,5 mm vers l'aval. Au bout, un déversoir de 28 mm de large garde 3 mm d'eau",
+        "pompe arrêtée. Des berges de 5 mm, imprimées avec le bac, retiennent l'eau en marche.",
+        "L'eau tombe du déversoir sur la lèvre du bassin, puis dans le bassin, 5 mm plus bas : c'est la chute.",
+        "Elle retombe au réservoir par le trop-plein, un tube de 15 mm qui avale le débit sans faire monter l'eau.",
         "Le bassin n'est pas collé : on le soulève pour atteindre la pompe et pour remettre de l'eau.",
     ])
     block(cv, 14, y, "À SAVOIR", [
@@ -97,8 +102,8 @@ def page2():
     cv.text(14, 20, "Dossier impression3d. Chaque fichier STL est déjà orienté pour l'impression.", 3)
     rows = [
         ("Fichier", "Taille (mm)", "Matière", "Supports", True),
-        ("bac-riviere.stl", "83 × 144 × 11", "PETG", "oui, sous la collerette et le bec", False),
-        ("bassin-reprise.stl", "69 × 64 × 20", "PETG", "oui, sous la collerette", False),
+        ("bac-riviere.stl", "83 × 145 × 17", "PETG", "oui, sous la collerette", False),
+        ("bassin-reprise.stl", "69 × 65 × 20", "PETG", "oui, sous la collerette et la lèvre", False),
         ("reservoir.stl", "115 × 75 × 54", "PETG", "non", False),
         ("seuil-cascade.stl", "38 × 38 × 24", "PETG", "non", False),
         ("rochers.stl (16 rochers)", "157 × 133 × 16", "PLA", "non", False),
