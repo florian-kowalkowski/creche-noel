@@ -1,11 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="297mm" height="210mm" viewBox="0 0 297 210">
 <rect width="100%" height="100%" fill="white"/>
 <text x="14.00" y="13.00" font-family="Helvetica,Arial,sans-serif" font-size="5.5" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">Crèche en liège - étape 8 : schéma électrique de l'éclairage</text>
-<polygon points="14.00,22.00 50.00,22.00 50.00,42.00 14.00,42.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<text x="32.00" y="30.00" font-family="Helvetica,Arial,sans-serif" font-size="2.9" fill="rgb(0,0,0)" text-anchor="middle" font-weight="bold">Module micro-USB</text>
-<text x="32.00" y="35.00" font-family="Helvetica,Arial,sans-serif" font-size="2.7" fill="rgb(0,0,0)" text-anchor="middle">sortie 5 V</text>
-<text x="48.50" y="29.00" font-family="Helvetica,Arial,sans-serif" font-size="3" fill="rgb(0,0,0)" text-anchor="end">-</text>
-<text x="48.50" y="37.30" font-family="Helvetica,Arial,sans-serif" font-size="3" fill="rgb(0,0,0)" text-anchor="end">+</text>
+<polygon points="14.00,29.00 22.00,29.00 22.00,35.00 14.00,35.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<polygon points="22.00,31.00 36.00,31.00 36.00,33.00 22.00,33.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
+<text x="18.00" y="26.50" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">fiche USB</text>
+<text x="18.00" y="38.50" font-family="Helvetica,Arial,sans-serif" font-size="2.3" fill="rgb(31,84,178)" text-anchor="middle">(chargeur 5 V)</text>
+<polyline points="36.00,31.50 42.00,28.00 50.00,28.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.6" stroke-linejoin="round"/>
+<polyline points="36.00,32.50 42.00,36.00 50.00,36.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
+<text x="44.00" y="26.60" font-family="Helvetica,Arial,sans-serif" font-size="2.3" fill="rgb(0,0,0)" text-anchor="middle">noir</text>
+<text x="44.00" y="39.40" font-family="Helvetica,Arial,sans-serif" font-size="2.3" fill="rgb(199,46,26)" text-anchor="middle">rouge</text>
+<polyline points="36.00,31.60 41.00,30.40" fill="none" stroke="rgb(31,84,178)" stroke-width="0.4" stroke-linejoin="round"/>
+<polyline points="36.00,32.40 41.00,33.60" fill="none" stroke="rgb(31,84,178)" stroke-width="0.4" stroke-linejoin="round"/>
+<text x="28.00" y="46.00" font-family="Helvetica,Arial,sans-serif" font-size="2.3" fill="rgb(31,84,178)" text-anchor="middle">vert et blanc : coupés court,</text>
+<text x="28.00" y="49.20" font-family="Helvetica,Arial,sans-serif" font-size="2.3" fill="rgb(31,84,178)" text-anchor="middle">isolés chacun à part</text>
 <polyline points="50.00,28.00 226.00,28.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.6" stroke-linejoin="round"/>
 <polyline points="50.00,36.00 55.00,36.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polyline points="55.00,36.00 63.00,32.50" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
@@ -19,7 +26,7 @@
 <polygon points="70.50,54.00 70.00,54.50 69.50,54.00 70.00,53.50" fill="none" stroke="rgb(199,46,26)" stroke-width="1.3" stroke-linejoin="round"/>
 <polyline points="70.00,54.00 88.00,54.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="88.00,51.80 104.00,51.80 104.00,56.20 88.00,56.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<text x="96.00" y="50.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">150 ohms</text>
+<text x="96.00" y="50.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">360 ohms</text>
 <polyline points="104.00,54.00 150.00,54.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="150.00,51.00 150.00,57.00 156.00,54.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
 <polyline points="156.00,51.00 156.00,57.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.6" stroke-linejoin="round"/>
@@ -33,7 +40,7 @@
 <polygon points="70.50,66.00 70.00,66.50 69.50,66.00 70.00,65.50" fill="none" stroke="rgb(199,46,26)" stroke-width="1.3" stroke-linejoin="round"/>
 <polyline points="70.00,66.00 88.00,66.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="88.00,63.80 104.00,63.80 104.00,68.20 88.00,68.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<text x="96.00" y="62.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">150 ohms</text>
+<text x="96.00" y="62.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">360 ohms</text>
 <polyline points="104.00,66.00 150.00,66.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="150.00,63.00 150.00,69.00 156.00,66.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
 <polyline points="156.00,63.00 156.00,69.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.6" stroke-linejoin="round"/>
@@ -50,7 +57,7 @@
 <polygon points="70.50,84.00 70.00,84.50 69.50,84.00 70.00,83.50" fill="none" stroke="rgb(199,46,26)" stroke-width="1.3" stroke-linejoin="round"/>
 <polyline points="70.00,84.00 88.00,84.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="88.00,81.80 104.00,81.80 104.00,86.20 88.00,86.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<text x="96.00" y="80.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">150 ohms</text>
+<text x="96.00" y="80.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">360 ohms</text>
 <polyline points="104.00,84.00 150.00,84.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="150.00,81.00 150.00,87.00 156.00,84.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
 <polyline points="156.00,81.00 156.00,87.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.6" stroke-linejoin="round"/>
@@ -64,7 +71,7 @@
 <polygon points="70.50,96.00 70.00,96.50 69.50,96.00 70.00,95.50" fill="none" stroke="rgb(199,46,26)" stroke-width="1.3" stroke-linejoin="round"/>
 <polyline points="70.00,96.00 88.00,96.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="88.00,93.80 104.00,93.80 104.00,98.20 88.00,98.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<text x="96.00" y="92.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">150 ohms</text>
+<text x="96.00" y="92.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">360 ohms</text>
 <polyline points="104.00,96.00 150.00,96.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="150.00,93.00 150.00,99.00 156.00,96.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
 <polyline points="156.00,93.00 156.00,99.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.6" stroke-linejoin="round"/>
@@ -78,7 +85,7 @@
 <polygon points="70.50,108.00 70.00,108.50 69.50,108.00 70.00,107.50" fill="none" stroke="rgb(199,46,26)" stroke-width="1.3" stroke-linejoin="round"/>
 <polyline points="70.00,108.00 88.00,108.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="88.00,105.80 104.00,105.80 104.00,110.20 88.00,110.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<text x="96.00" y="104.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">150 ohms</text>
+<text x="96.00" y="104.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">360 ohms</text>
 <polyline points="104.00,108.00 150.00,108.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="150.00,105.00 150.00,111.00 156.00,108.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
 <polyline points="156.00,105.00 156.00,111.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.6" stroke-linejoin="round"/>
@@ -92,7 +99,7 @@
 <polygon points="70.50,120.00 70.00,120.50 69.50,120.00 70.00,119.50" fill="none" stroke="rgb(199,46,26)" stroke-width="1.3" stroke-linejoin="round"/>
 <polyline points="70.00,120.00 88.00,120.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="88.00,117.80 104.00,117.80 104.00,122.20 88.00,122.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<text x="96.00" y="116.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">150 ohms</text>
+<text x="96.00" y="116.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">360 ohms</text>
 <polyline points="104.00,120.00 150.00,120.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="150.00,117.00 150.00,123.00 156.00,120.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
 <polyline points="156.00,117.00 156.00,123.00" fill="none" stroke="rgb(0,0,0)" stroke-width="0.6" stroke-linejoin="round"/>
@@ -109,7 +116,7 @@
 <polygon points="70.50,138.00 70.00,138.50 69.50,138.00 70.00,137.50" fill="none" stroke="rgb(199,46,26)" stroke-width="1.3" stroke-linejoin="round"/>
 <polyline points="70.00,138.00 88.00,138.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="88.00,135.80 104.00,135.80 104.00,140.20 88.00,140.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<text x="96.00" y="134.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">220 ohms</text>
+<text x="96.00" y="134.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">360 ohms</text>
 <polyline points="104.00,138.00 150.00,138.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="150.00,135.00 150.00,141.00 156.00,138.00" fill="none" stroke="rgb(230,122,13)" stroke-width="0.5" stroke-linejoin="round"/>
 <polyline points="156.00,135.00 156.00,141.00" fill="none" stroke="rgb(230,122,13)" stroke-width="0.6" stroke-linejoin="round"/>
@@ -123,7 +130,7 @@
 <polygon points="70.50,150.00 70.00,150.50 69.50,150.00 70.00,149.50" fill="none" stroke="rgb(199,46,26)" stroke-width="1.3" stroke-linejoin="round"/>
 <polyline points="70.00,150.00 88.00,150.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="88.00,147.80 104.00,147.80 104.00,152.20 88.00,152.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<text x="96.00" y="146.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">220 ohms</text>
+<text x="96.00" y="146.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">360 ohms</text>
 <polyline points="104.00,150.00 150.00,150.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="150.00,147.00 150.00,153.00 156.00,150.00" fill="none" stroke="rgb(230,122,13)" stroke-width="0.5" stroke-linejoin="round"/>
 <polyline points="156.00,147.00 156.00,153.00" fill="none" stroke="rgb(230,122,13)" stroke-width="0.6" stroke-linejoin="round"/>
@@ -137,7 +144,7 @@
 <polygon points="70.50,162.00 70.00,162.50 69.50,162.00 70.00,161.50" fill="none" stroke="rgb(199,46,26)" stroke-width="1.3" stroke-linejoin="round"/>
 <polyline points="70.00,162.00 88.00,162.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="88.00,159.80 104.00,159.80 104.00,164.20 88.00,164.20" fill="none" stroke="rgb(0,0,0)" stroke-width="0.5" stroke-linejoin="round"/>
-<text x="96.00" y="158.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">220 ohms</text>
+<text x="96.00" y="158.60" font-family="Helvetica,Arial,sans-serif" font-size="2.4" fill="rgb(0,0,0)" text-anchor="middle">360 ohms</text>
 <polyline points="104.00,162.00 150.00,162.00" fill="none" stroke="rgb(199,46,26)" stroke-width="0.6" stroke-linejoin="round"/>
 <polygon points="150.00,159.00 150.00,165.00 156.00,162.00" fill="none" stroke="rgb(230,122,13)" stroke-width="0.5" stroke-linejoin="round"/>
 <polyline points="156.00,159.00 156.00,165.00" fill="none" stroke="rgb(230,122,13)" stroke-width="0.6" stroke-linejoin="round"/>
@@ -162,7 +169,8 @@
 <text x="14.00" y="180.00" font-family="Helvetica,Arial,sans-serif" font-size="3.1" fill="rgb(0,0,0)" text-anchor="start" font-weight="bold">À RETENIR</text>
 <text x="14.00" y="184.60" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">Fil rouge : + 5 V. Fil noir : 0 V. Toutes les LED sont en parallèle, chacune avec SA résistance : jamais une LED sans résistance.</text>
 <text x="14.00" y="189.20" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">LED : la patte longue va au + (côté résistance), le côté plat du boîtier au -. Une LED qui ne s'allume pas est presque toujours à l'envers.</text>
-<text x="14.00" y="193.80" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">Résistances pour environ 15 mA : 150 ohms pour les LED blanches ou bleues, 220 ohms pour les orange, rouges, ambre ou jaunes. Trop fort : 330 ohms.</text>
+<text x="14.00" y="193.80" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">360 ohms partout : environ 5 mA pour une blanche (lueur douce), 8 mA pour une rouge ou orange. Fenêtres trop faibles : 220 ohms. Jamais moins de 100 ohms.</text>
 <text x="14.00" y="198.40" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">Les deux fils de chaque LED passent par le même trou. Résistances et soudures restent dans le caisson, sous gaine thermorétractable.</text>
-<text x="14.00" y="203.00" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">Essayer chaque LED avec sa résistance avant de la cacher. Total environ 140 mA : n'importe quel port USB suffit. La pompe garde son propre port.</text>
+<text x="14.00" y="203.00" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">Essayer chaque LED avec sa résistance avant de la cacher. Total environ 55 mA : n'importe quel chargeur USB suffit. La pompe garde son propre port.</text>
+<text x="14.00" y="207.60" font-family="Helvetica,Arial,sans-serif" font-size="2.75" fill="rgb(0,0,0)" text-anchor="start">Câble USB : vérifier le + au multimètre avant de souder (les couleurs ne sont pas toujours respectées). Prise programmable pour allumer et éteindre.</text>
 </svg>

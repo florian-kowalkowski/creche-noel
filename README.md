@@ -17,7 +17,7 @@ Ce fichier sert de point d'entrée pour reprendre le projet plus tard.
 | `plans/07-impression-3d-notice.pdf` | Schéma du circuit d'eau, réglages d'impression, montage |
 | `plans/09-tuiles-argile-notice.pdf` | Fabrication des tuiles en argile : cotes de la tuile et du flan, étapes d'une fournée, pose courant/couvert, finition, dépannage |
 | `plans/10-briques-argile-notice.pdf` | Murs en briques d'argile : dimensions, fabrication au moule, finition |
-| `plans/08-schema-electrique.pdf` | Schéma de branchement des LED : module micro-USB, résistances, zones |
+| `plans/08-schema-electrique.pdf` | Schéma de branchement des LED : câble USB coupé, résistances, zones |
 | `plans/0X-*-cotes.pdf` | **Plans cotés, pour tracer à la règle sans imprimante papier** : chaque pièce avec ses cotes et un tableau de coordonnées depuis une origine O |
 | `impression3d/fenetre-volets.stl`, `encadrement-sortie-eau.stl` | Habillage de la façade à coller par-dessus les découpes : fenêtre complète (encadrement, croisillon, appui, volets ouverts, × 2) et arc en pierre de la sortie d'eau. Ils cachent une découpe jusqu'à 3 mm trop grande |
 | `impression3d/porte-escalier.stl` | Porte en bois du haut de l'escalier, à coller sur le côté gauche C sans découpe : vantail 17 × 34 en planches veinées, chambranle, seuil posé sur le palier, pentures et bouton |
@@ -111,10 +111,11 @@ Trois passages de câble sont percés dans le plateau (`LED_HOLES` dans `plans/g
 | Abri | Ø 14 | Au pied de la paroi du fond, côté droit. Les fils montent derrière l'écorce | 3 ou 4 LED blanches collées sous le toit X, près de l'avant |
 | Feu de bois | Ø 8 | Dans la cour, devant l'abri, à l'écart de la paille | 2 ou 3 LED orange, rouges ou ambre (« flicker » si possible) |
 
-Choix retenu : LED unitaires de récupération, soudées, alimentées en 5 V par un module micro-USB à bornes placé dans le caisson. Schéma de branchement : `plans/08-schema-electrique.pdf` (généré par `plans/generer_schema_electrique.py` ; nombre de LED et résistances dans `GROUPS`).
+Choix retenu : LED unitaires de récupération, soudées, alimentées en 5 V par un câble USB coupé (fil rouge +, noir −, vert et blanc isolés à part) branché sur un chargeur, soudures dans le caisson. Schéma de branchement : `plans/08-schema-electrique.pdf` (généré par `plans/generer_schema_electrique.py` ; nombre de LED et résistances dans `GROUPS`).
 
 - **Une résistance par LED**, en série sur le fil positif, toutes les LED en parallèle sur le 5 V. Jamais de LED branchée sans résistance.
-- Valeurs pour 5 V et environ 15 mA : LED blanche ou bleue 120 à 150 Ω ; LED rouge, orange, ambre ou jaune 220 Ω.
+- Résistances de 360 Ω pour toutes les LED : environ 5 mA pour une blanche (lueur douce), 8 mA pour une rouge ou orange, 55 mA au total. Si les fenêtres sont trop faibles : 220 Ω.
+- Marche/arrêt : interrupteur facultatif sur le fil +, ou prise programmable. Pas de capteur de lumière : la crèche ne doit pas s'allumer sans personne autour.
 - Les LED blanches de récupération sont souvent froides : un voile de vernis à ongles orange ou de peinture vitrail jaune les réchauffe.
 - Câblage : deux fils communs (+ et −) sous le plateau, une dérivation par LED. Résistances et soudures dans le caisson, isolées par gaine thermorétractable, pour pouvoir y accéder.
 - La pompe garde son propre port USB. Les câbles sortent par une encoche à l'arrière, dans la bande de liège.
@@ -165,7 +166,7 @@ Peinture acrylique mate. Tubes utiles : ocre jaune, terre de Sienne naturelle, v
 - La pompe et le tuyau sont achetés mais pas encore essayés dans les pièces imprimées. Pompe : GERUI, mini pompe USB 5 V, 38 × 37 × 28 mm, embout de 8,4 mm sur le dessus, 180 L/h réglable, lot de 3. Tuyau : silicone 8 × 10 mm. Cotes lues sur les fiches Amazon, pas mesurées.
 - La quantité d'écorce (3 ou 4 plaques de 30 × 20 cm) est une estimation.
 - Les santons n'étaient pas achetés : l'échelle du décor n'a pas été confrontée à leur taille.
-- Les LED de récupération (couleur, tension exacte) et le module micro-USB n'ont pas été identifiés précisément : les résistances sont des valeurs standard à confirmer par un essai.
+- Les LED de récupération (couleur, tension exacte) n'ont pas été identifiées précisément : les résistances sont des valeurs standard à confirmer par un essai.
 
 ## Écarts connus entre la maquette 3D et les plans
 

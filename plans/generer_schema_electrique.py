@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Étape 8 - schéma électrique de l'éclairage LED (5 V par module micro-USB).
+"""Étape 8 - schéma électrique de l'éclairage LED (5 V par câble USB coupé).
 
 Produit, à côté de ce script :
   08-schema-electrique.pdf : 1 page A4 paysage
@@ -21,9 +21,9 @@ BAND = (0.25, BLUE, (2.5, 1.5))
 
 # (zone, détail, nombre de LED, couleur de LED, résistance)
 GROUPS = [
-    ("Fenêtres de la maison", "trou Ø 14 sous la maison", 2, "blanche", 150),
-    ("Abri", "trou Ø 14 au pied de la paroi", 4, "blanche", 150),
-    ("Feu de bois", "trou Ø 8 dans la cour", 3, "orange", 220),
+    ("Fenêtres de la maison", "trou Ø 14 sous la maison", 2, "blanche", 360),
+    ("Abri", "trou Ø 14 au pied de la paroi", 4, "blanche", 360),
+    ("Feu de bois", "trou Ø 8 dans la cour", 3, "orange", 360),
 ]
 
 X_PLUS, X_RES, X_LED, X_MINUS = 70, 88, 150, 226
@@ -46,12 +46,19 @@ def page():
     cv = Canvas(297, 210)
     cv.text(14, 13, "Crèche en liège - étape 8 : schéma électrique de l'éclairage", 5.5, bold=True)
 
-    # module micro-USB
-    cv.poly([(14, 22), (50, 22), (50, 42), (14, 42)], PART, True)
-    cv.text(32, 30, "Module micro-USB", 2.9, bold=True, anchor="middle")
-    cv.text(32, 35, "sortie 5 V", 2.7, anchor="middle")
-    cv.text(48.5, 29, "-", 3, anchor="end")
-    cv.text(48.5, 37.3, "+", 3, anchor="end")
+    # câble USB coupé : fiche, gaine, puis les 4 fils dénudés
+    cv.poly([(14, 29), (22, 29), (22, 35), (14, 35)], PART, True)
+    cv.poly([(22, 31), (36, 31), (36, 33), (22, 33)], PART, True)
+    cv.text(18, 26.5, "fiche USB", 2.4, anchor="middle")
+    cv.text(18, 38.5, "(chargeur 5 V)", 2.3, BLUE, anchor="middle")
+    cv.poly([(36, 31.5), (42, 28), (50, 28)], MINUS)
+    cv.poly([(36, 32.5), (42, 36), (50, 36)], PLUS)
+    cv.text(44, 26.6, "noir", 2.3, anchor="middle")
+    cv.text(44, 39.4, "rouge", 2.3, RED, anchor="middle")
+    for dy in (-0.4, 0.4):
+        cv.poly([(36, 32 + dy), (41, 32 + dy * 4)], (0.4, BLUE, None))
+    cv.text(28, 46, "vert et blanc : coupés court,", 2.3, BLUE, anchor="middle")
+    cv.text(28, 49.2, "isolés chacun à part", 2.3, BLUE, anchor="middle")
 
     # fil -, par le haut jusqu'au rail de droite
     cv.poly([(50, 28), (X_MINUS, 28)], MINUS)
@@ -106,9 +113,10 @@ def page():
         ("À RETENIR", True),
         ("Fil rouge : + 5 V. Fil noir : 0 V. Toutes les LED sont en parallèle, chacune avec SA résistance : jamais une LED sans résistance.", False),
         ("LED : la patte longue va au + (côté résistance), le côté plat du boîtier au -. Une LED qui ne s'allume pas est presque toujours à l'envers.", False),
-        ("Résistances pour environ 15 mA : 150 ohms pour les LED blanches ou bleues, 220 ohms pour les orange, rouges, ambre ou jaunes. Trop fort : 330 ohms.", False),
+        ("360 ohms partout : environ 5 mA pour une blanche (lueur douce), 8 mA pour une rouge ou orange. Fenêtres trop faibles : 220 ohms. Jamais moins de 100 ohms.", False),
         ("Les deux fils de chaque LED passent par le même trou. Résistances et soudures restent dans le caisson, sous gaine thermorétractable.", False),
-        ("Essayer chaque LED avec sa résistance avant de la cacher. Total environ 140 mA : n'importe quel port USB suffit. La pompe garde son propre port.", False),
+        ("Essayer chaque LED avec sa résistance avant de la cacher. Total environ 55 mA : n'importe quel chargeur USB suffit. La pompe garde son propre port.", False),
+        ("Câble USB : vérifier le + au multimètre avant de souder (les couleurs ne sont pas toujours respectées). Prise programmable pour allumer et éteindre.", False),
     ]
     yy = max(bottom + 12, 178)
     for s, bold in lines:

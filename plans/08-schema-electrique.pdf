@@ -16,16 +16,28 @@ endobj
 << /Type /Page /Parent 2 0 R /MediaBox [0 0 841.89 595.28] /Contents 6 0 R /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> >>
 endobj
 6 0 obj
-<< /Length 13910 >>
+<< /Length 14720 >>
 stream
 1 j 1 J
 BT /F2 15.59 Tf 0.000 0.000 0.000 rg 39.69 558.43 Td (Crèche en liège - étape 8 : schéma électrique de l'éclairage) Tj ET
 1.417 w 0.000 0.000 0.000 RG [] 0 d
-39.69 532.91 m 141.73 532.91 l 141.73 476.22 l 39.69 476.22 l h S
-BT /F2 8.22 Tf 0.000 0.000 0.000 rg 57.83 510.24 Td (Module micro-USB) Tj ET
-BT /F1 7.65 Tf 0.000 0.000 0.000 rg 71.57 496.06 Td (sortie 5 V) Tj ET
-BT /F1 8.50 Tf 0.000 0.000 0.000 rg 133.23 513.07 Td (-) Tj ET
-BT /F1 8.50 Tf 0.000 0.000 0.000 rg 133.23 489.54 Td (+) Tj ET
+39.69 513.07 m 62.36 513.07 l 62.36 496.06 l 39.69 496.06 l h S
+1.417 w 0.000 0.000 0.000 RG [] 0 d
+62.36 507.40 m 102.05 507.40 l 102.05 501.73 l 62.36 501.73 l h S
+BT /F1 6.80 Tf 0.000 0.000 0.000 rg 35.72 520.16 Td (fiche USB) Tj ET
+BT /F1 6.52 Tf 0.120 0.330 0.700 rg 28.20 486.14 Td (\(chargeur 5 V\)) Tj ET
+1.701 w 0.000 0.000 0.000 RG [] 0 d
+102.05 505.98 m 119.06 515.91 l 141.73 515.91 l S
+1.701 w 0.780 0.180 0.100 RG [] 0 d
+102.05 503.15 m 119.06 493.23 l 141.73 493.23 l S
+BT /F1 6.52 Tf 0.000 0.000 0.000 rg 118.20 519.87 Td (noir) Tj ET
+BT /F1 6.52 Tf 0.780 0.180 0.100 rg 116.57 483.59 Td (rouge) Tj ET
+1.134 w 0.120 0.330 0.700 RG [] 0 d
+102.05 505.70 m 116.22 509.10 l S
+1.134 w 0.120 0.330 0.700 RG [] 0 d
+102.05 503.43 m 116.22 500.03 l S
+BT /F1 6.52 Tf 0.120 0.330 0.700 rg 32.10 464.88 Td (vert et blanc : coupés court,) Tj ET
+BT /F1 6.52 Tf 0.120 0.330 0.700 rg 46.77 455.81 Td (isolés chacun à part) Tj ET
 1.701 w 0.000 0.000 0.000 RG [] 0 d
 141.73 515.91 m 640.63 515.91 l S
 1.701 w 0.780 0.180 0.100 RG [] 0 d
@@ -47,7 +59,7 @@ BT /F1 7.37 Tf 0.120 0.330 0.700 rg 576.71 479.06 Td (caisson) Tj ET
 198.43 442.20 m 249.45 442.20 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
 249.45 448.44 m 294.80 448.44 l 294.80 435.97 l 249.45 435.97 l h S
-BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 451.84 Td (150 ohms) Tj ET
+BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 451.84 Td (360 ohms) Tj ET
 1.701 w 0.780 0.180 0.100 RG [] 0 d
 294.80 442.20 m 425.20 442.20 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
@@ -73,7 +85,7 @@ BT /F1 6.80 Tf 0.000 0.000 0.000 rg 450.71 432.00 Td (blanche) Tj ET
 198.43 408.19 m 249.45 408.19 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
 249.45 414.43 m 294.80 414.43 l 294.80 401.95 l 249.45 401.95 l h S
-BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 417.83 Td (150 ohms) Tj ET
+BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 417.83 Td (360 ohms) Tj ET
 1.701 w 0.780 0.180 0.100 RG [] 0 d
 294.80 408.19 m 425.20 408.19 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
@@ -103,7 +115,7 @@ BT /F1 6.80 Tf 0.000 0.000 0.000 rg 668.98 414.43 Td (2 LED blanches, trou Ø 14 
 198.43 357.17 m 249.45 357.17 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
 249.45 363.40 m 294.80 363.40 l 294.80 350.93 l 249.45 350.93 l h S
-BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 366.80 Td (150 ohms) Tj ET
+BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 366.80 Td (360 ohms) Tj ET
 1.701 w 0.780 0.180 0.100 RG [] 0 d
 294.80 357.17 m 425.20 357.17 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
@@ -129,7 +141,7 @@ BT /F1 6.80 Tf 0.000 0.000 0.000 rg 450.71 346.96 Td (blanche) Tj ET
 198.43 323.15 m 249.45 323.15 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
 249.45 329.39 m 294.80 329.39 l 294.80 316.91 l 249.45 316.91 l h S
-BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 332.79 Td (150 ohms) Tj ET
+BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 332.79 Td (360 ohms) Tj ET
 1.701 w 0.780 0.180 0.100 RG [] 0 d
 294.80 323.15 m 425.20 323.15 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
@@ -155,7 +167,7 @@ BT /F1 6.80 Tf 0.000 0.000 0.000 rg 450.71 312.94 Td (blanche) Tj ET
 198.43 289.13 m 249.45 289.13 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
 249.45 295.37 m 294.80 295.37 l 294.80 282.90 l 249.45 282.90 l h S
-BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 298.77 Td (150 ohms) Tj ET
+BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 298.77 Td (360 ohms) Tj ET
 1.701 w 0.780 0.180 0.100 RG [] 0 d
 294.80 289.13 m 425.20 289.13 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
@@ -181,7 +193,7 @@ BT /F1 6.80 Tf 0.000 0.000 0.000 rg 450.71 278.93 Td (blanche) Tj ET
 198.43 255.12 m 249.45 255.12 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
 249.45 261.35 m 294.80 261.35 l 294.80 248.88 l 249.45 248.88 l h S
-BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 264.76 Td (150 ohms) Tj ET
+BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 264.76 Td (360 ohms) Tj ET
 1.701 w 0.780 0.180 0.100 RG [] 0 d
 294.80 255.12 m 425.20 255.12 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
@@ -211,7 +223,7 @@ BT /F1 6.80 Tf 0.000 0.000 0.000 rg 668.98 295.37 Td (4 LED blanches, trou Ø 14 
 198.43 204.09 m 249.45 204.09 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
 249.45 210.33 m 294.80 210.33 l 294.80 197.86 l 249.45 197.86 l h S
-BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 213.73 Td (220 ohms) Tj ET
+BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 213.73 Td (360 ohms) Tj ET
 1.701 w 0.780 0.180 0.100 RG [] 0 d
 294.80 204.09 m 425.20 204.09 l S
 1.417 w 0.900 0.480 0.050 RG [] 0 d
@@ -237,7 +249,7 @@ BT /F1 6.80 Tf 0.900 0.480 0.050 rg 450.71 193.89 Td (orange) Tj ET
 198.43 170.08 m 249.45 170.08 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
 249.45 176.31 m 294.80 176.31 l 294.80 163.84 l 249.45 163.84 l h S
-BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 179.72 Td (220 ohms) Tj ET
+BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 179.72 Td (360 ohms) Tj ET
 1.701 w 0.780 0.180 0.100 RG [] 0 d
 294.80 170.08 m 425.20 170.08 l S
 1.417 w 0.900 0.480 0.050 RG [] 0 d
@@ -263,7 +275,7 @@ BT /F1 6.80 Tf 0.900 0.480 0.050 rg 450.71 159.87 Td (orange) Tj ET
 198.43 136.06 m 249.45 136.06 l S
 1.417 w 0.000 0.000 0.000 RG [] 0 d
 249.45 142.30 m 294.80 142.30 l 294.80 129.83 l 249.45 129.83 l h S
-BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 145.70 Td (220 ohms) Tj ET
+BT /F1 6.80 Tf 0.000 0.000 0.000 rg 258.52 145.70 Td (360 ohms) Tj ET
 1.701 w 0.780 0.180 0.100 RG [] 0 d
 294.80 136.06 m 425.20 136.06 l S
 1.417 w 0.900 0.480 0.050 RG [] 0 d
@@ -302,9 +314,10 @@ BT /F1 7.37 Tf 0.000 0.000 0.000 rg 646.30 501.73 Td (0 V) Tj ET
 BT /F2 8.79 Tf 0.000 0.000 0.000 rg 39.69 85.04 Td (À RETENIR) Tj ET
 BT /F1 7.80 Tf 0.000 0.000 0.000 rg 39.69 72.00 Td (Fil rouge : + 5 V. Fil noir : 0 V. Toutes les LED sont en parallèle, chacune avec SA résistance : jamais une LED sans résistance.) Tj ET
 BT /F1 7.80 Tf 0.000 0.000 0.000 rg 39.69 58.96 Td (LED : la patte longue va au + \(côté résistance\), le côté plat du boîtier au -. Une LED qui ne s'allume pas est presque toujours à l'envers.) Tj ET
-BT /F1 7.80 Tf 0.000 0.000 0.000 rg 39.69 45.92 Td (Résistances pour environ 15 mA : 150 ohms pour les LED blanches ou bleues, 220 ohms pour les orange, rouges, ambre ou jaunes. Trop fort : 330 ohms.) Tj ET
+BT /F1 7.80 Tf 0.000 0.000 0.000 rg 39.69 45.92 Td (360 ohms partout : environ 5 mA pour une blanche \(lueur douce\), 8 mA pour une rouge ou orange. Fenêtres trop faibles : 220 ohms. Jamais moins de 100 ohms.) Tj ET
 BT /F1 7.80 Tf 0.000 0.000 0.000 rg 39.69 32.88 Td (Les deux fils de chaque LED passent par le même trou. Résistances et soudures restent dans le caisson, sous gaine thermorétractable.) Tj ET
-BT /F1 7.80 Tf 0.000 0.000 0.000 rg 39.69 19.84 Td (Essayer chaque LED avec sa résistance avant de la cacher. Total environ 140 mA : n'importe quel port USB suffit. La pompe garde son propre port.) Tj ET
+BT /F1 7.80 Tf 0.000 0.000 0.000 rg 39.69 19.84 Td (Essayer chaque LED avec sa résistance avant de la cacher. Total environ 55 mA : n'importe quel chargeur USB suffit. La pompe garde son propre port.) Tj ET
+BT /F1 7.80 Tf 0.000 0.000 0.000 rg 39.69 6.80 Td (Câble USB : vérifier le + au multimètre avant de souder \(les couleurs ne sont pas toujours respectées\). Prise programmable pour allumer et éteindre.) Tj ET
 endstream
 endobj
 xref
@@ -319,5 +332,5 @@ xref
 trailer
 << /Size 7 /Root 1 0 R >>
 startxref
-14425
+15235
 %%EOF
