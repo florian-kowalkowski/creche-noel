@@ -6,6 +6,7 @@ Produit, à côté de ce script :
   07-circuit-eau-apercu.svg   : la première page seule
 Les fichiers STL eux-mêmes sont produits par ../impression3d/generer_pieces_3d.py
 """
+import math
 import os
 
 from generer_plan_socle import BLACK, BLUE, CUT, RED, THIN, TRACE, Canvas, rect, write_pdf
@@ -44,15 +45,12 @@ def page1():
     cv.text(T(59, 0)[0], T(0, 37)[1], "façade", 2.4, WOOD[1])
 
     # 1 seuil de cascade
-    cv.poly([T(*p) for p in [(22, 0), (60, 0), (60, 3), (67, 10), (71, 12.5), (73.5, 17.5), (69, 21.5),
-                             (69, 24), (22, 24)]], CUT, True)                              # bloc et bec
-    L([(29.5, 10), (29.5, 20.5), (63, 20.5), (72.2, 15)], CUT)                              # conduit fermé
-    L([(36.5, 10), (36.5, 13.5), (61, 13.5), (70.2, 11.7)], CUT)
-    L([(36.5, 10), (29.5, 10)], THIN)
-    L([(72.5, 13), (75.5, 9.5), (77.5, 3), (78.5, -3.6)], WATER)
-    # tuyau, emboîté dans le seuil
-    L([(29.5, 10), (29.5, -30), (200, -30), (200, -34)], (0.5, RED, None))
-    L([(36.5, 10), (36.5, -26), (204, -26), (204, -34)], (0.5, RED, None))
+    cv.poly([T(*p) for p in [(22, 0), (63, 0), (63, 3), (66, 6), (69, 6), (69, 27), (22, 27)]], CUT, True)   # bloc
+    # tuyau : il traverse tout le seuil dans un fourreau courbe et ressort par la bouche
+    for rr, u0, z0, u1 in ((18.5, 29.5, -30, 200), (11.5, 36.5, -26, 204)):
+        bend = [(48 - rr * math.cos(math.radians(a)), rr * math.sin(math.radians(a))) for a in range(0, 91, 10)]
+        L([(u1, -34), (u1, z0), (u0, z0)] + bend + [(71, rr)], (0.5, RED, None))
+    L([(71.5, 15), (75, 12), (77.5, 4), (78.5, -3.6)], WATER)
     # 2 bac de rivière
     cv.poly([T(*p) for p in [(60.5, 0), (60.5, -9), (176, -9), (176, -4), (174, -4), (174, -7), (150, -7), (62.5, -5.5), (62.5, 0)]], CUT, True)
     cv.poly([T(100, 6.6), T(174, 6.6)], TRACE)
@@ -69,9 +67,9 @@ def page1():
     R(186, -47.6, 222, -34, TRACE)
     cv.text(T(204, 0)[0], T(0, -42)[1], "pompe", 2.4, BLUE, anchor="middle")
 
-    for u, z, s in [(40, 28, "1 seuil"), (118, 3, "2 bac de rivière"), (198, 4, "3 bassin"), (165, -38, "4 réservoir")]:
+    for u, z, s in [(40, 31, "1 seuil"), (118, 3, "2 bac de rivière"), (198, 4, "3 bassin"), (165, -38, "4 réservoir")]:
         cv.text(T(u, 0)[0], T(0, z)[1], s, 2.8, BLACK, True, "middle")
-    cv.text(T(80, 0)[0], T(0, 5)[1], "jet : chute de 17 mm", 2.4, BLUE)
+    cv.text(T(80, 0)[0], T(0, 5)[1], "jet : chute de 19 mm", 2.4, BLUE)
     cv.text(T(100, 0)[0], T(0, -12.5)[1], "lit en pente, 2 à 3 mm d'eau", 2.4, BLUE)
     cv.text(T(104, 0)[0], T(0, 9)[1], "berges : 5 mm au-dessus de la collerette", 2.4, BLUE)
     cv.text(T(176, 0)[0], T(0, -12)[1], "chute", 2.4, BLUE, anchor="end")
@@ -80,8 +78,8 @@ def page1():
 
     y = block(cv, 14, 196, "COMMENT ÇA MARCHE", [
         "La pompe, au fond du réservoir, pousse l'eau dans le tuyau jusqu'au seuil, à l'intérieur de la maison.",
-        "Le tuyau s'emboîte serré sous le seuil, dans un conduit fermé qui monte, tourne et sort par un bec",
-        "    incliné sous l'arche de la façade : l'eau jaillit et retombe 17 mm plus bas dans la rivière.",
+        "Le tuyau traverse tout le seuil dans un fourreau courbe et sort par sa bouche, sous l'arche de la façade :",
+        "    aucun raccord, donc aucune fuite cachée. L'eau en sort et retombe 19 mm plus bas dans la rivière.",
         "Le lit descend de 1,5 mm vers l'aval. Au bout, un déversoir de 28 mm de large garde 3 mm d'eau",
         "pompe arrêtée. Des berges de 5 mm, imprimées avec le bac, retiennent l'eau en marche.",
         "L'eau tombe du déversoir sur la lèvre du bassin, puis dans le bassin, 5 mm plus bas : c'est la chute.",
@@ -93,8 +91,8 @@ def page1():
         "    Pompe retenue : 38 × 37 × 28 mm, embout de 8,4 mm sur le dessus. La coucher sur le flanc dans",
         "    la partie gauche du réservoir, ventouses contre la paroi, embout vers la droite, grille dégagée.",
         "    Jamais de pompe en 230 V dans un caisson en bois.",
-        "Tuyau : silicone 8 × 10 mm ; le logement du seuil fait 9,6 mm pour serrer le tuyau. Si le vôtre",
-        "    est différent, changer TUBE_FIT en tête du script generer_pieces_3d.py et le relancer.",
+        "Tuyau : silicone 8 × 10 mm ; le fourreau du seuil fait 11,5 mm, courbe de 18 mm de rayon. Si le vôtre",
+        "    est différent, changer TUBE_BORE et BEND_R en tête du script generer_pieces_3d.py et le relancer.",
         "Eau : environ 350 mL en tout. Compléter chaque semaine ; l'eau déminéralisée évite le calcaire.",
         "Le socle doit être de niveau, sinon la rivière se vide d'un côté.",
     ])
@@ -110,7 +108,7 @@ def page2():
         ("bac-riviere.stl", "83 × 145 × 17", "PETG", "oui, sous la collerette", False),
         ("bassin-reprise.stl", "69 × 65 × 20", "PETG", "oui, sous la collerette et la lèvre", False),
         ("reservoir.stl", "115 × 75 × 54", "PETG", "non", False),
-        ("seuil-cascade.stl", "38 × 43 × 24", "PETG", "oui, sous le nez et le bec", False),
+        ("seuil-cascade.stl", "38 × 38 × 28", "PETG ou PLA", "non", False),
         ("rochers.stl (16 rochers)", "157 × 133 × 16", "PLA", "non", False),
         ("pelle.stl", "18 × 118 × 3", "PLA", "non", False),
         ("tuiles-auvent.stl", "100 × 10 × 36", "PLA", "non, bordure de 5 mm", False),
@@ -144,8 +142,8 @@ def page2():
         "2. Poser le réservoir sur le fond du caisson, à l'emplacement rouge du plan du socle,",
         "    avant de fermer le caisson. Y placer la pompe, tuyau et câble dans l'encoche.",
         "3. Faire sortir le câble par l'arrière du caisson, par une encoche dans la bande de liège.",
-        "4. Passer le tuyau sous le plateau, le remonter par le trou de 14 mm et l'enfoncer à fond par-dessous",
-        "    dans le seuil (10 mm, jusqu'à la butée). Il doit forcer un peu : c'est ce qui le rend étanche.",
+        "4. Pousser le tuyau dans le seuil par-dessous jusqu'à ce qu'il sorte par la bouche (eau savonneuse s'il",
+        "    accroche), puis le passer dans le trou de 14 mm du plateau. Le couper au ras de la bouche, ou 2 mm devant.",
         "5. Coller le seuil sur le plateau, le nez au-dessus du bac. Coller le bac au silicone sous sa",
         "    collerette. Poser le bassin sans le coller.",
         "6. Coller alors la maison par-dessus le seuil, puis le pont, puis les rochers sur les collerettes.",

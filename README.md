@@ -73,8 +73,8 @@ python impression3d/generer_gabarits.py
 
 | Paramètre | Fichier | Valeur | À changer si |
 |---|---|---|---|
-| `TUBE_FIT` / `SOCKET_DEPTH` | `impression3d/generer_pieces_3d.py` | 9,6 / 10 mm | On change de tuyau (actuel : silicone 8 × 10 mm, serré de 0,4 mm), ou il fuit / force trop |
-| `CHANNEL_D` / `SPOUT_TILT` | idem | 7 mm / 30° | Le jet porte trop loin (augmenter l'inclinaison ou le diamètre) ou pas assez |
+| `TUBE_BORE` / `BEND_R` | `impression3d/generer_pieces_3d.py` | 11,5 / 18 mm | On change de tuyau (actuel : silicone 8 × 10 mm), ou il force trop dans le fourreau, ou il s'écrase dans la courbe |
+| `SPOUT_TILT` | idem | 10° | Le jet porte trop loin (augmenter) ou pas assez |
 | `RES` | idem | 115 × 75 mm | La pompe ne rentre pas. Zone libre à gauche, hors de dessous le bassin : 51 × 70 mm. Garder `RESERVOIR` identique dans `plans/generer_plan_socle.py` |
 | `PLATE` | idem | 20 mm | On change l'épaisseur du plateau : le bassin, le réservoir et le plan du socle en dépendent |
 | `CAVITY` | idem | 55 mm | La pompe et la courbe du tuyau ne tiennent pas en hauteur (51 mm libres dans le réservoir). Reporter la valeur dans les textes du plan du socle (entretoises, hauteur du caisson, chant) |
@@ -92,7 +92,7 @@ python impression3d/generer_gabarits.py
 
 - **Outils** : scie sauteuse et scie à chantourner, pas de découpe laser ni de CNC. Les assemblages sont donc à plat-joint, sans queues droites.
 - **Socle en caisson** de 80 mm : plateau contreplaqué 20 mm, 12 entretoises de 55 mm, fond 5 mm, chant fermé par une bande de liège. Il cache le réservoir, la pompe et le tuyau.
-- **Rivière encastrée** : le bac imprimé tombe dans un évidement du plateau et tient par une collerette. Ses berges, 5 mm au-dessus de la collerette, sont imprimées avec lui ; elles passent sous le nez du seuil de cascade et s'arrêtent avant le bassin. Le seuil est un bloc plein traversé par un conduit fermé en L : le tuyau s'y emboîte serré par-dessous, l'eau sort par un bec incliné de 30° vers le bas (le premier seuil, à canal ouvert, fuyait autour du tuyau sous la pression). Le lit descend de 1,5 mm vers l'aval (plat sur les 20 derniers mm). Un déversoir de 28 mm de large, crête à −4 mm, garde 3 mm d'eau pompe arrêtée.
+- **Rivière encastrée** : le bac imprimé tombe dans un évidement du plateau et tient par une collerette. Ses berges, 5 mm au-dessus de la collerette, sont imprimées avec lui ; elles passent sous le nez du seuil de cascade et s'arrêtent avant le bassin. Le seuil est un bloc plein traversé par un fourreau courbe : le tuyau le traverse en entier et sort par la bouche, sans aucun raccord dans la pièce (le premier seuil, à canal ouvert où le tuyau s'emboîtait, fuyait autour du tuyau sous la pression). Le lit descend de 1,5 mm vers l'aval (plat sur les 20 derniers mm). Un déversoir de 28 mm de large, crête à −4 mm, garde 3 mm d'eau pompe arrêtée.
 - **Chute dans le bassin** : l'eau tombe du déversoir sur une lèvre du bassin (dessus à −5,6 mm) qui enjambe le jour entre les deux pièces, puis dans le bassin, dont l'eau est à −9 mm. La lèvre fait partie du bassin, qui se soulève donc toujours d'un bloc ; elle se loge dans l'évidement de la rivière et oriente le bassin. Le trop-plein est un tube de 15 mm intérieur : son grand périmètre avale le débit sans faire monter le bassin jusqu'au déversoir.
 - **Historique du circuit** : premier tirage avec crête à −3 mm, échancrure de 16 mm, petit bec, sans berges ni pente, et bassin à −6 mm avec un trop-plein de 7 mm. En marche, l'eau montait presque au bord : une échancrure étroite et un petit trop-plein font monter le niveau jusqu'à laisser passer tout le débit de la pompe. Bac et bassin sont à réimprimer ensemble.
 - **Lit de rivière et fond du bassin en galets** : le fond est relevé en galets aplatis de tailles variées avec un grain de sable entre eux, et des blocs sont pris dans les berges de la rivière. Les galets restent à distance des parois et du trop-plein, et les blocs sont rognés pour ne jamais dépasser à l'extérieur du bac, qui garde donc la même forme pour s'encastrer dans le bois. Pas de blocs dans le bassin, pour garder le passage de la chute et du trop-plein dégagé.
@@ -175,7 +175,7 @@ La maquette est une illustration, les plans et les STL font foi. Elle ne montre 
 
 ## Pistes de reprise
 
-- Seuil à conduit fermé (logement serré de 9,6 mm, bec incliné à 30°) pas encore imprimé ni essayé.
+- Seuil à fourreau (11,5 mm, courbe de 18 mm de rayon) pas encore imprimé : vérifier que le tuyau y passe sans s'écraser dans la courbe.
 - Adapter l'échelle aux santons si besoin.
 - Donner une légère pente au fond de la rivière : la base sous les galets est plate.
 - Ajouter un gabarit pour le fond du caisson et une trappe sous le réservoir.
