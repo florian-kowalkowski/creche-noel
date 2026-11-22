@@ -26,10 +26,11 @@ sys.path.insert(0, os.path.join(HERE, "..", "plans"))
 from generer_plan_socle import POOL_C, RIVER_AXIS, TRAY_MARGIN, spline  # noqa: E402
 
 # ----------------------------------------------------------------------------- paramètres
-TUBE_OD = 10.0       # diamètre EXTÉRIEUR du tuyau (silicone 8 x 10 mm, sur l'embout de 8,4 mm de la pompe)
 PLATE = 20.0         # épaisseur du plateau du socle
-LIP_W = 12.0         # largeur du bec de la cascade (le lit de la rivière fait environ 27 mm)
-V_DROP = 2.0         # descente du bec en V au milieu
+TUBE_FIT = 9.6       # logement du tuyau (silicone 8 x 10 mm) dans le seuil : 0,4 mm plus serré, pour qu'il ne fuie pas
+SOCKET_DEPTH = 10.0  # profondeur d'emboîtement du tuyau dans le seuil
+CHANNEL_D = 7.0      # diamètre du conduit et du bec de sortie (le tuyau fait 8 mm intérieur)
+SPOUT_TILT = 30.0    # inclinaison du bec vers le bas, en degrés (0 : jet horizontal, il porte plus loin)
 TRAY_DEPTH = 9.0     # profondeur du pied du bac sous le dessus du plateau (il pend dans l'évidement)
 CAVITY = 55.0        # hauteur libre du caisson (entretoises)
 CLEAR = 0.4          # jeu entre une pièce imprimée et le bois
@@ -288,30 +289,33 @@ def make_reservoir():
 
 
 def make_spout():
-    """Seuil de cascade : passe par la sortie d'eau de la façade, le tuyau arrive par-dessous."""
+    """Seuil de cascade : bloc plein traversé par un conduit fermé en L. Le tuyau s'emboîte serré par-dessous,
+    l'eau monte, tourne à l'horizontale et sort par un bec incliné vers le bas, au-dessus du début de la rivière."""
     x0, x1, yb, yf, top = 126, 164, -74, -36, 24
     block = box(x0, yb, x1, yf, 0, top)
-    # dessous du nez en biseau à 45° : il surplombe le bac sans toucher sa collerette
+    # dessous du nez en biseau à 45° : il surplombe le bac sans toucher sa collerette ni ses berges
     wedge2d = CrossSection([[(44.8, -1), (44.8, 3), (36, 11.8), (35, 11.8), (35, -1)]], FillRule.NonZero)
     wedge = Manifold.extrude(wedge2d, 60).transform(np.array([[0, 0, 1, 115.0], [1, 0, 0, 0], [0, 1, 0, 0]], dtype=float))
     block -= wedge
-    floor, cx = 18.0, 145.0
-    # canal en entonnoir : 30 mm de large au-dessus du tuyau, il se resserre jusqu'au bec de LIP_W mm,
-    # plus étroit que le lit de la rivière (environ 27 mm) : l'eau tombe au milieu, sans déborder
-    hw = LIP_W / 2
-    funnel = [(x0 + 4, yb + 2), (x1 - 4, yb + 2), (x1 - 4, -52), (cx + hw, yf - 3), (cx + hw, yf + 1),
-              (cx - hw, yf + 1), (cx - hw, yf - 3), (x0 + 4, -52)]
-    block -= ext(cs(funnel), floor, top + 1)
-    # bec en V : le fond descend de V_DROP mm au milieu sur les 8 derniers mm, l'eau se concentre au centre
-    vy0, vy1 = -(yf - 8), -(yf + 1)                                    # Y de construction (plan inversé)
-    pts = []
-    for yy in (vy0, vy1):
-        pts += [(cx - hw, yy, floor + 0.01), (cx + hw, yy, floor + 0.01), (cx, yy, floor - V_DROP)]
-    block -= Manifold.hull_points(pts)
-    # brise-jet : un plafond au-dessus de l'arrivée du tuyau. Le jet s'y écrase et ressort calmement
-    # vers l'avant par-dessous, au lieu de gicler hors du canal
-    block += box(x0 + 3.5, yb + 1.5, x1 - 3.5, -56, floor + 3.6, floor + 5.0)
-    block -= cyl((cx, -66), (TUBE_OD + 0.4) / 2, -1, floor + 1)     # logement du tuyau
+    cx, ty, zc, r = 145.0, 66.0, 17.0, CHANNEL_D / 2        # Y de construction : 66 au-dessus du tuyau, 36 à l'avant
+    t = math.radians(SPOUT_TILT)
+    d = (0.0, -math.cos(t), -math.sin(t))                   # sens de sortie : vers l'avant et vers le bas
+    elbow, tip = (cx, 40.0, zc), (cx, 40.0 - 6.0, zc - 6.0 * math.tan(t))
+
+    def rod(p, rad, length, n=48):                          # cylindre de rayon rad, de p sur length mm dans le sens d
+        return Manifold.cylinder(length, rad, rad, n).rotate((90 + SPOUT_TILT + 0.0, 0, 0)).translate(p)
+
+    def capsule(p, q, rad):
+        return Manifold.batch_hull([Manifold.sphere(rad, 32).translate(p), Manifold.sphere(rad, 32).translate(q)])
+    # bec : un tube qui dépasse du nez, épaulé par un menton qui le raccroche au biseau
+    nose = rod(elbow, r + 1.6, 6.0 / math.cos(t))
+    chin = Manifold.batch_hull([nose, box(cx - 4, -37, cx + 4, -36, 10.0, 13.0)])
+    block += nose + chin
+    # conduit : logement serré du tuyau (avec un chanfrein d'entrée), épaulement, montée, coude, sortie
+    block -= cyl((cx, -ty), TUBE_FIT / 2, -1, SOCKET_DEPTH)
+    block -= Manifold.cylinder(1.6, TUBE_FIT / 2 + 0.8, TUBE_FIT / 2, 48).translate((cx, ty, -0.6))
+    block -= capsule((cx, ty, SOCKET_DEPTH), (cx, ty, zc), r) + capsule((cx, ty, zc), elbow, r)
+    block -= rod(elbow, r, 20.0)
     return block
 
 
