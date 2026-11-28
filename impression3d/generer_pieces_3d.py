@@ -599,8 +599,7 @@ PLAQUE_TITRE = "Crèche Saint-Michel"
 PLAQUE_TEXTE = [                     # une ligne par élément ; une ligne trop longue est coupée toute seule
     "Cette crèche, créée en novembre 2026,",
     "est là pour ne pas oublier",
-    "tous ceux qui nous manquent",
-    "et qui nous manqueront à l'avenir.",
+    "tous ceux qui nous manquent.",
 ]
 PLAQUE_POLICE = r"C:\Windows\Fonts\georgiab.ttf"   # Georgia gras : traits assez épais pour une buse de 0,4
 PLAQUE_W = 96.0      # largeur de la plaque
