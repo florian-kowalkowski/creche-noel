@@ -24,6 +24,7 @@ from manifold3d import CrossSection, FillRule, JoinType, Manifold, OpType
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(HERE, "..", "plans"))
 from generer_plan_socle import POOL_C, RIVER_AXIS, TRAY_MARGIN, spline  # noqa: E402
+from police_ttf import Police, polyligne  # noqa: E402
 
 # ----------------------------------------------------------------------------- paramètres
 PLATE = 20.0         # épaisseur du plateau du socle
@@ -593,6 +594,75 @@ def make_brick_mold(width, height, islands=(), seed=7):
     return mold
 
 
+# ----------------------------------------------------------------------------- plaque commémorative
+PLAQUE_TITRE = "Crèche Saint-Michel"
+PLAQUE_TEXTE = [                     # une ligne par élément ; une ligne trop longue est coupée toute seule
+    "Cette crèche, créée en novembre 2026,",
+    "est là pour ne pas oublier",
+    "tous ceux qui nous manquent",
+    "et qui nous manqueront à l'avenir.",
+]
+PLAQUE_POLICE = r"C:\Windows\Fonts\georgiab.ttf"   # Georgia gras : traits assez épais pour une buse de 0,4
+PLAQUE_W = 96.0      # largeur de la plaque
+TITRE_EM, TEXTE_EM = 7.0, 4.2   # corps des lettres (mm) : titre, texte
+PLAQUE_T, RELIEF = 1.6, 0.6     # épaisseur du fond, relief des lettres et du filet
+
+
+def texte_2d(police, chaine, em):
+    """Contour d'une ligne de texte, en mm, ligne de base en y = 0, départ en x = 0. Renvoie (forme, largeur)."""
+    k, x, polys = em / police.upm, 0.0, []
+    for ch in chaine:
+        g = police.cmap.get(ord(ch), 0)
+        for ct in police.contours(g):
+            pts = polyligne(ct)
+            if len(pts) >= 3:
+                polys.append([(x + px * k, py * k) for px, py in pts])
+        x += police.advance(g) * k
+    return CrossSection(polys, FillRule.NonZero), x
+
+
+def couper_lignes(police, texte, em, largeur):
+    if isinstance(texte, (list, tuple)):
+        return sum((couper_lignes(police, t, em, largeur) for t in texte), [])
+    lignes, cur = [], ""
+    for mot in texte.split():
+        essai = (cur + " " + mot).strip()
+        if cur and texte_2d(police, essai, em)[1] > largeur:
+            lignes.append(cur)
+            cur = mot
+        else:
+            cur = essai
+    return lignes + [cur]
+
+
+def make_plaque():
+    """Plaque discrète à coller derrière la maison : fond plat, titre, filet et texte en relief, bord en relief.
+    S'imprime à plat, face en haut ; un changement de filament au début du relief fait ressortir les lettres."""
+    police = Police(PLAQUE_POLICE)
+    marge, inter = 5.0, TEXTE_EM * 1.35
+    lignes = couper_lignes(police, PLAQUE_TEXTE, TEXTE_EM, PLAQUE_W - 2 * marge - 2)
+    h = marge + TITRE_EM * 0.75 + 5.6 + len(lignes) * inter + marge - TEXTE_EM * 0.25
+    w = PLAQUE_W
+    coin = 3.0
+    fond = CrossSection.square((w - 2 * coin, h - 2 * coin)).translate((coin, coin)).offset(coin, JoinType.Round, 2, 32)
+    plaque = Manifold.extrude(fond, PLAQUE_T)
+    bord = fond - fond.offset(-1.0, JoinType.Round, 2, 32)
+    relief = [bord]
+    y = h - marge - TITRE_EM * 0.72
+    forme, lw = texte_2d(police, PLAQUE_TITRE, TITRE_EM)
+    relief.append(forme.translate(((w - lw) / 2, y)))
+    y -= 3.6
+    relief.append(CrossSection.square((24, 0.6)).translate(((w - 24) / 2, y)))       # filet sous le titre
+    y -= 2.0 + TEXTE_EM * 0.72
+    for ligne in lignes:
+        forme, lw = texte_2d(police, ligne, TEXTE_EM)
+        relief.append(forme.translate(((w - lw) / 2, y)))
+        y -= inter
+    for r in relief:
+        plaque += Manifold.extrude(r, RELIEF).translate((0, 0, PLAQUE_T))
+    return plaque
+
+
 def write_stl(path, solid):
     mesh = solid.to_mesh()
     v = np.asarray(mesh.vert_properties, dtype=np.float32)[:, :3]
@@ -639,6 +709,10 @@ if __name__ == "__main__":
         ("moule-briques-auvent.stl", make_brick_mold(92, 40, [(39, 17, 49, 34)], seed=7), 1),
         ("moule-briques-escalier.stl", make_brick_mold(64, 195, seed=8), 1),
     ]
+    if os.path.exists(PLAQUE_POLICE):
+        parts.append(("plaque-commemorative.stl", make_plaque(), 1))
+    else:
+        print("Police introuvable (%s) : plaque commémorative non générée" % PLAQUE_POLICE)
     for name, solid, bodies in parts:
         solid = on_bed(solid)
         write_stl(os.path.join(HERE, name), solid)

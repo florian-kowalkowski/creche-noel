@@ -23,6 +23,7 @@ Ce fichier sert de point d'entrée pour reprendre le projet plus tard.
 | `impression3d/porte-escalier.stl` | Porte en bois du haut de l'escalier, à coller sur le côté gauche C sans découpe : vantail 17 × 34 en planches veinées, chambranle, seuil posé sur le palier, pentures et bouton |
 | `impression3d/moule-4-tuiles.stl`, `emporte-piece-tuile.stl`, `reglettes-1,5mm.stl` | Tuiles canal en argile autodurcissante : réglettes pour étaler l'argile à 1,5 mm, emporte-pièce du flan, moule à draper pour 4 tuiles (Ø 10/8 × 22 mm une fois sèches, retrait de 3 % compensé par `CLAY_SHRINK`) |
 | `impression3d/moule-briques-auvent.stl`, `moule-briques-escalier.stl` | Moules à empreinte pour les parements en briques d'argile de 2 mm : mur sous l'auvent (92 × 40, avec la niche) et mur du haut de l'escalier (64 × 195). Moules inversés gauche-droite, retrait compensé |
+| `impression3d/plaque-commemorative.stl` | Plaque « Crèche Saint-Michel » à coller derrière la maison, 96 × 42,5 × 2,2 mm : texte en relief de 0,6 mm (Georgia gras), à plat face en haut, changement de filament à 1,6 mm pour faire ressortir les lettres. Texte dans `PLAQUE_TEXTE` de `generer_pieces_3d.py`, lu par `police_ttf.py` dans la police de Windows |
 | `impression3d/gabarits/*.stl` | Gabarits de traçage de 2 mm à imprimer en 3D : évidement de la rivière, longeron du pont |
 | `plans/*.svg` | Aperçu de la première page de chaque PDF |
 | `plans/generer_*.py` | Scripts qui produisent les PDF et SVG |
